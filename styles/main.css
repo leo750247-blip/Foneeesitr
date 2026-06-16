@@ -1,0 +1,79 @@
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0b0b12;--surface:#12121c;--line:#26263a;--text:#f0f0f8;--muted:#6f6f8f;--accent:#e10600;--ferrari:#dc0000;--mercedes:#00d2be;--redbull:#1e41b0;--williams:#00a3e0;--racing-bulls:#4d7aff;--haas:#b6babd;--cadillac:#c8102e;--aston:#006f62;--audi:#bb0a21;--alpine:#ff6b9d;--mclaren:#ff8700}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent;padding-bottom:20px}
+.header{background:var(--surface);padding:12px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;text-transform:uppercase}
+.header h1 span{color:var(--accent)}
+.header p{font-size:.55rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.tabs{display:flex;gap:2px;padding:10px 14px 0;border-bottom:1px solid var(--line);background:var(--bg);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab{background:0 0;border:none;padding:8px 16px;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:600;text-transform:uppercase;color:var(--muted);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:.2s}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab:active{color:var(--text)}
+.content{display:none;padding:12px 14px;background:var(--bg)}
+.content.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px;background:var(--line);margin-top:10px}
+.card{background:var(--surface);padding:14px 16px 18px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--team-color,var(--accent));z-index:2}
+.card .flag-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.3);font-size:5rem;opacity:0;transition:.3s;pointer-events:none;z-index:0;filter:grayscale(1) blur(3px);line-height:1}
+.card:active .flag-bg{transform:translate(-50%,-50%) scale(.9);opacity:.12;filter:grayscale(0) blur(0)}
+.card .car-shadow{position:absolute;bottom:-5px;right:-5px;width:120px;height:35px;background:var(--team-color,#666);opacity:0;border-radius:50%;transform:scale(.5) rotate(-8deg);transition:.4s;pointer-events:none;z-index:0;filter:blur(20px)}
+.card:active .car-shadow{opacity:.15;transform:scale(1) rotate(-3deg)}
+.team{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;color:var(--team-color,var(--accent));display:flex;align-items:center;gap:6px;position:relative;z-index:1}
+.team .badge{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--team-color,var(--accent));flex-shrink:0}
+.team .country-flag{font-size:.8rem;margin-left:auto;opacity:.4}
+.budget{font-size:.6rem;font-weight:500;color:#4caf50;margin-bottom:8px;padding:2px 10px;background:rgba(76,175,80,.08);border-radius:12px;display:inline-block;border:1px solid rgba(76,175,80,.12);position:relative;z-index:1}
+.budget span{color:var(--muted);opacity:.4}
+.label{font-size:.45rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:8px 0 4px;font-weight:600;position:relative;z-index:1}
+.pilots{list-style:none;display:flex;flex-direction:column;gap:3px;position:relative;z-index:1}
+.pilot{display:flex;flex-direction:column;padding:3px 0;border-radius:3px;cursor:pointer}
+.pilot:active{background:rgba(255,255,255,.04)}
+.pilot .row{display:flex;align-items:center;gap:8px}
+.pilot .initials{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--team-color,var(--accent));color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.5rem;flex-shrink:0;opacity:.8}
+.pilot .num{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.6rem;color:var(--team-color,var(--accent));width:22px;text-align:right;flex-shrink:0;opacity:.8}
+.pilot .name{font-weight:500;font-size:.8rem;color:var(--text)}
+.pilot .name .flag{margin-right:3px}
+.pilot .stats{padding-left:32px;font-size:.55rem;color:var(--muted)}
+.reserve .name{color:var(--muted)}
+.reserve .num{color:var(--muted);opacity:.4}
+.reserve .initials{background:var(--muted);opacity:.3}
+.vacant{color:var(--muted);font-style:italic;opacity:.5}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:999;align-items:center;justify-content:center;padding:16px}
+.modal.show{display:flex}
+.modal-box{background:var(--surface);border:1px solid var(--line);border-radius:10px;max-width:360px;width:100%;padding:22px 20px;position:relative;max-height:80vh;overflow-y:auto;animation:modalIn .2s}
+@keyframes modalIn{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-close{position:absolute;top:8px;right:12px;background:0 0;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;padding:2px 6px}
+.modal-init{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--team-color,var(--accent));color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:8px}
+.modal-name{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text)}
+.modal-team{font-size:.85rem;font-weight:600;text-transform:uppercase;color:var(--accent)}
+.modal-info{margin-top:12px}
+.modal-info .row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid var(--line);font-size:.75rem}
+.modal-info .row .lbl{color:var(--muted);font-size:.6rem;text-transform:uppercase}
+.modal-info .row .val{color:var(--text);font-weight:500}
+.modal-link{display:inline-block;margin-top:12px;color:var(--accent);text-decoration:none;font-weight:600;font-size:.75rem}
+.calendar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:2px;background:var(--line);margin-top:10px}
+.race-card{background:var(--surface);padding:12px 14px;border-left:3px solid var(--muted);position:relative}
+.race-card .round{font-size:.5rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.race-card .race-name{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--text)}
+.race-card .race-country{font-size:.7rem;color:var(--muted)}
+.race-card .race-date{font-size:.6rem;color:var(--muted);margin-top:3px}
+.race-card .race-flag{font-size:1.6rem;position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:.2}
+.standings{width:100%;border-collapse:collapse;font-size:.7rem}
+.standings th{text-align:left;padding:5px 10px;color:var(--muted);font-size:.5rem;text-transform:uppercase;border-bottom:2px solid var(--line);font-weight:600}
+.standings td{padding:4px 10px;border-bottom:1px solid var(--line);color:var(--muted)}
+.standings .pos{font-weight:700;color:var(--text);width:24px}
+.standings .driver{color:var(--text);font-weight:500}
+.standings .pts{text-align:right}
+.standings .flag{font-size:.8rem;margin-right:4px}
+[data-team=ferrari]{--team-color:var(--ferrari)}
+[data-team=mercedes]{--team-color:var(--mercedes)}
+[data-team=redbull]{--team-color:var(--redbull)}
+[data-team=williams]{--team-color:var(--williams)}
+[data-team=racing-bulls]{--team-color:var(--racing-bulls)}
+[data-team=haas]{--team-color:var(--haas)}
+[data-team=cadillac]{--team-color:var(--cadillac)}
+[data-team=aston]{--team-color:var(--aston)}
+[data-team=audi]{--team-color:var(--audi)}
+[data-team=alpine]{--team-color:var(--alpine)}
+[data-team=mclaren]{--team-color:var(--mclaren)}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.calendar-grid{grid-template-columns:1fr 1fr}.header h1{font-size:1.1rem}}
+@media(max-width:360px){.calendar-grid{grid-template-columns:1fr}}
