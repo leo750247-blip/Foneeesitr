@@ -132,6 +132,40 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;min-
 .podium-item .podium-base.silver{height:60px;background:linear-gradient(180deg,#c0c0c0,#888)}
 .podium-item .podium-base.bronze{height:45px;background:linear-gradient(180deg,#cd7f32,#8b5a2b)}
 
+.history-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:12px}
+.history-card{background:var(--card);border-radius:10px;padding:20px 24px;border:1px solid var(--line);box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:transform .25s}
+.history-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(225,6,0,0.08)}
+.history-year{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;color:var(--accent);margin-bottom:12px;letter-spacing:.05em}
+.history-winners{display:flex;flex-direction:column;gap:8px}
+.history-item{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:.85rem}
+.history-label{color:var(--muted);font-weight:500}
+.history-value{color:var(--text);font-weight:600}
+
+.prognosis-section{margin:20px 0}
+.prognosis-card{background:var(--card);border-radius:10px;padding:20px 24px;border:1px solid var(--line);max-width:400px}
+.prognosis-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.prognosis-select{width:100%;padding:10px 14px;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:6px;font-family:'Barlow',sans-serif;font-size:.85rem;margin:8px 0;outline:none}
+.prognosis-select:focus{border-color:var(--accent)}
+.prognosis-btn{background:var(--accent);color:#fff;border:none;padding:10px 24px;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:600;text-transform:uppercase;cursor:pointer;transition:.25s;width:100%}
+.prognosis-btn:hover{background:#c00500;transform:scale(1.02)}
+.prognosis-result{margin-top:12px;padding:12px 16px;background:rgba(225,6,0,0.06);border-radius:6px;border-left:3px solid var(--accent);display:none}
+.prognosis-result.show{display:block}
+.prognosis-result .prediction{font-weight:600;color:var(--accent)}
+.prognosis-result .points{font-size:.7rem;color:var(--muted)}
+
+.podium-3d{perspective:800px;margin:20px 0}
+.podium-3d-wrapper{width:100%;max-width:500px;margin:0 auto;transform-style:preserve-3d;animation:rotatePodium 20s linear infinite}
+@keyframes rotatePodium{0%{transform:rotateY(0deg)}100%{transform:rotateY(360deg)}}
+.podium-3d-wrapper:hover{animation-play-state:paused}
+.podium-3d .podium-tier{display:flex;justify-content:center;align-items:flex-end;gap:12px;padding:10px 0}
+.podium-3d .tier{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 12px;border-radius:4px 4px 0 0;min-width:60px}
+.podium-3d .tier-gold{height:90px;background:linear-gradient(180deg,#ffd700,#b8960c)}
+.podium-3d .tier-silver{height:70px;background:linear-gradient(180deg,#c0c0c0,#888)}
+.podium-3d .tier-bronze{height:55px;background:linear-gradient(180deg,#cd7f32,#8b5a2b)}
+.podium-3d .tier .tier-name{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:600;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.3);text-align:center}
+.podium-3d .tier .tier-pts{font-size:.5rem;color:rgba(255,255,255,0.7)}
+.podium-3d .tier .tier-pos{font-size:1.2rem;font-weight:900}
+
 @media(max-width:768px){
     .header{padding:10px 14px;flex-direction:column;align-items:stretch;gap:6px}
     .header-right{flex-wrap:wrap;justify-content:space-between}
@@ -151,6 +185,11 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;min-
     .podium-item .podium-base.gold{height:60px}
     .podium-item .podium-base.silver{height:45px}
     .podium-item .podium-base.bronze{height:35px}
+    .podium-3d .tier-gold{height:70px;min-width:45px}
+    .podium-3d .tier-silver{height:55px;min-width:45px}
+    .podium-3d .tier-bronze{height:40px;min-width:45px}
+    .history-grid{grid-template-columns:1fr}
+    .prognosis-card{max-width:100%}
 }
 @media(max-width:480px){
     .header-stats{font-size:.55rem}
@@ -158,4 +197,4 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;min-
     .header-nav .tab{font-size:.6rem;padding:4px 10px}
     .modal-stats{grid-template-columns:1fr}
     .filter-btn{font-size:.55rem;padding:3px 10px}
-               }
+    }
