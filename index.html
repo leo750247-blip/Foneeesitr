@@ -4,57 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>F1 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+
     <header class="header">
-        <div>
-            <h1>Ф<span>1</span> 2026</h1>
-            <p>Команды · Пилоты · Календарь</p>
+        <div class="header-left">
+            <div class="logo">F1<span>2026</span></div>
+            <div class="header-stats">
+                <span id="teamCount">11</span> Teams ·
+                <span id="pilotCount">22</span> Drivers ·
+                <span id="reserveCount">12</span> Reserve
+            </div>
         </div>
+        <nav class="header-nav">
+            <button class="tab active" data-tab="pilots">Drivers</button>
+            <button class="tab" data-tab="standings">Championship</button>
+            <button class="tab" data-tab="calendar">Calendar</button>
+        </nav>
     </header>
 
-    <nav class="tabs" id="tabs">
-        <button class="tab active" data-tab="pilots">🏎️ Пилоты</button>
-        <button class="tab" data-tab="standings">🏆 Чемпионат</button>
-        <button class="tab" data-tab="calendar">📅 Календарь</button>
-    </nav>
-
     <main>
+        <!-- Пилоты -->
         <section class="content active" id="pilots">
             <div class="grid" id="teamGrid"></div>
         </section>
 
+        <!-- Чемпионат -->
         <section class="content" id="standings">
-            <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:6px">🏆 Чемпионат 2026</h2>
-            <p style="color:var(--muted);font-size:.7rem;margin-bottom:10px">⚠️ Сезон ещё не начался</p>
+            <div class="standings-header">
+                <h2>2026 CHAMPIONSHIP</h2>
+                <p class="muted">Season not started yet</p>
+            </div>
             <div id="standingsContent"></div>
         </section>
 
+        <!-- Календарь -->
         <section class="content" id="calendar">
-            <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:6px">📅 Гран-при 2026</h2>
-            <p style="color:var(--muted);font-size:.7rem;margin-bottom:8px">24 этапа</p>
-            <div class="calendar-grid" id="calendarGrid"></div>
+            <div class="calendar-header">
+                <h2>2026 CALENDAR</h2>
+                <p class="muted">24 races</p>
+            </div>
+            <div class="calendar-list" id="calendarList"></div>
         </section>
     </main>
 
+    <!-- Модалка -->
     <div class="modal" id="modal">
         <div class="modal-box">
-            <button class="modal-close" id="modalClose">✕</button>
-            <div class="modal-init" id="modalInit">LN</div>
-            <div class="modal-name" id="modalName">Ландо Норрис</div>
-            <div class="modal-team" id="modalTeam">McLaren</div>
-            <div class="modal-info">
-                <div class="row"><span class="lbl">Страна</span><span class="val" id="modalCountry">🇬🇧 Великобритания</span></div>
-                <div class="row"><span class="lbl">Возраст</span><span class="val" id="modalAge">25 лет</span></div>
-                <div class="row"><span class="lbl">Номер</span><span class="val" id="modalNum">4</span></div>
-                <div class="row"><span class="lbl">Команда</span><span class="val" id="modalTeamName">McLaren</span></div>
-                <div class="row"><span class="lbl">Бюджет</span><span class="val" id="modalBudget">130 млн</span></div>
-                <div class="row"><span class="lbl">Гран-при</span><span class="val" id="modalRaces">113</span></div>
-                <div class="row"><span class="lbl">Победы</span><span class="val" id="modalWins">0</span></div>
+            <button class="modal-close" id="modalClose">×</button>
+            <div class="modal-content">
+                <img class="modal-photo" id="modalPhoto" src="" alt="">
+                <div class="modal-info">
+                    <div class="modal-number" id="modalNumber">4</div>
+                    <div class="modal-name" id="modalName">Lando Norris</div>
+                    <div class="modal-team" id="modalTeam">McLaren</div>
+                    <div class="modal-stats">
+                        <div><span class="stat-label">Country</span><span class="stat-value" id="modalCountry">🇬🇧 Great Britain</span></div>
+                        <div><span class="stat-label">Age</span><span class="stat-value" id="modalAge">25</span></div>
+                        <div><span class="stat-label">Grands Prix</span><span class="stat-value" id="modalRaces">113</span></div>
+                        <div><span class="stat-label">Wins</span><span class="stat-value" id="modalWins">0</span></div>
+                        <div><span class="stat-label">Podiums</span><span class="stat-value" id="modalPodiums">0</span></div>
+                        <div><span class="stat-label">Team Budget</span><span class="stat-value" id="modalBudget">$130M</span></div>
+                    </div>
+                    <a class="modal-link" id="modalLink" href="#" target="_blank">View on Wikipedia →</a>
+                </div>
             </div>
-            <a class="modal-link" id="modalLink" href="#" target="_blank">📖 Википедия →</a>
         </div>
     </div>
 
