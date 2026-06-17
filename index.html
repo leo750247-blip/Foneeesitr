@@ -16,7 +16,7 @@
             <div class="logo">Ф1 <span>2028</span></div>
             <div class="header-stats">
                 <span id="teamCount">11</span> Команд ·
-                <span id="pilotCount">21</span> Пилота ·
+                <span id="pilotCount">19</span> Пилота ·
                 <span id="reserveCount">16</span> Резерв
             </div>
         </div>
@@ -37,6 +37,7 @@
     </header>
 
     <main>
+        <!-- Пилоты -->
         <section class="content active" id="pilots">
             <div class="filter-bar">
                 <button class="filter-btn active" data-filter="all">Все команды</button>
@@ -54,14 +55,16 @@
             <div class="grid" id="teamGrid"></div>
         </section>
 
+        <!-- Чемпионат -->
         <section class="content" id="standings">
             <div class="standings-header">
                 <h2>ЧЕМПИОНАТ 2028</h2>
-                <p class="muted">🏆 Сезон завершён</p>
+                <p class="muted">🏆 После 1 этапа</p>
             </div>
             <div id="standingsContent"></div>
         </section>
 
+        <!-- Календарь -->
         <section class="content" id="calendar">
             <div class="calendar-header">
                 <h2>КАЛЕНДАРЬ 2028</h2>
@@ -70,6 +73,7 @@
             <div class="calendar-list" id="calendarList"></div>
         </section>
 
+        <!-- История -->
         <section class="content" id="history">
             <div class="history-header">
                 <h2>🏆 ИСТОРИЯ ПОБЕДИТЕЛЕЙ</h2>
@@ -92,6 +96,7 @@
             </div>
         </section>
 
+        <!-- Трансферы -->
         <section class="content" id="transfers">
             <div class="transfers-header">
                 <h2>📋 ИСТОРИЯ ТРАНСФЕРОВ</h2>
@@ -100,6 +105,7 @@
             <div class="transfers-list" id="transfersList"></div>
         </section>
 
+        <!-- Казино -->
         <section class="content" id="casino">
             <div class="casino-header">
                 <h2>🎰 КАЗИНО F1</h2>
@@ -141,6 +147,7 @@
         </section>
     </main>
 
+    <!-- Модалка -->
     <div class="modal" id="modal">
         <div class="modal-box">
             <button class="modal-close" id="modalClose">×</button>
@@ -162,6 +169,13 @@
         </div>
     </div>
 
+    <!-- ===== ПОДКЛЮЧЕНИЕ SUPABASE ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://wvulkhashdvbkdwraspk.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_SNbQ3wg7NaoBMgkMh340tg_b2mb3DGc';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    </script>
     <script src="scripts/app.js"></script>
 </body>
-  </html>
+    </html>
