@@ -66,62 +66,30 @@
              reserve:[{name:"Виктор Мартинс",flag:"🇫🇷",age:23}]}
         ],
         calendar: [
-            {
-                round: 1,
-                name: "Гран-при Бахрейна",
-                country: "🇧🇭",
-                date: "1–3 марта",
-                pole: "🇳🇱 Макс Ферстаппен (Red Bull)",
-                qualifying: "🥇 1. 🇳🇱 Max Verstappen (Red Bull)\n🥈 2. 🇬🇧 Lewis Hamilton (Ferrari) +0.8s\n🥉 3. 🇲🇨 Charles Leclerc (McLaren)\n4. 🇬🇧 Lando Norris (McLaren)\n5. 🇬🇧 George Russell (Ferrari)\n6. 🇪🇸 Carlos Sainz (Red Bull)\n7. 🇪🇸 Fernando Alonso (Aston Martin)\n8. 🇦🇺 Oscar Piastri (Williams)\n9. 🇮🇹 Kimi Antonelli (Mercedes)\n10. 🇹🇭 Alex Albon (Mercedes)",
-                winner: "🇬🇧 Льюис Хэмилтон (Ferrari)"
-            },
-            {
-                round: 2,
-                name: "Гран-при Саудовской Аравии",
-                country: "🇸🇦",
-                date: "8–10 марта",
-                pole: "🇲🇨 Шарль Леклер (McLaren)",
-                qualifying: "🥇 1. 🇲🇨 Charles Leclerc (McLaren)\n🥈 2. 🇳🇱 Max Verstappen (Red Bull)\n🥉 3. 🇬🇧 Lewis Hamilton (Ferrari)\n4. 🇬🇧 Lando Norris (McLaren)\n5. 🇬🇧 George Russell (Ferrari)\n6. 🇦🇺 Oscar Piastri (Williams)\n7. 🇪🇸 Carlos Sainz (Red Bull)\n8. 🇹🇭 Alex Albon (Mercedes)\n9. 🇪🇸 Fernando Alonso (Aston Martin)\n10. 🇮🇹 Kimi Antonelli (Mercedes)\n11. 🇫🇷 Pierre Gasly (Alpine)\n12. 🇦🇺 Jack Doohan (Alpine)\n13. 🇩🇰 Kevin Magnussen (Cadillac)\n14. 🇨🇳 Zhou Guanyu (Cadillac)\n15. 🇩🇪 Nico Hülkenberg (Audi)\n16. 🇩🇪 Theo Pourchaire (Audi)\n17. 🇸🇪 Arvid Lindblad (Racing Bulls)\n18. 🇮🇹 Leonardo Fornaroli (Racing Bulls)\n19. 🇨🇦 Lance Stroll (Aston Martin)",
-                winner: "🇲🇨 Шарль Леклер (McLaren)"
-            },
-            {
-                round: 3,
-                name: "Гран-при Австралии",
-                country: "🇦🇺",
-                date: "22–24 марта",
-                pole: "🇳🇱 Макс Ферстаппен (Red Bull)",
-                qualifying: "🥇 1. 🇲🇨 Charles Leclerc (McLaren)\n🥈 2. 🇳🇱 Max Verstappen (Red Bull) +1.6s\n🥉 3. 🇦🇺 Oscar Piastri (Williams)\n4. 🇬🇧 Lewis Hamilton (Ferrari)\n5. 🇪🇸 Carlos Sainz (Red Bull)\n6. 🇧🇷 Gabriel Bortoleto (McLaren) 🆕\n7. 🇮🇹 Gabriele Mini (Ferrari) 🆕\n8. 🇹🇭 Alex Albon (Mercedes)\n9. 🇮🇹 Kimi Antonelli (Mercedes)\n10. 🇪🇸 Fernando Alonso (Aston Martin)\n11. 🇫🇷 Pierre Gasly (Alpine)\n12. 🇦🇺 Jack Doohan (Alpine)\n13. 🇩🇰 Kevin Magnussen (Cadillac)\n14. 🇨🇳 Zhou Guanyu (Cadillac)\n15. 🇩🇪 Nico Hülkenberg (Audi)\n16. 🇫🇷 Isack Hadjar (Williams)\n17. 🇩🇪 Theo Pourchaire (Audi)\n18. 🇸🇪 Arvid Lindblad (Racing Bulls)\n19. 🇮🇹 Leonardo Fornaroli (Racing Bulls)\n20. 🇨🇦 Lance Stroll (Aston Martin)",
-                winner: "🇲🇨 Шарль Леклер (McLaren)"
-            },
-            {
-                round: 4,
-                name: "Гран-при Японии",
-                country: "🇯🇵",
-                date: "5–7 апреля",
-                pole: "🇮🇹 Кими Антонелли (Mercedes)",
-                qualifying: "🥇 1. 🇮🇹 Kimi Antonelli (Mercedes)\n🥈 2. ...\n🥉 3. ...",
-                winner: "🇫🇷 Исак Хаджар (Williams)"
-            },
-            {round:5,name:"Гран-при Китая",country:"🇨🇳",date:"19–21 апреля",pole:"—",qualifying:"—",winner:"—"},
-            {round:6,name:"Гран-при Майами",country:"🇺🇸",date:"3–5 мая",pole:"—",qualifying:"—",winner:"—"},
-            {round:7,name:"Гран-при Эмилии-Романьи",country:"🇮🇹",date:"17–19 мая",pole:"—",qualifying:"—",winner:"—"},
-            {round:8,name:"Гран-при Монако",country:"🇲🇨",date:"31 мая – 2 июня",pole:"—",qualifying:"—",winner:"—"},
-            {round:9,name:"Гран-при Испании",country:"🇪🇸",date:"7–9 июня",pole:"—",qualifying:"—",winner:"—"},
-            {round:10,name:"Гран-при Канады",country:"🇨🇦",date:"14–16 июня",pole:"—",qualifying:"—",winner:"—"},
-            {round:11,name:"Гран-при Австрии",country:"🇦🇹",date:"28–30 июня",pole:"—",qualifying:"—",winner:"—"},
-            {round:12,name:"Гран-при Великобритании",country:"🇬🇧",date:"5–7 июля",pole:"—",qualifying:"—",winner:"—"},
-            {round:13,name:"Гран-при Бельгии",country:"🇧🇪",date:"19–21 июля",pole:"—",qualifying:"—",winner:"—"},
-            {round:14,name:"Гран-при Венгрии",country:"🇭🇺",date:"26–28 июля",pole:"—",qualifying:"—",winner:"—"},
-            {round:15,name:"Гран-при Нидерландов",country:"🇳🇱",date:"23–25 августа",pole:"—",qualifying:"—",winner:"—"},
-            {round:16,name:"Гран-при Италии",country:"🇮🇹",date:"6–8 сентября",pole:"—",qualifying:"—",winner:"—"},
-            {round:17,name:"Гран-при Азербайджана",country:"🇦🇿",date:"13–15 сентября",pole:"—",qualifying:"—",winner:"—"},
-            {round:18,name:"Гран-при Сингапура",country:"🇸🇬",date:"27–29 сентября",pole:"—",qualifying:"—",winner:"—"},
-            {round:19,name:"Гран-при США (Остин)",country:"🇺🇸",date:"11–13 октября",pole:"—",qualifying:"—",winner:"—"},
-            {round:20,name:"Гран-при Мексики",country:"🇲🇽",date:"18–20 октября",pole:"—",qualifying:"—",winner:"—"},
-            {round:21,name:"Гран-при Бразилии Сан-Паулу",country:"🇧🇷",date:"1–3 ноября",pole:"—",qualifying:"—",winner:"—"},
-            {round:22,name:"Гран-при Лас-Вегаса",country:"🇺🇸",date:"15–17 ноября",pole:"—",qualifying:"—",winner:"—"},
-            {round:23,name:"Гран-при Катара",country:"🇶🇦",date:"29 ноября – 1 декабря",pole:"—",qualifying:"—",winner:"—"},
-            {round:24,name:"Гран-при Абу-Даби",country:"🇦🇪",date:"6–8 декабря",pole:"—",qualifying:"—",winner:"—"}
+            {round:1,name:"Гран-при Бахрейна",country:"🇧🇭",date:"1–3 марта",pole:"🇳🇱 Макс Ферстаппен (Red Bull)",winner:"🇬🇧 Льюис Хэмилтон (Ferrari)"},
+            {round:2,name:"Гран-при Саудовской Аравии",country:"🇸🇦",date:"8–10 марта",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇲🇨 Шарль Леклер (McLaren)"},
+            {round:3,name:"Гран-при Австралии",country:"🇦🇺",date:"22–24 марта",pole:"🇳🇱 Макс Ферстаппен (Red Bull)",winner:"🇲🇨 Шарль Леклер (McLaren)"},
+            {round:4,name:"Гран-при Японии",country:"🇯🇵",date:"5–7 апреля",pole:"🇮🇹 Кими Антонелли (Mercedes)",winner:"🇫🇷 Исак Хаджар (Williams)"},
+            {round:5,name:"Гран-при Китая",country:"🇨🇳",date:"19–21 апреля",pole:"🇩🇰 Кевин Магнуссен (Cadillac)",winner:"🇩🇰 Кевин Магнуссен (Cadillac)"},
+            {round:6,name:"Гран-при Майами",country:"🇺🇸",date:"3–5 мая",pole:"🇫🇷 Исак Хаджар (Williams)",winner:"🇮🇹 Кими Антонелли (Mercedes)"},
+            {round:7,name:"Гран-при Эмилии-Романьи",country:"🇮🇹",date:"17–19 мая",pole:"🇳🇱 Макс Ферстаппен (Red Bull)",winner:"🇳🇱 Макс Ферстаппен (Red Bull)"},
+            {round:8,name:"Гран-при Монако",country:"🇲🇨",date:"31 мая – 2 июня",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇮🇹 Кими Антонелли (Mercedes)"},
+            {round:9,name:"Гран-при Испании",country:"🇪🇸",date:"7–9 июня",pole:"🇬🇧 Льюис Хэмилтон (Ferrari)",winner:"🇬🇧 Льюис Хэмилтон (Ferrari)"},
+            {round:10,name:"Гран-при Канады",country:"🇨🇦",date:"14–16 июня",pole:"🇮🇹 Кими Антонелли (Mercedes)",winner:"🇪🇸 Фернандо Алонсо (Aston Martin)"},
+            {round:11,name:"Гран-при Австрии",country:"🇦🇹",date:"28–30 июня",pole:"🇪🇸 Фернандо Алонсо (Aston Martin)",winner:"🇪🇸 Фернандо Алонсо (Aston Martin)"},
+            {round:12,name:"Гран-при Великобритании",country:"🇬🇧",date:"5–7 июля",pole:"🇫🇷 Пьер Гасли (Alpine)",winner:"🇹🇭 Алекс Албон (Mercedes)"},
+            {round:13,name:"Гран-при Бельгии",country:"🇧🇪",date:"19–21 июля",pole:"🇳🇱 Макс Ферстаппен (Red Bull)",winner:"🇳🇱 Макс Ферстаппен (Red Bull)"},
+            {round:14,name:"Гран-при Венгрии",country:"🇭🇺",date:"26–28 июля",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇦🇺 Оскар Пиастри (Williams)"},
+            {round:15,name:"Гран-при Нидерландов",country:"🇳🇱",date:"23–25 августа",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇬🇧 Джордж Рассел (Ferrari)"},
+            {round:16,name:"Гран-при Италии",country:"🇮🇹",date:"6–8 сентября",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇲🇨 Шарль Леклер (McLaren)"},
+            {round:17,name:"Гран-при Азербайджана",country:"🇦🇿",date:"13–15 сентября",pole:"🇪🇸 Карлос Сайнц (Red Bull)",winner:"🇪🇸 Карлос Сайнц (Red Bull)"},
+            {round:18,name:"Гран-при Сингапура",country:"🇸🇬",date:"27–29 сентября",pole:"🇫🇷 Исак Хаджар (Williams)",winner:"🇲🇨 Шарль Леклер (McLaren)"},
+            {round:19,name:"Гран-при США (Остин)",country:"🇺🇸",date:"11–13 октября",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇮🇹 Кими Антонелли (Mercedes)"},
+            {round:20,name:"Гран-при Мексики",country:"🇲🇽",date:"18–20 октября",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇬🇧 Льюис Хэмилтон (Ferrari)"},
+            {round:21,name:"Гран-при Бразилии Сан-Паулу",country:"🇧🇷",date:"1–3 ноября",pole:"🇬🇧 Джордж Рассел (Ferrari)",winner:"🇬🇧 Джордж Рассел (Ferrari)"},
+            {round:22,name:"Гран-при Лас-Вегаса",country:"🇺🇸",date:"15–17 ноября",pole:"🇬🇧 Льюис Хэмилтон (Ferrari)",winner:"🇮🇹 Габриеле Мини (Ferrari)"},
+            {round:23,name:"Гран-при Катара",country:"🇶🇦",date:"29 ноября – 1 декабря",pole:"🇫🇷 Исак Хаджар (Williams)",winner:"🇪🇸 Фернандо Алонсо (Aston Martin)"},
+            {round:24,name:"Гран-при Абу-Даби",country:"🇦🇪",date:"6–8 декабря",pole:"🇮🇹 Кими Антонелли (Mercedes)",winner:"🇹🇭 Алекс Албон (Mercedes)"}
         ]
     };
 
@@ -243,32 +211,32 @@
     function renderStandings() {
         var container = document.getElementById('standingsContent');
         
-        // ===== ДАННЫЕ ЧЕМПИОНАТА ПОСЛЕ 4-Х ЭТАПОВ =====
         var standingsData = [
-            {pos:1, name:"Charles Leclerc", flag:"🇲🇨", team:"McLaren", pts:99},
-            {pos:2, name:"Max Verstappen", flag:"🇳🇱", team:"Red Bull", pts:93},
-            {pos:3, name:"Lewis Hamilton", flag:"🇬🇧", team:"Ferrari", pts:86},
-            {pos:4, name:"Kimi Antonelli", flag:"🇮🇹", team:"Mercedes", pts:43},
-            {pos:5, name:"Oscar Piastri", flag:"🇦🇺", team:"Williams", pts:38},
-            {pos:6, name:"Carlos Sainz", flag:"🇪🇸", team:"Red Bull", pts:32},
-            {pos:7, name:"Isack Hadjar", flag:"🇫🇷", team:"Williams", pts:31},
-            {pos:8, name:"Lando Norris", flag:"🇬🇧", team:"McLaren", pts:28},
-            {pos:9, name:"Fernando Alonso", flag:"🇪🇸", team:"Aston Martin", pts:18},
-            {pos:10, name:"Gabriel Bortoleto", flag:"🇧🇷", team:"McLaren", pts:14},
-            {pos:11, name:"Gabriele Mini", flag:"🇮🇹", team:"Ferrari", pts:12},
-            {pos:12, name:"Alex Albon", flag:"🇹🇭", team:"Mercedes", pts:10},
-            {pos:13, name:"Pierre Gasly", flag:"🇫🇷", team:"Alpine", pts:0},
-            {pos:14, name:"Jack Doohan", flag:"🇦🇺", team:"Alpine", pts:0},
-            {pos:15, name:"Kevin Magnussen", flag:"🇩🇰", team:"Cadillac", pts:0},
-            {pos:16, name:"Zhou Guanyu", flag:"🇨🇳", team:"Cadillac", pts:0},
-            {pos:17, name:"Nico Hülkenberg", flag:"🇩🇪", team:"Audi", pts:0},
-            {pos:18, name:"Theo Pourchaire", flag:"🇩🇪", team:"Audi", pts:0},
-            {pos:19, name:"Arvid Lindblad", flag:"🇸🇪", team:"Racing Bulls", pts:0},
-            {pos:20, name:"Leonardo Fornaroli", flag:"🇮🇹", team:"Racing Bulls", pts:0},
-            {pos:21, name:"Lance Stroll", flag:"🇨🇦", team:"Aston Martin", pts:0}
+            {pos:1, name:"Charles Leclerc", flag:"🇲🇨", team:"McLaren", pts:260},
+            {pos:2, name:"Max Verstappen", flag:"🇳🇱", team:"Red Bull", pts:245},
+            {pos:3, name:"Lewis Hamilton", flag:"🇬🇧", team:"Ferrari", pts:235},
+            {pos:4, name:"Kimi Antonelli", flag:"🇮🇹", team:"Mercedes", pts:201},
+            {pos:5, name:"George Russell", flag:"🇬🇧", team:"Ferrari", pts:170},
+            {pos:6, name:"Oscar Piastri", flag:"🇦🇺", team:"Williams", pts:143},
+            {pos:7, name:"Lando Norris", flag:"🇬🇧", team:"McLaren", pts:132},
+            {pos:8, name:"Carlos Sainz", flag:"🇪🇸", team:"Red Bull", pts:121},
+            {pos:9, name:"Fernando Alonso", flag:"🇪🇸", team:"Aston Martin", pts:110},
+            {pos:10, name:"Isack Hadjar", flag:"🇫🇷", team:"Williams", pts:98},
+            {pos:11, name:"Alex Albon", flag:"🇹🇭", team:"Mercedes", pts:77},
+            {pos:12, name:"Kevin Magnussen", flag:"🇩🇰", team:"Cadillac", pts:25},
+            {pos:13, name:"Pierre Gasly", flag:"🇫🇷", team:"Alpine", pts:18},
+            {pos:14, name:"Leonardo Fornaroli", flag:"🇮🇹", team:"Racing Bulls", pts:15},
+            {pos:15, name:"Nico Hülkenberg", flag:"🇩🇪", team:"Audi", pts:15},
+            {pos:16, name:"Gabriel Bortoleto", flag:"🇧🇷", team:"McLaren", pts:14},
+            {pos:17, name:"Gabriele Mini", flag:"🇮🇹", team:"Ferrari", pts:12},
+            {pos:18, name:"Jack Doohan", flag:"🇦🇺", team:"Alpine", pts:0},
+            {pos:19, name:"Zhou Guanyu", flag:"🇨🇳", team:"Cadillac", pts:0},
+            {pos:20, name:"Theo Pourchaire", flag:"🇩🇪", team:"Audi", pts:0},
+            {pos:21, name:"Arvid Lindblad", flag:"🇸🇪", team:"Racing Bulls", pts:0},
+            {pos:22, name:"Lance Stroll", flag:"🇨🇦", team:"Aston Martin", pts:0}
         ];
 
-        // ПОДИУМ (топ-3)
+        // ПОДИУМ
         var podiumHTML = '<div class="podium">';
         var medals = ['gold','silver','bronze'];
         var names = ['🥇','🥈','🥉'];
@@ -279,7 +247,7 @@
         top3.forEach(function(p, i) {
             podiumHTML += '<div class="podium-item">' +
                 '<div class="podium-pos ' + medals[i] + '">' + names[i] + '</div>' +
-                '<div class="podium-name">' + p.flag + ' ' + p.name + '</div>' +
+                '<div class="podium-name">' + p.flag + ' ' + p.name + (i === 0 ? ' 🏆' : '') + '</div>' +
                 '<div class="podium-base ' + medals[i] + '">' + p.pts + ' очков</div>' +
             '</div>';
         });
@@ -297,7 +265,7 @@
             else if (i === 1) cls = ' pos-2';
             else if (i === 2) cls = ' pos-3';
             var barWidth = Math.round((p.pts / maxPts) * 100);
-            html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td><span class="flag">' + p.flag + '</span><span class="driver">' + p.name + '</span></td><td class="team-name">' + p.team + '</td><td class="pts">' + p.pts + '<div class="progress-bar"><div class="fill" style="width:' + barWidth + '%"></div></div></td></tr>';
+            html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td><span class="flag">' + p.flag + '</span><span class="driver">' + p.name + (i === 0 ? ' 🏆' : '') + '</span></td><td class="team-name">' + p.team + '</td><td class="pts">' + p.pts + '<div class="progress-bar"><div class="fill" style="width:' + barWidth + '%"></div></div></td></tr>';
         });
         html += '</tbody></table>';
 
