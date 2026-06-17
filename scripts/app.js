@@ -1,19 +1,18 @@
 (function(){
     console.log('APP.JS ЗАПУЩЕН');
 
-    // ДАННЫЕ (простая версия)
     var data = {
         teams: [
             {id:"mclaren",name:"McLaren",country:"🇬🇧",budget:280,color:"#ff8700",
              pilots:[
-                 {name:"Ландо Норрис",number:4,flag:"🇬🇧",age:25},
-                 {name:"Шарль Леклер",number:16,flag:"🇲🇨",age:27}
+                 {name:"Ландо Норрис",number:4,flag:"🇬🇧",age:25,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LANDO_NORRIS_01.jpg"},
+                 {name:"Шарль Леклер",number:16,flag:"🇲🇨",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/C/CHARLES_LECLERC_01.jpg"}
              ],
              reserve:[{name:"Габриэль Бортолето",flag:"🇧🇷",age:20}]},
             {id:"ferrari",name:"Ferrari",country:"🇮🇹",budget:150,color:"#dc0000",
              pilots:[
-                 {name:"Льюис Хэмилтон",number:44,flag:"🇬🇧",age:40},
-                 {name:"Джордж Рассел",number:63,flag:"🇬🇧",age:27}
+                 {name:"Льюис Хэмилтон",number:44,flag:"🇬🇧",age:40,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LEWIS_HAMILTON_01.jpg"},
+                 {name:"Джордж Рассел",number:63,flag:"🇬🇧",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/G/GEORGE_RUSSELL_01.jpg"}
              ],
              reserve:[
                  {name:"Пьер Гасли",flag:"🇫🇷",age:29},
@@ -23,8 +22,8 @@
              ]},
             {id:"mercedes",name:"Mercedes",country:"🇩🇪",budget:460,color:"#00d2be",
              pilots:[
-                 {name:"Исак Хаджар",number:37,flag:"🇫🇷",age:20},
-                 {name:"Кими Антонелли",number:12,flag:"🇮🇹",age:19}
+                 {name:"Исак Хаджар",number:37,flag:"🇫🇷",age:20,photo:"https://media.formula1.com/content/dam/fom-website/drivers/I/ISACK_HADJAR_01.jpg"},
+                 {name:"Кими Антонелли",number:12,flag:"🇮🇹",age:19,photo:"https://media.formula1.com/content/dam/fom-website/drivers/K/KIMI_ANTONELLI_01.jpg"}
              ],
              reserve:[
                  {name:"Алекс Албон",flag:"🇹🇭",age:28},
@@ -32,8 +31,8 @@
              ]},
             {id:"redbull",name:"Red Bull",country:"🇦🇹",budget:502,color:"#1e41b0",
              pilots:[
-                 {name:"Макс Ферстаппен",number:1,flag:"🇳🇱",age:27},
-                 {name:"Дино Беганович",number:81,flag:"🇲🇪",age:21}
+                 {name:"Макс Ферстаппен",number:1,flag:"🇳🇱",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/M/MAX_VERSTAPPEN_01.jpg"},
+                 {name:"Дино Беганович",number:81,flag:"🇲🇪",age:21,photo:"https://media.formula1.com/content/dam/fom-website/drivers/D/DINO_BEGANOVIC_01.jpg"}
              ],
              reserve:[
                  {name:"Юки Цунода",flag:"🇯🇵",age:24},
@@ -41,17 +40,18 @@
              ]},
             {id:"williams",name:"Williams",country:"🇬🇧",budget:327,color:"#00a3e0",
              pilots:[
-                 {name:"Оскар Пиастри",number:81,flag:"🇦🇺",age:23},
-                 {name:"Карлос Сайнц",number:55,flag:"🇪🇸",age:30}
+                 {name:"Оскар Пиастри",number:81,flag:"🇦🇺",age:23,photo:"https://media.formula1.com/content/dam/fom-website/drivers/O/OSCAR_PIASTRI_01.jpg"},
+                 {name:"Фернандо Алонсо",number:14,flag:"🇪🇸",age:43,photo:"https://media.formula1.com/content/dam/fom-website/drivers/F/FERNANDO_ALONSO_01.jpg"}
              ],
              reserve:[
+                 {name:"Карлос Сайнс",number:55,flag:"🇪🇸",age:30},
                  {name:"Джек Денн",flag:"🇦🇺",age:19},
                  {name:"Бастиан Монтойя",flag:"🇨🇴",age:19}
              ]},
             {id:"racing-bulls",name:"Racing Bulls",country:"🇮🇹",budget:359,color:"#4d7aff",
              pilots:[
-                 {name:"Арвид Линдблад",number:4,flag:"🇸🇪",age:18},
-                 {name:"Леонардо Форнаролли",number:30,flag:"🇮🇹",age:19}
+                 {name:"Арвид Линдблад",number:4,flag:"🇸🇪",age:18,photo:"https://media.formula1.com/content/dam/fom-website/drivers/A/ARVID_LINDBLAD_01.jpg"},
+                 {name:"Леонардо Форнаролли",number:30,flag:"🇮🇹",age:19,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LEONARDO_FORNAROLI_01.jpg"}
              ],
              reserve:[
                  {name:"Рафаэль Камара",flag:"🇧🇷",age:19}
@@ -59,30 +59,30 @@
             {id:"haas",name:"Haas",country:"🇺🇸",budget:230,color:"#b6babd",pilots:[],reserve:[]},
             {id:"cadillac",name:"Cadillac",country:"🇺🇸",budget:320,color:"#c8102e",
              pilots:[
-                 {name:"Кевин Магнуссен",number:20,flag:"🇩🇰",age:32},
-                 {name:"Чжоу Гуаньюй",number:24,flag:"🇨🇳",age:25}
+                 {name:"Кевин Магнуссен",number:20,flag:"🇩🇰",age:32,photo:"https://media.formula1.com/content/dam/fom-website/drivers/K/KEVIN_MAGNUSSEN_01.jpg"},
+                 {name:"Чжоу Гуаньюй",number:24,flag:"🇨🇳",age:25,photo:"https://media.formula1.com/content/dam/fom-website/drivers/Z/ZHOU_GUANYU_01.jpg"}
              ],
              reserve:[
                  {name:"Патрисио О’Уорд",flag:"🇺🇸",age:26}
              ]},
             {id:"aston",name:"Aston Martin",country:"🇬🇧",budget:382,color:"#006f62",
              pilots:[
-                 {name:"Лэнс Стролл",number:18,flag:"🇨🇦",age:26}
+                 {name:"Лэнс Стролл",number:18,flag:"🇨🇦",age:26,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LANCE_STROLL_01.jpg"}
              ],
              reserve:[
                  {name:"Джек Кроуфорд",flag:"🇺🇸",age:20}
              ]},
             {id:"audi",name:"Audi",country:"🇩🇪",budget:340,color:"#bb0a21",
              pilots:[
-                 {name:"Нико Хюлькенберг",number:27,flag:"🇩🇪",age:37},
-                 {name:"Тео Босхунг",number:5,flag:"🇩🇪",age:22}
+                 {name:"Нико Хюлькенберг",number:27,flag:"🇩🇪",age:37,photo:"https://media.formula1.com/content/dam/fom-website/drivers/N/NICO_HULKENBERG_01.jpg"},
+                 {name:"Тео Босхунг",number:5,flag:"🇩🇪",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/T/THEO_BOSCHUNG_01.jpg"}
              ],
              reserve:[
                  {name:"Даниэле Джанни",flag:"🇮🇹",age:21}
              ]},
             {id:"alpine",name:"Alpine",country:"🇫🇷",budget:440,color:"#ff6b9d",
              pilots:[
-                 {name:"Джек Дуэн",number:7,flag:"🇦🇺",age:22}
+                 {name:"Джек Дуэн",number:7,flag:"🇦🇺",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/J/JACK_DOOHAN_01.jpg"}
              ],
              reserve:[
                  {name:"Виктор Мартинс",flag:"🇫🇷",age:23}
@@ -123,17 +123,15 @@
             {pilot:"Колтон Херта",from:"—",to:"Ferrari",price:0,date:"Февраль 2028"},
             {pilot:"Пьер Гасли",from:"Alpine",to:"Ferrari",price:120,date:"Февраль 2028"},
             {pilot:"Стоффель Вандорн",from:"Aston Martin",to:"—",price:62,date:"Февраль 2028"},
-            {pilot:"Карлос Сайнц",from:"Red Bull",to:"Williams",price:78,date:"Март 2028"},
+            {pilot:"Карлос Сайнс",from:"Red Bull",to:"Williams",price:78,date:"Март 2028"},
             {pilot:"Дино Беганович",from:"Williams",to:"Red Bull",price:6,date:"Март 2028"}
         ]
     };
 
-    // ===== РЕНДЕР КОМАНД =====
     function renderTeams() {
         var grid = document.getElementById('teamGrid');
         if (!grid) { console.error('teamGrid не найден'); return; }
         grid.innerHTML = '';
-        console.log('Рендерим команды:', data.teams.length);
         
         data.teams.forEach(function(team) {
             var card = document.createElement('div');
@@ -147,7 +145,12 @@
                 pilotsHTML += '<div class="pilot-item"><span class="vacant">— Свободно —</span></div>';
             } else {
                 team.pilots.forEach(function(p) {
-                    pilotsHTML += '<div class="pilot-item">' +
+                    var photo = p.photo || '';
+                    var initials = p.name.split(' ').map(function(w){ return w[0]; }).join('').slice(0,2);
+                    var imgSrc = photo || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 font-family=%22Barlow Condensed%22 font-size=%2230%22 fill=%22%23888%22%3E' + initials + '%3C/text%3E%3C/svg%3E';
+                    
+                    pilotsHTML += '<div class="pilot-item" data-name="' + p.name + '" data-team="' + team.name + '" data-flag="' + p.flag + '" data-age="' + p.age + '" data-number="' + p.number + '" data-budget="' + team.budget + '" data-teamkey="' + team.id + '" data-photo="' + photo + '" data-wiki="' + p.name.replace(/ /g,'_') + '">' +
+                        '<img class="pilot-photo" src="' + imgSrc + '" alt="' + p.name + '" loading="lazy">' +
                         '<span class="pilot-number">' + p.number + '</span>' +
                         '<span class="pilot-name"><span class="flag">' + p.flag + '</span>' + p.name + '</span>' +
                         '<span class="pilot-age">🎂' + p.age + ' лет</span>' +
@@ -158,7 +161,7 @@
             var reserveHTML = '';
             if (team.reserve.length > 0) {
                 team.reserve.forEach(function(r) {
-                    reserveHTML += '<div class="pilot-item reserve"><span class="pilot-number">R</span><span class="pilot-name"><span class="flag">' + r.flag + '</span>' + r.name + '</span><span class="pilot-age">🎂' + r.age + ' лет</span></div>';
+                    reserveHTML += '<div class="pilot-item reserve"><span class="pilot-number">R</span><span class="pilot-name"><span class="flag">' + r.flag + '</span>' + r.name + (r.number ? ' (' + r.number + ')' : '') + '</span><span class="pilot-age">🎂' + r.age + ' лет</span></div>';
                 });
             } else {
                 reserveHTML = '<div class="pilot-item reserve"><span class="vacant">— Не объявлен —</span></div>';
@@ -178,7 +181,6 @@
             grid.appendChild(card);
         });
         
-        // Обновляем счётчики
         var totalPilots = 0;
         var totalReserves = 0;
         data.teams.forEach(function(t) {
@@ -190,7 +192,6 @@
         document.getElementById('reserveCount').textContent = totalReserves;
     }
 
-    // ===== КАЛЕНДАРЬ =====
     function renderCalendar() {
         var list = document.getElementById('calendarList');
         if (!list) return;
@@ -216,7 +217,6 @@
         });
     }
 
-    // ===== ЧЕМПИОНАТ =====
     function renderStandings() {
         var container = document.getElementById('standingsContent');
         if (!container) return;
@@ -224,13 +224,16 @@
         var standingsData = [
             {pos:1, name:"Габриэле Мини", flag:"🇮🇹", team:"Ferrari", pts:25},
             {pos:2, name:"Шарль Леклер", flag:"🇲🇨", team:"McLaren", pts:18},
-            {pos:3, name:"—", flag:"—", team:"—", pts:0}
+            {pos:3, name:"Льюис Хэмилтон", flag:"🇬🇧", team:"Ferrari", pts:15},
+            {pos:4, name:"Макс Ферстаппен", flag:"🇳🇱", team:"Red Bull", pts:12},
+            {pos:5, name:"Джордж Рассел", flag:"🇬🇧", team:"Ferrari", pts:10}
         ];
 
         var html = '<div class="podium">';
         var medals = ['🥇','🥈','🥉'];
         var colors = ['gold','silver','bronze'];
-        standingsData.forEach(function(p, i) {
+        var top3 = standingsData.slice(0,3);
+        top3.forEach(function(p, i) {
             html += '<div class="podium-item">' +
                 '<div class="podium-pos ' + colors[i] + '">' + medals[i] + '</div>' +
                 '<div class="podium-name">' + p.flag + ' ' + p.name + '</div>' +
@@ -249,11 +252,9 @@
             html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td><span class="flag">' + p.flag + '</span><span class="driver">' + p.name + '</span></td><td class="team-name">' + p.team + '</td><td class="pts">' + p.pts + '<div class="progress-bar"><div class="fill" style="width:' + barWidth + '%"></div></div></td></tr>';
         });
         html += '</tbody></table>';
-        
         container.innerHTML = html;
     }
 
-    // ===== ТРАНСФЕРЫ =====
     function renderTransfers() {
         var container = document.getElementById('transfersList');
         if (!container) return;
@@ -267,7 +268,7 @@
                 '<div class="transfer-info">' +
                     '<span class="transfer-pilot">' + t.pilot + '</span>' +
                     '<span class="transfer-from">' + (t.from || '—') + '</span>' +
-                    '<span>➜</span>' +
+                    '<span class="transfer-arrow">➜</span>' +
                     '<span class="transfer-to">' + t.to + '</span>' +
                 '</div>' +
                 '<div>' +
@@ -279,7 +280,6 @@
         container.innerHTML = html;
     }
 
-    // ===== ВКЛАДКИ =====
     function initTabs() {
         var tabs = document.querySelectorAll('.tab');
         tabs.forEach(function(tab) {
@@ -292,7 +292,105 @@
         });
     }
 
-    // ===== ОБРАТНЫЙ ОТСЧЁТ =====
+    function initFilters() {
+        var filters = document.querySelectorAll('.filter-btn');
+        filters.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                filters.forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                var filter = this.dataset.filter;
+                var grid = document.getElementById('teamGrid');
+                var cards = grid.querySelectorAll('.card');
+                cards.forEach(function(card) {
+                    if (filter === 'all' || card.dataset.team === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+
+    function initPilotClicks() {
+        var modal = document.getElementById('modal');
+        var close = document.getElementById('modalClose');
+
+        document.querySelectorAll('.pilot-item[data-name]').forEach(function(item) {
+            item.addEventListener('click', function() {
+                var name = this.dataset.name;
+                var team = this.dataset.team;
+                var flag = this.dataset.flag;
+                var age = this.dataset.age;
+                var number = this.dataset.number;
+                var budget = this.dataset.budget;
+                var teamkey = this.dataset.teamkey;
+                var photo = this.dataset.photo;
+                var wiki = this.dataset.wiki || name.replace(/ /g,'_');
+
+                var colorMap = {
+                    mclaren:'#ff8700',ferrari:'#dc0000',mercedes:'#00d2be',
+                    redbull:'#1e41b0',williams:'#00a3e0','racing-bulls':'#4d7aff',
+                    aston:'#006f62',audi:'#bb0a21',cadillac:'#c8102e',alpine:'#ff6b9d'
+                };
+                var color = colorMap[teamkey] || '#e10600';
+                var countryMap = {
+                    '🇬🇧':'Великобритания','🇲🇨':'Монако','🇮🇹':'Италия',
+                    '🇩🇪':'Германия','🇦🇹':'Австрия','🇳🇱':'Нидерланды',
+                    '🇪🇸':'Испания','🇦🇺':'Австралия','🇫🇷':'Франция',
+                    '🇸🇪':'Швеция','🇺🇸':'США','🇨🇦':'Канада',
+                    '🇹🇭':'Таиланд','🇯🇵':'Япония','🇧🇬':'Болгария',
+                    '🇧🇷':'Бразилия','🇧🇪':'Бельгия','🇳🇿':'Новая Зеландия',
+                    '🇩🇰':'Дания','🇲🇪':'Черногория','🇶🇦':'Катар','🇦🇪':'ОАЭ',
+                    '🇨🇳':'Китай','🇲🇽':'Мексика','🇨🇴':'Колумбия'
+                };
+                var countryName = countryMap[flag] || '';
+
+                document.getElementById('modalNumber').textContent = number;
+                document.getElementById('modalNumber').style.color = color;
+                document.getElementById('modalName').textContent = name;
+                document.getElementById('modalTeam').textContent = team;
+                document.getElementById('modalTeam').style.color = color;
+                document.getElementById('modalCountry').textContent = flag + ' ' + countryName;
+                document.getElementById('modalAge').textContent = age;
+                document.getElementById('modalTeamName').textContent = team;
+                document.getElementById('modalBudget').textContent = budget + ' млн';
+
+                var photoEl = document.getElementById('modalPhoto');
+                if (photo) {
+                    photoEl.src = photo;
+                } else {
+                    var initials = name.split(' ').map(function(w){ return w[0]; }).join('').slice(0,2);
+                    photoEl.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%22100%22 y=%22110%22 text-anchor=%22middle%22 font-family=%22Barlow Condensed%22 font-size=%2270%22 fill=%22%23888%22%3E' + initials + '%3C/text%3E%3C/svg%3E';
+                }
+
+                document.getElementById('modalLink').href = 'https://ru.wikipedia.org/wiki/' + wiki;
+
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        close.addEventListener('click', function() {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
     function updateCountdown() {
         var target = new Date(2028, 2, 1, 0, 0, 0);
         var now = new Date();
@@ -310,7 +408,6 @@
         document.getElementById('seconds').textContent = Math.floor((diff % (1000*60)) / 1000);
     }
 
-    // ===== МУЗЫКА =====
     var isPlaying = false;
     var audio = new Audio('https://ia600204.us.archive.org/22/items/friday-dopamine-re-edit/Friday%20%28dopamine-Re-edit%29.mp3');
     audio.loop = true;
@@ -329,13 +426,13 @@
         isPlaying = !isPlaying;
     };
 
-    // ===== ЗАПУСК =====
-    console.log('Запуск функций...');
     renderTeams();
     renderCalendar();
     renderStandings();
     renderTransfers();
     initTabs();
+    initFilters();
+    initPilotClicks();
     updateCountdown();
     setInterval(updateCountdown, 1000);
     console.log('Готово!');
