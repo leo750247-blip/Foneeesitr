@@ -18,9 +18,9 @@
         <div class="header-left">
             <div class="logo">Ф1 <span>2026</span></div>
             <div class="header-stats">
-                <span id="teamCount">11</span> Команд ·
+                <span id="teamCount">13</span> Команд ·
                 <span id="pilotCount">22</span> Пилота ·
-                <span id="reserveCount">12</span> Резерв
+                <span id="reserveCount">14</span> Резерв
             </div>
         </div>
         <div class="header-right">
@@ -34,6 +34,7 @@
                 <button class="tab active" data-tab="pilots">Пилоты</button>
                 <button class="tab" data-tab="standings">Чемпионат</button>
                 <button class="tab" data-tab="calendar">Календарь</button>
+                <button class="tab" data-tab="results">📋 Результаты</button>
             </nav>
         </div>
     </header>
@@ -51,6 +52,8 @@
                 <button class="filter-btn" data-filter="audi">Audi</button>
                 <button class="filter-btn" data-filter="williams">Williams</button>
                 <button class="filter-btn" data-filter="racing-bulls">Racing Bulls</button>
+                <button class="filter-btn" data-filter="cadillac">Cadillac</button>
+                <button class="filter-btn" data-filter="alpine">Alpine</button>
             </div>
             <div class="grid" id="teamGrid"></div>
         </section>
@@ -71,6 +74,15 @@
                 <p class="muted">24 этапа</p>
             </div>
             <div class="calendar-list" id="calendarList"></div>
+        </section>
+
+        <!-- Результаты -->
+        <section class="content" id="results">
+            <div class="results-header">
+                <h2>РЕЗУЛЬТАТЫ ГОНОК 2026</h2>
+                <p class="muted">Полные результаты каждого Гран-при</p>
+            </div>
+            <div id="resultsContent"></div>
         </section>
     </main>
 
@@ -98,4 +110,4 @@
 
     <script src="scripts/app.js"></script>
 </body>
-</html>
+                                                                        </html>
