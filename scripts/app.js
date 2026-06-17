@@ -1,3 +1,12 @@
+// ===== ПОДКЛЮЧЕНИЕ К SUPABASE =====
+const SUPABASE_URL = 'https://wvulkhashdvbkdwraspk.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_SNbQ3wg7NaoBMgkMh340tg_b2mb3DGc';
+
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// ===== ИМЯ ИГРОКА =====
+let playerName = localStorage.getItem('playerName') || '';
+
 (function(){
     var data = {
         teams: [
@@ -7,36 +16,52 @@
                  {name:"Шарль Леклер",number:16,flag:"🇲🇨",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/C/CHARLES_LECLERC_01.jpg"}
              ],
              reserve:[{name:"Габриэль Бортолето",flag:"🇧🇷",age:20}]},
-            {id:"ferrari",name:"Ferrari",country:"🇮🇹",budget:340,color:"#dc0000",
+            {id:"ferrari",name:"Ferrari",country:"🇮🇹",budget:150,color:"#dc0000",
              pilots:[
                  {name:"Льюис Хэмилтон",number:44,flag:"🇬🇧",age:40,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LEWIS_HAMILTON_01.jpg"},
                  {name:"Джордж Рассел",number:63,flag:"🇬🇧",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/G/GEORGE_RUSSELL_01.jpg"}
              ],
-             reserve:[{name:"Габриеле Мини",flag:"🇮🇹",age:19}]},
+             reserve:[
+                 {name:"Пьер Гасли",flag:"🇫🇷",age:29},
+                 {name:"Колтон Херта",flag:"🇺🇸",age:24},
+                 {name:"Габриеле Мини",flag:"🇮🇹",age:19},
+                 {name:"Лиам Лоусон",flag:"🇳🇿",age:23}
+             ]},
             {id:"mercedes",name:"Mercedes",country:"🇩🇪",budget:460,color:"#00d2be",
              pilots:[
                  {name:"Исак Хаджар",number:37,flag:"🇫🇷",age:20,photo:"https://media.formula1.com/content/dam/fom-website/drivers/I/ISACK_HADJAR_01.jpg"},
                  {name:"Кими Антонелли",number:12,flag:"🇮🇹",age:19,photo:"https://media.formula1.com/content/dam/fom-website/drivers/K/KIMI_ANTONELLI_01.jpg"}
              ],
-             reserve:[{name:"Алекс Албон",flag:"🇹🇭",age:28},{name:"Ноэль Леон",flag:"🇲🇽",age:18}]},
-            {id:"redbull",name:"Red Bull",country:"🇦🇹",budget:430,color:"#1e41b0",
+             reserve:[
+                 {name:"Алекс Албон",flag:"🇹🇭",age:28},
+                 {name:"Ноэль Леон",flag:"🇲🇽",age:18}
+             ]},
+            {id:"redbull",name:"Red Bull",country:"🇦🇹",budget:502,color:"#1e41b0",
              pilots:[
                  {name:"Макс Ферстаппен",number:1,flag:"🇳🇱",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/M/MAX_VERSTAPPEN_01.jpg"},
-                 {name:"Карлос Сайнц",number:55,flag:"🇪🇸",age:30,photo:"https://media.formula1.com/content/dam/fom-website/drivers/C/CARLOS_SAINZ_01.jpg"}
+                 {name:"Дино Беганович",number:81,flag:"🇲🇪",age:21,photo:"https://media.formula1.com/content/dam/fom-website/drivers/D/DINO_BEGANOVIC_01.jpg"}
              ],
-             reserve:[{name:"Юки Цунода",flag:"🇯🇵",age:24},{name:"Никола Цолов",flag:"🇧🇬",age:18}]},
-            {id:"williams",name:"Williams",country:"🇬🇧",budget:399,color:"#00a3e0",
+             reserve:[
+                 {name:"Юки Цунода",flag:"🇯🇵",age:24},
+                 {name:"Никола Цолов",flag:"🇧🇬",age:18}
+             ]},
+            {id:"williams",name:"Williams",country:"🇬🇧",budget:327,color:"#00a3e0",
              pilots:[
                  {name:"Оскар Пиастри",number:81,flag:"🇦🇺",age:23,photo:"https://media.formula1.com/content/dam/fom-website/drivers/O/OSCAR_PIASTRI_01.jpg"},
-                 {name:"Фернандо Алонсо",number:14,flag:"🇪🇸",age:43,photo:"https://media.formula1.com/content/dam/fom-website/drivers/F/FERNANDO_ALONSO_01.jpg"}
+                 {name:"Карлос Сайнц",number:55,flag:"🇪🇸",age:30,photo:"https://media.formula1.com/content/dam/fom-website/drivers/C/CARLOS_SAINZ_01.jpg"}
              ],
-             reserve:[{name:"Дино Беганович",flag:"🇲🇪",age:21},{name:"Джек Денн",flag:"🇦🇺",age:19},{name:"Бастиан Монтойя",flag:"🇨🇴",age:19}]},
-            {id:"racing-bulls",name:"Racing Bulls",country:"🇮🇹",budget:289,color:"#4d7aff",
+             reserve:[
+                 {name:"Джек Денн",flag:"🇦🇺",age:19},
+                 {name:"Бастиан Монтойя",flag:"🇨🇴",age:19}
+             ]},
+            {id:"racing-bulls",name:"Racing Bulls",country:"🇮🇹",budget:359,color:"#4d7aff",
              pilots:[
                  {name:"Арвид Линдблад",number:4,flag:"🇸🇪",age:18,photo:"https://media.formula1.com/content/dam/fom-website/drivers/A/ARVID_LINDBLAD_01.jpg"},
                  {name:"Леонардо Форнаролли",number:30,flag:"🇮🇹",age:19,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LEONARDO_FORNAROLI_01.jpg"}
              ],
-             reserve:[{name:"Рафаэль Камара",flag:"🇧🇷",age:19},{name:"Лиам Лоусон",flag:"🇳🇿",age:23}]},
+             reserve:[
+                 {name:"Рафаэль Камара",flag:"🇧🇷",age:19}
+             ]},
             {id:"haas",name:"Haas",country:"🇺🇸",budget:230,color:"#b6babd",
              pilots:[],
              reserve:[]},
@@ -45,27 +70,34 @@
                  {name:"Кевин Магнуссен",number:20,flag:"🇩🇰",age:32,photo:"https://media.formula1.com/content/dam/fom-website/drivers/K/KEVIN_MAGNUSSEN_01.jpg"},
                  {name:"Чжоу Гуаньюй",number:24,flag:"🇨🇳",age:25,photo:"https://media.formula1.com/content/dam/fom-website/drivers/Z/ZHOU_GUANYU_01.jpg"}
              ],
-             reserve:[{name:"Патрисио О’Уорд",flag:"🇺🇸",age:26}]},
-            {id:"aston",name:"Aston Martin",country:"🇬🇧",budget:320,color:"#006f62",
+             reserve:[
+                 {name:"Патрисио О’Уорд",flag:"🇺🇸",age:26}
+             ]},
+            {id:"aston",name:"Aston Martin",country:"🇬🇧",budget:382,color:"#006f62",
              pilots:[
                  {name:"Лэнс Стролл",number:18,flag:"🇨🇦",age:26,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LANCE_STROLL_01.jpg"}
              ],
-             reserve:[{name:"Стоффель Вандорн",flag:"🇧🇪",age:33},{name:"Джек Кроуфорд",flag:"🇺🇸",age:20}]},
+             reserve:[
+                 {name:"Джек Кроуфорд",flag:"🇺🇸",age:20}
+             ]},
             {id:"audi",name:"Audi",country:"🇩🇪",budget:340,color:"#bb0a21",
              pilots:[
                  {name:"Нико Хюлькенберг",number:27,flag:"🇩🇪",age:37,photo:"https://media.formula1.com/content/dam/fom-website/drivers/N/NICO_HULKENBERG_01.jpg"},
                  {name:"Тео Босхунг",number:5,flag:"🇩🇪",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/T/THEO_BOSCHUNG_01.jpg"}
              ],
-             reserve:[{name:"Даниэле Джанни",flag:"🇮🇹",age:21}]},
-            {id:"alpine",name:"Alpine",country:"🇫🇷",budget:320,color:"#ff6b9d",
+             reserve:[
+                 {name:"Даниэле Джанни",flag:"🇮🇹",age:21}
+             ]},
+            {id:"alpine",name:"Alpine",country:"🇫🇷",budget:440,color:"#ff6b9d",
              pilots:[
-                 {name:"Пьер Гасли",number:10,flag:"🇫🇷",age:29,photo:"https://media.formula1.com/content/dam/fom-website/drivers/P/PIERRE_GASLY_01.jpg"},
                  {name:"Джек Дуэн",number:7,flag:"🇦🇺",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/J/JACK_DOOHAN_01.jpg"}
              ],
-             reserve:[{name:"Виктор Мартинс",flag:"🇫🇷",age:23}]}
+             reserve:[
+                 {name:"Виктор Мартинс",flag:"🇫🇷",age:23}
+             ]}
         ],
         calendar: [
-            {round:1,name:"Гран-при Бахрейна",country:"🇧🇭",date:"1–3 марта",pole:"—",winner:"—"},
+            {round:1,name:"Гран-при Бахрейна",country:"🇧🇭",date:"1–3 марта",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇮🇹 Габриэле Мини (Ferrari)"},
             {round:2,name:"Гран-при Саудовской Аравии",country:"🇸🇦",date:"8–10 марта",pole:"—",winner:"—"},
             {round:3,name:"Гран-при Австралии",country:"🇦🇺",date:"22–24 марта",pole:"—",winner:"—"},
             {round:4,name:"Гран-при Японии",country:"🇯🇵",date:"5–7 апреля",pole:"—",winner:"—"},
@@ -94,7 +126,13 @@
             {pilot:"Фернандо Алонсо",from:"Aston Martin",to:"Williams",price:62,date:"Январь 2028"},
             {pilot:"Ноэль Леон",from:"—",to:"Mercedes",price:0,date:"Январь 2028"},
             {pilot:"Бастиан Монтойя",from:"—",to:"Williams",price:0,date:"Январь 2028"},
-            {pilot:"Исак Хаджар",from:"Williams",to:"Mercedes",price:170,date:"Январь 2028"}
+            {pilot:"Исак Хаджар",from:"Williams",to:"Mercedes",price:170,date:"Январь 2028"},
+            {pilot:"Лиам Лоусон",from:"Racing Bulls",to:"Ferrari",price:70,date:"Февраль 2028"},
+            {pilot:"Колтон Херта",from:"—",to:"Ferrari",price:0,date:"Февраль 2028"},
+            {pilot:"Пьер Гасли",from:"Alpine",to:"Ferrari",price:120,date:"Февраль 2028"},
+            {pilot:"Стоффель Вандорн",from:"Aston Martin",to:"—",price:62,date:"Февраль 2028"},
+            {pilot:"Карлос Сайнц",from:"Red Bull",to:"Williams",price:78,date:"Март 2028"},
+            {pilot:"Дино Беганович",from:"Williams",to:"Red Bull",price:6,date:"Март 2028"}
         ]
     };
 
@@ -133,6 +171,217 @@
         isPlaying = !isPlaying;
     };
 
+    // ===== ФУНКЦИИ SUPABASE =====
+    async function loadPlayer(name) {
+        const { data, error } = await supabase
+            .from('players')
+            .select('*')
+            .eq('name', name)
+            .single();
+
+        if (error && error.code !== 'PGRST116') {
+            console.error('Ошибка загрузки:', error);
+            return null;
+        }
+
+        if (data) {
+            return data;
+        } else {
+            // Создаём нового игрока
+            const { data: newPlayer, error: createError } = await supabase
+                .from('players')
+                .insert([{ name: name, balance: 1000 }])
+                .select()
+                .single();
+
+            if (createError) {
+                console.error('Ошибка создания:', createError);
+                return null;
+            }
+            return newPlayer;
+        }
+    }
+
+    async function updateBalance(name, newBalance) {
+        const { data, error } = await supabase
+            .from('players')
+            .update({ balance: newBalance })
+            .eq('name', name)
+            .select()
+            .single();
+
+        if (error) {
+            console.error('Ошибка обновления баланса:', error);
+            return null;
+        }
+        return data;
+    }
+
+    async function saveBet(name, pilot, amount, result, winAmount) {
+        const { data, error } = await supabase
+            .from('bet_history')
+            .insert([{
+                player_name: name,
+                pilot: pilot,
+                amount: amount,
+                result: result,
+                win_amount: winAmount || 0
+            }]);
+
+        if (error) {
+            console.error('Ошибка сохранения ставки:', error);
+        }
+        return data;
+    }
+
+    async function getLeaderboard() {
+        const { data, error } = await supabase
+            .from('players')
+            .select('name, balance')
+            .order('balance', { ascending: false })
+            .limit(10);
+
+        if (error) {
+            console.error('Ошибка загрузки лидерборда:', error);
+            return [];
+        }
+        return data;
+    }
+
+    // ===== КАЗИНО С БАЗОЙ ДАННЫХ =====
+    async function makeBetWithDB() {
+        var select = document.getElementById('betSelect');
+        var input = document.getElementById('betInput');
+        var result = document.getElementById('betResult');
+        var pilotName = select.value;
+        var amount = parseInt(input.value);
+
+        if (!playerName) {
+            var name = prompt('Введите ваше имя для игры:');
+            if (name) {
+                playerName = name;
+                localStorage.setItem('playerName', playerName);
+                await loadPlayer(playerName);
+                updateCasinoUI();
+            } else {
+                return;
+            }
+        }
+
+        // Загружаем актуальный баланс
+        var player = await loadPlayer(playerName);
+        if (!player) {
+            result.textContent = '❌ Ошибка загрузки игрока!';
+            result.className = 'bet-result show lose';
+            return;
+        }
+
+        var currentBalance = player.balance;
+
+        if (!pilotName) {
+            result.textContent = '❌ Выбери пилота!';
+            result.className = 'bet-result show lose';
+            return;
+        }
+        if (!amount || amount <= 0) {
+            result.textContent = '❌ Введи сумму ставки!';
+            result.className = 'bet-result show lose';
+            return;
+        }
+        if (amount > currentBalance) {
+            result.textContent = '❌ Недостаточно монет! Твой баланс: ' + currentBalance;
+            result.className = 'bet-result show lose';
+            return;
+        }
+
+        var odds = Math.floor(Math.random() * 3) + 1.5;
+        var win = Math.random() > 0.5;
+        var winAmount = Math.floor(amount * odds);
+
+        var newBalance = currentBalance - amount;
+        if (win) {
+            newBalance += winAmount;
+            result.textContent = '🎉 ' + pilotName + ' победил! Ты выиграл ' + winAmount + ' монет! (кэф ' + odds.toFixed(1) + ')';
+            result.className = 'bet-result show win';
+        } else {
+            result.textContent = '😞 ' + pilotName + ' не победил. Ты потерял ' + amount + ' монет.';
+            result.className = 'bet-result show lose';
+        }
+
+        // Сохраняем в БД
+        await updateBalance(playerName, newBalance);
+        await saveBet(playerName, pilotName, amount, win ? 'win' : 'lose', win ? winAmount : 0);
+
+        // Обновляем UI
+        await updateCasinoUI();
+        await updateLeaderboard();
+    }
+
+    async function updateCasinoUI() {
+        if (!playerName) {
+            document.getElementById('balanceValue').textContent = '—';
+            document.getElementById('lbBalance').textContent = '—';
+            return;
+        }
+
+        var player = await loadPlayer(playerName);
+        if (player) {
+            document.getElementById('balanceValue').textContent = player.balance;
+            document.getElementById('lbBalance').textContent = player.balance;
+        }
+
+        // История ставок
+        var historyContainer = document.getElementById('betHistoryList');
+        const { data: history, error } = await supabase
+            .from('bet_history')
+            .select('*')
+            .eq('player_name', playerName)
+            .order('created_at', { ascending: false })
+            .limit(20);
+
+        if (history && history.length > 0) {
+            var html = '';
+            history.forEach(function(h) {
+                html += '<div class="bet-history-item">' +
+                    '<span class="bh-pilot">' + h.pilot + '</span>' +
+                    '<span class="bh-amount">' + h.amount + ' монет</span>' +
+                    '<span class="bh-result ' + h.result + '">' + (h.result === 'win' ? '✅ +' + h.win_amount : '❌ -' + h.amount) + '</span>' +
+                '</div>';
+            });
+            historyContainer.innerHTML = html;
+        } else {
+            historyContainer.innerHTML = '<div class="bet-empty">Ставок пока нет</div>';
+        }
+    }
+
+    async function updateLeaderboard() {
+        var container = document.getElementById('leaderboardList');
+        var players = await getLeaderboard();
+
+        if (players.length === 0) {
+            container.innerHTML = '<div class="leaderboard-item"><span class="lb-name">Нет игроков</span><span class="lb-balance">0</span></div>';
+            return;
+        }
+
+        var html = '';
+        players.forEach(function(p, i) {
+            var cls = '';
+            if (i === 0) cls = ' lb-first';
+            else if (i === 1) cls = ' lb-second';
+            else if (i === 2) cls = ' lb-third';
+            var nameDisplay = p.name === playerName ? '👤 ' + p.name : p.name;
+            html += '<div class="leaderboard-item' + cls + '">' +
+                '<span class="lb-name">' + (i+1) + '. ' + nameDisplay + '</span>' +
+                '<span class="lb-balance">' + p.balance + '</span>' +
+            '</div>';
+        });
+        container.innerHTML = html;
+    }
+
+    // ===== ПЕРЕОПРЕДЕЛЯЕМ makeBet =====
+    window.makeBet = makeBetWithDB;
+
+    // ===== РЕНДЕР КОМАНД =====
     function renderTeams(filter) {
         var grid = document.getElementById('teamGrid');
         grid.innerHTML = '';
@@ -213,8 +462,8 @@
         var container = document.getElementById('standingsContent');
         
         var standingsData = [
-            {pos:1, name:"—", flag:"—", team:"—", pts:0},
-            {pos:2, name:"—", flag:"—", team:"—", pts:0},
+            {pos:1, name:"Габриэле Мини", flag:"🇮🇹", team:"Ferrari", pts:25},
+            {pos:2, name:"Шарль Леклер", flag:"🇲🇨", team:"McLaren", pts:18},
             {pos:3, name:"—", flag:"—", team:"—", pts:0},
             {pos:4, name:"—", flag:"—", team:"—", pts:0},
             {pos:5, name:"—", flag:"—", team:"—", pts:0},
@@ -232,8 +481,8 @@
         top3.forEach(function(p, i) {
             podiumHTML += '<div class="podium-item">' +
                 '<div class="podium-pos ' + medals[i] + '">' + names[i] + '</div>' +
-                '<div class="podium-name">—</div>' +
-                '<div class="podium-base ' + medals[i] + '">0 очков</div>' +
+                '<div class="podium-name">' + p.flag + ' ' + p.name + '</div>' +
+                '<div class="podium-base ' + medals[i] + '">' + p.pts + ' очков</div>' +
             '</div>';
         });
         podiumHTML += '</div>';
@@ -245,14 +494,29 @@
             if (i === 0) cls = ' pos-1';
             else if (i === 1) cls = ' pos-2';
             else if (i === 2) cls = ' pos-3';
-            html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td><span class="flag">—</span><span class="driver">—</span></td><td class="team-name">—</td><td class="pts">0<div class="progress-bar"><div class="fill" style="width:0%"></div></div></td></tr>';
+            var barWidth = Math.round((p.pts / 25) * 100);
+            html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td><span class="flag">' + p.flag + '</span><span class="driver">' + p.name + '</span></td><td class="team-name">' + p.team + '</td><td class="pts">' + p.pts + '<div class="progress-bar"><div class="fill" style="width:' + barWidth + '%"></div></div></td></tr>';
         });
         html += '</tbody></table>';
 
         html += '<h3 style="font-family:\'Barlow Condensed\',sans-serif;font-size:.8rem;font-weight:600;color:var(--muted);margin:20px 0 8px">КОМАНДНЫЙ ЗАЧЁТ</h3>';
         html += '<table class="standings-table"><thead><tr><th>#</th><th>Команда</th><th style="text-align:right">Очки</th></tr></thead><tbody>';
-        data.teams.forEach(function(team, i) {
-            html += '<tr><td class="pos' + (i === 0 ? ' pos-1' : '') + '">' + (i+1) + '</td><td class="driver">' + team.name + '</td><td class="pts">0<div class="progress-bar"><div class="fill" style="width:0%"></div></div></td></tr>';
+        var constructorPts = {};
+        standingsData.forEach(function(p) {
+            if (!constructorPts[p.team]) constructorPts[p.team] = 0;
+            constructorPts[p.team] += p.pts;
+        });
+        var constructorArray = Object.keys(constructorPts).map(function(key) {
+            return {name: key, pts: constructorPts[key]};
+        }).sort(function(a, b) { return b.pts - a.pts; });
+        var maxPts = constructorArray[0] ? constructorArray[0].pts : 1;
+        constructorArray.forEach(function(team, i) {
+            var cls = '';
+            if (i === 0) cls = ' pos-1';
+            else if (i === 1) cls = ' pos-2';
+            else if (i === 2) cls = ' pos-3';
+            var barWidth = Math.round((team.pts / maxPts) * 100);
+            html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td class="driver">' + team.name + '</td><td class="pts">' + team.pts + '<div class="progress-bar"><div class="fill" style="width:' + barWidth + '%"></div></div></td></tr>';
         });
         html += '</tbody></table>';
         container.innerHTML += html;
@@ -422,73 +686,6 @@
         container.innerHTML = html;
     }
 
-    var casino = {
-        balance: 1000,
-        history: []
-    };
-
-    window.makeBet = function() {
-        var select = document.getElementById('betSelect');
-        var input = document.getElementById('betInput');
-        var result = document.getElementById('betResult');
-        var pilotName = select.value;
-        var amount = parseInt(input.value);
-
-        if (!pilotName) {
-            result.textContent = '❌ Выбери пилота!';
-            result.className = 'bet-result show lose';
-            return;
-        }
-        if (!amount || amount <= 0) {
-            result.textContent = '❌ Введи сумму ставки!';
-            result.className = 'bet-result show lose';
-            return;
-        }
-        if (amount > casino.balance) {
-            result.textContent = '❌ Недостаточно монет! Твой баланс: ' + casino.balance;
-            result.className = 'bet-result show lose';
-            return;
-        }
-
-        var odds = Math.floor(Math.random() * 3) + 1.5;
-        var win = Math.random() > 0.5;
-        var winAmount = Math.floor(amount * odds);
-
-        casino.balance -= amount;
-        if (win) {
-            casino.balance += winAmount;
-            result.textContent = '🎉 ' + pilotName + ' победил! Ты выиграл ' + winAmount + ' монет! (кэф ' + odds.toFixed(1) + ')';
-            result.className = 'bet-result show win';
-            casino.history.push({pilot: pilotName, amount: amount, result: 'win', winAmount: winAmount});
-        } else {
-            result.textContent = '😞 ' + pilotName + ' не победил. Ты потерял ' + amount + ' монет.';
-            result.className = 'bet-result show lose';
-            casino.history.push({pilot: pilotName, amount: amount, result: 'lose', winAmount: 0});
-        }
-
-        updateCasinoUI();
-    };
-
-    function updateCasinoUI() {
-        document.getElementById('balanceValue').textContent = casino.balance;
-        document.getElementById('lbBalance').textContent = casino.balance;
-
-        var historyContainer = document.getElementById('betHistoryList');
-        if (casino.history.length === 0) {
-            historyContainer.innerHTML = '<div class="bet-empty">Ставок пока нет</div>';
-        } else {
-            var html = '';
-            casino.history.slice().reverse().forEach(function(h) {
-                html += '<div class="bet-history-item">' +
-                    '<span class="bh-pilot">' + h.pilot + '</span>' +
-                    '<span class="bh-amount">' + h.amount + ' монет</span>' +
-                    '<span class="bh-result ' + h.result + '">' + (h.result === 'win' ? '✅ +' + h.winAmount : '❌ -' + h.amount) + '</span>' +
-                '</div>';
-            });
-            historyContainer.innerHTML = html;
-        }
-    }
-
     function fillBetSelect() {
         var select = document.getElementById('betSelect');
         var pilots = [];
@@ -531,6 +728,7 @@
         }
     }
 
+    // ===== ЗАПУСК =====
     renderTeams('all');
     renderCalendar();
     renderStandings();
@@ -543,7 +741,17 @@
     setInterval(updateCountdown, 1000);
     initPilotClicks();
     fillBetSelect();
-    updateCasinoUI();
+
+    // ===== ЗАПУСК СУПАБЕЙС =====
+    async function initSupabase() {
+        if (playerName) {
+            await loadPlayer(playerName);
+            await updateCasinoUI();
+        }
+        await updateLeaderboard();
+    }
+
+    initSupabase();
     requestNotificationPermission();
     checkRaceNotifications();
 })();
