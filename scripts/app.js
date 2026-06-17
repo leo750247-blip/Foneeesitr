@@ -184,31 +184,40 @@
     }
 
     // ===== КАЛЕНДАРЬ =====
-    function renderCalendar() {
-        var list = document.getElementById('calendarList');
-        list.innerHTML = '';
-        data.calendar.forEach(function(race) {
-            var div = document.createElement('div');
-            div.className = 'calendar-item';
-            div.innerHTML =
-                '<div class="calendar-header-row" onclick="this.parentElement.querySelector(\'.calendar-details\').classList.toggle(\'open\'); this.querySelector(\'.toggle-icon\').classList.toggle(\'open\')">' +
-                    '<span class="round">Этап ' + race.round + '</span>' +
-                    '<span class="race-name">' + race.name + '</span>' +
-                    '<span class="race-country">' + race.country + '</span>' +
-                    '<span class="race-date">📅 ' + race.date + '</span>' +
-                    '<span class="toggle-icon">▼</span>' +
-                '</div>' +
-                '<div class="calendar-details">' +
-                    '<div class="detail-row">' +
-                        '<span>Поул: <span class="value">' + race.pole + '</span></span>' +
-                        '<span>Квалификация: <span class="value">' + race.qualifying + '</span></span>' +
-                        '<span>Победитель: <span class="value">' + race.winner + '</span></span>' +
-                    '</div>' +
-                '</div>';
-            list.appendChild(div);
-        });
-    }
-
+    щcalendar: [
+    {
+        round: 1,
+        name: "Гран-при Бахрейна",
+        country: "🇧🇭",
+        date: "1–3 марта",
+        pole: "🇬🇧 Льюис Хэмилтон (Ferrari)",
+        qualifying: "🥇 1. 🇬🇧 Lewis Hamilton (Ferrari)\n🥈 2. 🇳🇱 Max Verstappen (Red Bull) +1.1s\n🥉 3. 🇲🇨 Charles Leclerc (McLaren)\n4. 🇬🇧 Lando Norris (McLaren)\n5. 🇬🇧 George Russell (Ferrari)\n6. 🇪🇸 Carlos Sainz (Red Bull)\n7. 🇪🇸 Fernando Alonso (Aston Martin)\n8. 🇦🇺 Oscar Piastri (Williams)\n9. 🇮🇹 Kimi Antonelli (Mercedes)\n10. 🇹🇭 Alex Albon (Mercedes)",
+        winner: "🇬🇧 Льюис Хэмилтон (Ferrari)"
+    },
+    {round:2,name:"Гран-при Саудовской Аравии",country:"🇸🇦",date:"8–10 марта",pole:"—",qualifying:"—",winner:"—"},
+    {round:3,name:"Гран-при Австралии",country:"🇦🇺",date:"22–24 марта",pole:"—",qualifying:"—",winner:"—"},
+    {round:4,name:"Гран-при Японии",country:"🇯🇵",date:"5–7 апреля",pole:"—",qualifying:"—",winner:"—"},
+    {round:5,name:"Гран-при Китая",country:"🇨🇳",date:"19–21 апреля",pole:"—",qualifying:"—",winner:"—"},
+    {round:6,name:"Гран-при Майами",country:"🇺🇸",date:"3–5 мая",pole:"—",qualifying:"—",winner:"—"},
+    {round:7,name:"Гран-при Эмилии-Романьи",country:"🇮🇹",date:"17–19 мая",pole:"—",qualifying:"—",winner:"—"},
+    {round:8,name:"Гран-при Монако",country:"🇲🇨",date:"31 мая – 2 июня",pole:"—",qualifying:"—",winner:"—"},
+    {round:9,name:"Гран-при Испании",country:"🇪🇸",date:"7–9 июня",pole:"—",qualifying:"—",winner:"—"},
+    {round:10,name:"Гран-при Канады",country:"🇨🇦",date:"14–16 июня",pole:"—",qualifying:"—",winner:"—"},
+    {round:11,name:"Гран-при Австрии",country:"🇦🇹",date:"28–30 июня",pole:"—",qualifying:"—",winner:"—"},
+    {round:12,name:"Гран-при Великобритании",country:"🇬🇧",date:"5–7 июля",pole:"—",qualifying:"—",winner:"—"},
+    {round:13,name:"Гран-при Бельгии",country:"🇧🇪",date:"19–21 июля",pole:"—",qualifying:"—",winner:"—"},
+    {round:14,name:"Гран-при Венгрии",country:"🇭🇺",date:"26–28 июля",pole:"—",qualifying:"—",winner:"—"},
+    {round:15,name:"Гран-при Нидерландов",country:"🇳🇱",date:"23–25 августа",pole:"—",qualifying:"—",winner:"—"},
+    {round:16,name:"Гран-при Италии",country:"🇮🇹",date:"6–8 сентября",pole:"—",qualifying:"—",winner:"—"},
+    {round:17,name:"Гран-при Азербайджана",country:"🇦🇿",date:"13–15 сентября",pole:"—",qualifying:"—",winner:"—"},
+    {round:18,name:"Гран-при Сингапура",country:"🇸🇬",date:"27–29 сентября",pole:"—",qualifying:"—",winner:"—"},
+    {round:19,name:"Гран-при США (Остин)",country:"🇺🇸",date:"11–13 октября",pole:"—",qualifying:"—",winner:"—"},
+    {round:20,name:"Гран-при Мексики",country:"🇲🇽",date:"18–20 октября",pole:"—",qualifying:"—",winner:"—"},
+    {round:21,name:"Гран-при Сан-Паулу",country:"🇧🇷",date:"1–3 ноября",pole:"—",qualifying:"—",winner:"—"},
+    {round:22,name:"Гран-при Лас-Вегаса",country:"🇺🇸",date:"15–17 ноября",pole:"—",qualifying:"—",winner:"—"},
+    {round:23,name:"Гран-при Катара",country:"🇶🇦",date:"29 ноября – 1 декабря",pole:"—",qualifying:"—",winner:"—"},
+    {round:24,name:"Гран-при Абу-Даби",country:"🇦🇪",date:"6–8 декабря",pole:"—",qualifying:"—",winner:"—"}
+]
     // ===== РЕЗУЛЬТАТЫ ГОНКИ =====
     function renderResults() {
         var container = document.getElementById('resultsContent');
