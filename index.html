@@ -9,9 +9,8 @@
 </head>
 <body>
 
-    <div class="flag-bg">
-        <div class="checkered"></div>
-    </div>
+    <!-- Кремовый фон с портретом Леклера -->
+    <div class="bg-leclerc"></div>
 
     <header class="header">
         <div class="header-left">
@@ -32,6 +31,8 @@
                 <button class="tab" data-tab="standings">Чемпионат</button>
                 <button class="tab" data-tab="calendar">Календарь</button>
                 <button class="tab" data-tab="history">🏆 История</button>
+                <button class="tab" data-tab="transfers">📋 Трансферы</button>
+                <button class="tab" data-tab="casino">🎰 Казино</button>
             </nav>
         </div>
     </header>
@@ -61,29 +62,6 @@
                 <h2>ЧЕМПИОНАТ 2028</h2>
                 <p class="muted">🏆 Сезон завершён</p>
             </div>
-
-            <div class="podium-3d">
-                <div class="podium-3d-wrapper">
-                    <div class="podium-tier">
-                        <div class="tier tier-bronze">
-                            <span class="tier-pos">🥉</span>
-                            <span class="tier-name">—</span>
-                            <span class="tier-pts">0 pts</span>
-                        </div>
-                        <div class="tier tier-gold">
-                            <span class="tier-pos">🥇</span>
-                            <span class="tier-name">—</span>
-                            <span class="tier-pts">0 pts</span>
-                        </div>
-                        <div class="tier tier-silver">
-                            <span class="tier-pos">🥈</span>
-                            <span class="tier-name">—</span>
-                            <span class="tier-pts">0 pts</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div id="standingsContent"></div>
         </section>
 
@@ -118,6 +96,56 @@
                 </div>
             </div>
         </section>
+
+        <!-- Трансферы -->
+        <section class="content" id="transfers">
+            <div class="transfers-header">
+                <h2>📋 ИСТОРИЯ ТРАНСФЕРОВ</h2>
+                <p class="muted">Все переходы сезона 2028</p>
+            </div>
+            <div class="transfers-list" id="transfersList"></div>
+        </section>
+
+        <!-- Казино -->
+        <section class="content" id="casino">
+            <div class="casino-header">
+                <h2>🎰 КАЗИНО F1</h2>
+                <p class="muted">Ставь монеты на своих любимых пилотов!</p>
+            </div>
+            <div class="casino-balance">
+                <div class="balance-card">
+                    <span class="balance-label">💰 Твой баланс</span>
+                    <span class="balance-value" id="balanceValue">1000</span>
+                    <span class="balance-currency">монет</span>
+                </div>
+            </div>
+            <div class="casino-bet">
+                <div class="bet-card">
+                    <div class="bet-title">Сделай ставку</div>
+                    <select class="bet-select" id="betSelect">
+                        <option value="">Выбери пилота...</option>
+                    </select>
+                    <input type="number" class="bet-input" id="betInput" placeholder="Сумма ставки" min="1" max="1000">
+                    <button class="bet-btn" onclick="makeBet()">📊 Сделать ставку</button>
+                    <div class="bet-result" id="betResult"></div>
+                </div>
+                <div class="bet-history">
+                    <div class="bet-title">📋 История ставок</div>
+                    <div class="bet-history-list" id="betHistoryList">
+                        <div class="bet-empty">Ставок пока нет</div>
+                    </div>
+                </div>
+            </div>
+            <div class="casino-leaderboard">
+                <div class="bet-title">🏆 Топ игроков</div>
+                <div class="leaderboard-list" id="leaderboardList">
+                    <div class="leaderboard-item">
+                        <span class="lb-name">Ты</span>
+                        <span class="lb-balance" id="lbBalance">1000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Модалка -->
@@ -144,4 +172,4 @@
 
     <script src="scripts/app.js"></script>
 </body>
-                </html>
+</html>
