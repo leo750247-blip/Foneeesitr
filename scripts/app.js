@@ -97,6 +97,27 @@
         aston:'#006f62',audi:'#bb0a21'
     };
 
+    // ===== МУЗЫКА =====
+    var isPlaying = false;
+    var audio = new Audio('https://ia600204.us.archive.org/22/items/friday-dopamine-re-edit/Friday%20%28dopamine-Re-edit%29.mp3');
+    audio.loop = true;
+
+    window.toggleMusic = function() {
+        var btn = document.getElementById('musicBtn');
+        if (isPlaying) {
+            audio.pause();
+            btn.textContent = '🎵 Включить музыку';
+            btn.classList.remove('playing');
+        } else {
+            audio.play().catch(function(e) {
+                console.log('Автовоспроизведение заблокировано, нажмите ещё раз');
+            });
+            btn.textContent = '🔇 Выключить музыку';
+            btn.classList.add('playing');
+        }
+        isPlaying = !isPlaying;
+    };
+
     // ===== РЕНДЕР КОМАНД =====
     function renderTeams(filter) {
         var grid = document.getElementById('teamGrid');
@@ -175,7 +196,7 @@
         });
     }
 
-    // ===== ЧЕМПИОНАТ С ПРОГРЕСС-БАРАМИ И ПОДИУМОМ =====
+    // ===== ЧЕМПИОНАТ =====
     function renderStandings() {
         var container = document.getElementById('standingsContent');
         var allPilots = [];
@@ -185,7 +206,6 @@
             });
         });
 
-        // Подиум (топ-3)
         var podiumHTML = '<div class="podium">';
         var medals = ['gold','silver','bronze'];
         var names = ['🥇','🥈','🥉'];
@@ -203,14 +223,12 @@
         podiumHTML += '</div>';
         container.innerHTML = podiumHTML;
 
-        // Таблица
         var html = '<table class="standings-table"><thead><tr><th>#</th><th>Пилот</th><th>Команда</th><th style="text-align:right">Очки</th></tr></thead><tbody>';
         allPilots.forEach(function(p, i) {
             var cls = '';
             if (i === 0) cls = ' pos-1';
             else if (i === 1) cls = ' pos-2';
             else if (i === 2) cls = ' pos-3';
-            var barWidth = (i === 0) ? 100 : Math.max(0, 100 - i * 10);
             html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td><span class="flag">' + p.flag + '</span><span class="driver">' + p.name + '</span></td><td class="team-name">' + p.team + '</td><td class="pts">0<div class="progress-bar"><div class="fill" style="width:0%"></div></div></td></tr>';
         });
         html += '</tbody></table>';
