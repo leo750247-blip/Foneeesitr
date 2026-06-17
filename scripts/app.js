@@ -75,7 +75,15 @@
                 qualifying: "🥇 1. 🇳🇱 Max Verstappen (Red Bull)\n🥈 2. 🇬🇧 Lewis Hamilton (Ferrari) +0.8s\n🥉 3. 🇲🇨 Charles Leclerc (McLaren)\n4. 🇬🇧 Lando Norris (McLaren)\n5. 🇬🇧 George Russell (Ferrari)\n6. 🇪🇸 Carlos Sainz (Red Bull)\n7. 🇪🇸 Fernando Alonso (Aston Martin)\n8. 🇦🇺 Oscar Piastri (Williams)\n9. 🇮🇹 Kimi Antonelli (Mercedes)\n10. 🇹🇭 Alex Albon (Mercedes)",
                 winner: "🇬🇧 Льюис Хэмилтон (Ferrari)"
             },
-            {round:2,name:"Гран-при Саудовской Аравии",country:"🇸🇦",date:"8–10 марта",pole:"—",qualifying:"—",winner:"—"},
+            {
+                round: 2,
+                name: "Гран-при Саудовской Аравии",
+                country: "🇸🇦",
+                date: "8–10 марта",
+                pole: "🇲🇨 Шарль Леклер (McLaren)",
+                qualifying: "🥇 1. 🇲🇨 Charles Leclerc (McLaren)\n🥈 2. 🇳🇱 Max Verstappen (Red Bull)\n🥉 3. 🇬🇧 Lewis Hamilton (Ferrari)\n4. 🇬🇧 Lando Norris (McLaren)\n5. 🇬🇧 George Russell (Ferrari)\n6. 🇦🇺 Oscar Piastri (Williams)\n7. 🇪🇸 Carlos Sainz (Red Bull)\n8. 🇹🇭 Alex Albon (Mercedes)\n9. 🇪🇸 Fernando Alonso (Aston Martin)\n10. 🇮🇹 Kimi Antonelli (Mercedes)\n11. 🇫🇷 Pierre Gasly (Alpine)\n12. 🇦🇺 Jack Doohan (Alpine)\n13. 🇩🇰 Kevin Magnussen (Cadillac)\n14. 🇨🇳 Zhou Guanyu (Cadillac)\n15. 🇩🇪 Nico Hülkenberg (Audi)\n16. 🇩🇪 Theo Pourchaire (Audi)\n17. 🇸🇪 Arvid Lindblad (Racing Bulls)\n18. 🇮🇹 Leonardo Fornaroli (Racing Bulls)\n19. 🇨🇦 Lance Stroll (Aston Martin)",
+                winner: "🇲🇨 Шарль Леклер (McLaren)"
+            },
             {round:3,name:"Гран-при Австралии",country:"🇦🇺",date:"22–24 марта",pole:"—",qualifying:"—",winner:"—"},
             {round:4,name:"Гран-при Японии",country:"🇯🇵",date:"5–7 апреля",pole:"—",qualifying:"—",winner:"—"},
             {round:5,name:"Гран-при Китая",country:"🇨🇳",date:"19–21 апреля",pole:"—",qualifying:"—",winner:"—"},
@@ -250,28 +258,28 @@
     function renderStandings() {
         var container = document.getElementById('standingsContent');
         
-        // ===== ДАННЫЕ ЧЕМПИОНАТА =====
+        // ===== ДАННЫЕ ЧЕМПИОНАТА ПОСЛЕ 2-Х ЭТАПОВ =====
         var standingsData = [
-            {pos:1, name:"Lewis Hamilton", flag:"🇬🇧", team:"Ferrari", pts:25},
-            {pos:2, name:"Max Verstappen", flag:"🇳🇱", team:"Red Bull", pts:18},
-            {pos:3, name:"Charles Leclerc", flag:"🇲🇨", team:"McLaren", pts:15},
-            {pos:4, name:"Lando Norris", flag:"🇬🇧", team:"McLaren", pts:12},
-            {pos:5, name:"George Russell", flag:"🇬🇧", team:"Ferrari", pts:10},
-            {pos:6, name:"Carlos Sainz", flag:"🇪🇸", team:"Red Bull", pts:8},
-            {pos:7, name:"Fernando Alonso", flag:"🇪🇸", team:"Aston Martin", pts:6},
-            {pos:8, name:"Oscar Piastri", flag:"🇦🇺", team:"Williams", pts:4},
-            {pos:9, name:"Kimi Antonelli", flag:"🇮🇹", team:"Mercedes", pts:2},
-            {pos:10, name:"Alex Albon", flag:"🇹🇭", team:"Mercedes", pts:1},
-            {pos:11, name:"Pierre Gasly", flag:"🇫🇷", team:"Alpine", pts:0},
-            {pos:12, name:"Jack Doohan", flag:"🇦🇺", team:"Alpine", pts:0},
-            {pos:13, name:"Kevin Magnussen", flag:"🇩🇰", team:"Cadillac", pts:0},
-            {pos:14, name:"Zhou Guanyu", flag:"🇨🇳", team:"Cadillac", pts:0},
-            {pos:15, name:"Nico Hülkenberg", flag:"🇩🇪", team:"Audi", pts:0},
-            {pos:16, name:"Theo Boschung", flag:"🇩🇪", team:"Audi", pts:0},
-            {pos:17, name:"Arvid Lindblad", flag:"🇸🇪", team:"Racing Bulls", pts:0},
-            {pos:18, name:"Leonardo Fornaroli", flag:"🇮🇹", team:"Racing Bulls", pts:0},
-            {pos:19, name:"Lance Stroll", flag:"🇨🇦", team:"Aston Martin", pts:0},
-            {pos:20, name:"Isack Hadjar", flag:"🇫🇷", team:"Williams", pts:0}
+            {pos:1, name:"Charles Leclerc", flag:"🇲🇨", team:"McLaren", pts:68},
+            {pos:2, name:"Max Verstappen", flag:"🇳🇱", team:"Red Bull", pts:61},
+            {pos:3, name:"Lewis Hamilton", flag:"🇬🇧", team:"Ferrari", pts:58},
+            {pos:4, name:"Lando Norris", flag:"🇬🇧", team:"McLaren", pts:40},
+            {pos:5, name:"George Russell", flag:"🇬🇧", team:"Ferrari", pts:28},
+            {pos:6, name:"Oscar Piastri", flag:"🇦🇺", team:"Williams", pts:14},
+            {pos:7, name:"Carlos Sainz", flag:"🇪🇸", team:"Red Bull", pts:14},
+            {pos:8, name:"Kimi Antonelli", flag:"🇮🇹", team:"Mercedes", pts:14},
+            {pos:9, name:"Fernando Alonso", flag:"🇪🇸", team:"Aston Martin", pts:12},
+            {pos:10, name:"Alex Albon", flag:"🇹🇭", team:"Mercedes", pts:3},
+            {pos:11, name:"Isack Hadjar", flag:"🇫🇷", team:"Williams", pts:2},
+            {pos:12, name:"Pierre Gasly", flag:"🇫🇷", team:"Alpine", pts:0},
+            {pos:13, name:"Jack Doohan", flag:"🇦🇺", team:"Alpine", pts:0},
+            {pos:14, name:"Kevin Magnussen", flag:"🇩🇰", team:"Cadillac", pts:0},
+            {pos:15, name:"Zhou Guanyu", flag:"🇨🇳", team:"Cadillac", pts:0},
+            {pos:16, name:"Nico Hülkenberg", flag:"🇩🇪", team:"Audi", pts:0},
+            {pos:17, name:"Theo Pourchaire", flag:"🇩🇪", team:"Audi", pts:0},
+            {pos:18, name:"Arvid Lindblad", flag:"🇸🇪", team:"Racing Bulls", pts:0},
+            {pos:19, name:"Leonardo Fornaroli", flag:"🇮🇹", team:"Racing Bulls", pts:0},
+            {pos:20, name:"Lance Stroll", flag:"🇨🇦", team:"Aston Martin", pts:0}
         ];
 
         // ПОДИУМ (топ-3)
