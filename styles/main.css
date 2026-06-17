@@ -179,4 +179,4 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;min-
 .header-nav .tab{font-size:.6rem;padding:4px 10px}
 .modal-stats{grid-template-columns:1fr}
 .filter-btn{font-size:.55rem;padding:3px 10px}
-      }
+}
