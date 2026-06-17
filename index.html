@@ -1,349 +1,203 @@
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f5f5f5;--surface:#ffffff;--card:#ffffff;--line:#e0e0e0;--text:#1a1a1a;--muted:#888888;--accent:#e10600;--ferrari:#dc0000;--mercedes:#00d2be;--redbull:#1e41b0;--williams:#00a3e0;--racing-bulls:#4d7aff;--haas:#b6babd;--cadillac:#c8102e;--aston:#006f62;--audi:#bb0a21;--alpine:#ff6b9d;--mclaren:#ff8700}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ф1 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
 
-body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent;padding-bottom:30px}
+    <div class="flag-bg">
+        <div class="checkered"></div>
+    </div>
 
-.flag-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:0.03}
-.checkered{width:100%;height:100%;background-image:linear-gradient(45deg,#e10600 25%,transparent 25%,transparent 75%,#e10600 75%,#e10600),linear-gradient(45deg,#e10600 25%,transparent 25%,transparent 75%,#e10600 75%,#e10600);background-size:60px 60px;background-position:0 0,30px 30px}
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">Ф1 <span>2026</span></div>
+            <div class="header-stats">
+                <span id="teamCount">11</span> Команд ·
+                <span id="pilotCount">22</span> Пилота ·
+                <span id="reserveCount">14</span> Резерв
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵 Включить музыку</button>
+            <div class="countdown" id="countdown">
+                ⏱️ <span id="days">0</span>д <span id="hours">0</span>ч <span id="minutes">0</span>м <span id="seconds">0</span>с
+            </div>
+            <nav class="header-nav">
+                <button class="tab active" data-tab="pilots">Пилоты</button>
+                <button class="tab" data-tab="standings">Чемпионат</button>
+                <button class="tab" data-tab="calendar">Календарь</button>
+                <button class="tab" data-tab="history">🏆 История</button>
+            </nav>
+        </div>
+    </header>
 
-.header{background:var(--surface);padding:12px 24px;border-bottom:2px solid var(--accent);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(225,6,0,0.08)}
-.header-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.logo{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:var(--text)}
-.logo span{color:var(--accent)}
-.header-stats{font-size:.65rem;color:var(--muted);font-weight:500;letter-spacing:.05em;text-transform:uppercase}
-.header-stats span{color:var(--text);font-weight:700}
-.header-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    <main>
+        <!-- Пилоты -->
+        <section class="content active" id="pilots">
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">Все команды</button>
+                <button class="filter-btn" data-filter="mclaren">McLaren</button>
+                <button class="filter-btn" data-filter="ferrari">Ferrari</button>
+                <button class="filter-btn" data-filter="mercedes">Mercedes</button>
+                <button class="filter-btn" data-filter="redbull">Red Bull</button>
+                <button class="filter-btn" data-filter="aston">Aston Martin</button>
+                <button class="filter-btn" data-filter="audi">Audi</button>
+                <button class="filter-btn" data-filter="williams">Williams</button>
+                <button class="filter-btn" data-filter="racing-bulls">Racing Bulls</button>
+                <button class="filter-btn" data-filter="cadillac">Cadillac</button>
+                <button class="filter-btn" data-filter="alpine">Alpine</button>
+            </div>
+            <div class="grid" id="teamGrid"></div>
+        </section>
 
-.music-btn{background:rgba(225,6,0,0.08);border:1px solid var(--accent);color:var(--accent);padding:4px 14px;border-radius:20px;font-family:'Barlow',sans-serif;font-size:.65rem;font-weight:600;cursor:pointer;transition:.25s}
-.music-btn:hover{background:var(--accent);color:#fff}
-.music-btn.playing{background:var(--accent);color:#fff;animation:pulse 1.5s ease-in-out infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(225,6,0,0.4)}50%{box-shadow:0 0 0 8px rgba(225,6,0,0)}}
+        <!-- Чемпионат -->
+        <section class="content" id="standings">
+            <div class="standings-header">
+                <h2>ЧЕМПИОНАТ 2026</h2>
+                <p class="muted">🏆 Чемпион: Шарль Леклер</p>
+            </div>
 
-.countdown{font-size:.7rem;color:var(--accent);font-weight:600;background:rgba(225,6,0,0.06);padding:4px 12px;border-radius:20px;border:1px solid rgba(225,6,0,0.1)}
-.header-nav{display:flex;gap:2px}
-.header-nav .tab{background:transparent;border:none;padding:6px 16px;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:600;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:.25s;border-bottom:2px solid transparent;letter-spacing:.05em}
-.header-nav .tab:hover{color:var(--text)}
-.header-nav .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+            <div class="podium-3d">
+                <div class="podium-3d-wrapper">
+                    <div class="podium-tier">
+                        <div class="tier tier-bronze">
+                            <span class="tier-pos">🥉</span>
+                            <span class="tier-name">Хэмилтон</span>
+                            <span class="tier-pts">235 pts</span>
+                        </div>
+                        <div class="tier tier-gold">
+                            <span class="tier-pos">🥇</span>
+                            <span class="tier-name">Леклер</span>
+                            <span class="tier-pts">260 pts</span>
+                        </div>
+                        <div class="tier tier-silver">
+                            <span class="tier-pos">🥈</span>
+                            <span class="tier-name">Ферстаппен</span>
+                            <span class="tier-pts">245 pts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-.content{display:none;padding:20px 24px;max-width:1400px;margin:0 auto;position:relative;z-index:1}
-.content.active{display:block}
+            <div class="prognosis-section">
+                <div class="prognosis-card">
+                    <div class="prognosis-title">🔮 Прогноз на следующую гонку</div>
+                    <p style="color:var(--muted);font-size:.7rem;margin-bottom:8px">Угадай победителя следующего Гран-при</p>
+                    <select class="prognosis-select" id="prognosisSelect">
+                        <option value="">Выбери пилота...</option>
+                        <option value="Charles Leclerc">🇲🇨 Charles Leclerc</option>
+                        <option value="Max Verstappen">🇳🇱 Max Verstappen</option>
+                        <option value="Lewis Hamilton">🇬🇧 Lewis Hamilton</option>
+                        <option value="Kimi Antonelli">🇮🇹 Kimi Antonelli</option>
+                        <option value="George Russell">🇬🇧 George Russell</option>
+                        <option value="Oscar Piastri">🇦🇺 Oscar Piastri</option>
+                        <option value="Lando Norris">🇬🇧 Lando Norris</option>
+                        <option value="Carlos Sainz">🇪🇸 Carlos Sainz</option>
+                        <option value="Fernando Alonso">🇪🇸 Fernando Alonso</option>
+                        <option value="Isack Hadjar">🇫🇷 Isack Hadjar</option>
+                        <option value="Alex Albon">🇹🇭 Alex Albon</option>
+                        <option value="Kevin Magnussen">🇩🇰 Kevin Magnussen</option>
+                        <option value="Pierre Gasly">🇫🇷 Pierre Gasly</option>
+                        <option value="Gabriel Bortoleto">🇧🇷 Gabriel Bortoleto</option>
+                        <option value="Gabriele Mini">🇮🇹 Gabriele Mini</option>
+                    </select>
+                    <button class="prognosis-btn" onclick="makePrognosis()">📊 Отправить прогноз</button>
+                    <div class="prognosis-result" id="prognosisResult">
+                        <div>Твой выбор: <span class="prediction" id="predictionName">—</span></div>
+                        <div class="points">✅ Прогноз сохранён!</div>
+                    </div>
+                </div>
+            </div>
 
-.filter-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;padding:4px 0}
-.filter-btn{background:transparent;border:1px solid var(--line);padding:4px 14px;border-radius:20px;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:600;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:.25s}
-.filter-btn:hover{border-color:var(--accent);color:var(--text)}
-.filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+            <div id="standingsContent"></div>
+        </section>
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:4px}
+        <!-- Календарь -->
+        <section class="content" id="calendar">
+            <div class="calendar-header">
+                <h2>КАЛЕНДАРЬ 2026</h2>
+                <p class="muted">24 этапа</p>
+            </div>
+            <div class="calendar-list" id="calendarList"></div>
+        </section>
 
-.card{background:rgba(255,255,255,0.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:10px;padding:0;overflow:hidden;border:1px solid rgba(224,224,224,0.3);transition:transform .25s ease,box-shadow .25s;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(225,6,0,0.08)}
-.card-top{position:relative;height:4px;background:var(--team-color,var(--accent))}
-.card-body{padding:16px 18px 18px}
-.card-team{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;color:var(--team-color,var(--accent));display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
-.card-team .country{font-size:.7rem;color:var(--muted);font-weight:400}
-.card-budget{font-size:.6rem;color:#4caf50;font-weight:500;margin-bottom:10px;letter-spacing:.02em}
-.card-budget span{color:var(--muted);font-weight:400;opacity:.5}
-.card-label{font-size:.45rem;text-transform:uppercase;color:var(--muted);letter-spacing:.1em;font-weight:600;margin:8px 0 4px}
-.pilots-list{list-style:none;display:flex;flex-direction:column;gap:2px}
-.pilot-item{display:flex;align-items:center;gap:10px;padding:4px 6px;border-radius:4px;cursor:pointer;transition:background .2s}
-.pilot-item:hover{background:rgba(225,6,0,.04)}
-.pilot-photo{width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid var(--line);flex-shrink:0;transition:border-color .2s}
-.pilot-item:hover .pilot-photo{border-color:var(--accent)}
-.pilot-number{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;color:var(--team-color,var(--accent));width:22px;text-align:right;flex-shrink:0}
-.pilot-name{font-size:.75rem;font-weight:500;color:var(--text);display:flex;align-items:center;gap:4px}
-.pilot-name .flag{font-size:.7rem}
-.pilot-age{font-size:.55rem;color:var(--muted);margin-left:auto}
-.reserve .pilot-name{color:var(--muted)}
-.reserve .pilot-number{color:var(--muted);opacity:.4}
-.vacant{color:var(--muted);font-style:italic;opacity:.5;font-size:.7rem;padding:6px 0}
+        <!-- История -->
+        <section class="content" id="history">
+            <div class="history-header">
+                <h2>🏆 ИСТОРИЯ ПОБЕДИТЕЛЕЙ</h2>
+                <p class="muted">Кубок конструкторов и чемпион мира</p>
+            </div>
+            <div class="history-grid">
+                <div class="history-card">
+                    <div class="history-year">2028</div>
+                    <div class="history-winners">
+                        <div class="history-item">
+                            <span class="history-label">🏆 Кубок конструкторов</span>
+                            <span class="history-value">Ferrari</span>
+                        </div>
+                        <div class="history-item">
+                            <span class="history-label">👑 Чемпион мира</span>
+                            <span class="history-value">🇬🇧 Lewis Hamilton</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-year">2027</div>
+                    <div class="history-winners">
+                        <div class="history-item">
+                            <span class="history-label">🏆 Кубок конструкторов</span>
+                            <span class="history-value">Red Bull</span>
+                        </div>
+                        <div class="history-item">
+                            <span class="history-label">👑 Чемпион мира</span>
+                            <span class="history-value">🇳🇱 Max Verstappen</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-year">2026</div>
+                    <div class="history-winners">
+                        <div class="history-item">
+                            <span class="history-label">🏆 Кубок конструкторов</span>
+                            <span class="history-value">McLaren</span>
+                        </div>
+                        <div class="history-item">
+                            <span class="history-label">👑 Чемпион мира</span>
+                            <span class="history-value">🇲🇨 Charles Leclerc</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
-.modal.show{display:flex}
-.modal-box{background:var(--surface);border-radius:12px;max-width:480px;width:100%;border:1px solid var(--line);position:relative;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
-.modal-close{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--muted);font-size:1.6rem;cursor:pointer;transition:.2s;z-index:5}
-.modal-close:hover{color:var(--text)}
-.modal-content{display:flex;flex-direction:column}
-.modal-photo{width:100%;height:220px;object-fit:cover;background:var(--bg)}
-.modal-info{padding:20px 24px 24px}
-.modal-number{font-family:'Barlow Condensed',sans-serif;font-size:3rem;font-weight:900;color:var(--team-color,var(--accent));line-height:1;margin-bottom:-6px}
-.modal-name{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;color:var(--text)}
-.modal-team{font-size:.8rem;font-weight:600;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.modal-stats{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
-.modal-stats>div{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid var(--line);font-size:.7rem}
-.stat-label{color:var(--muted);font-size:.6rem;text-transform:uppercase}
-.stat-value{color:var(--text);font-weight:500}
-.modal-link{display:inline-block;margin-top:14px;color:var(--accent);text-decoration:none;font-weight:600;font-size:.75rem}
+    <!-- Модалка -->
+    <div class="modal" id="modal">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose">×</button>
+            <div class="modal-content">
+                <img class="modal-photo" id="modalPhoto" src="" alt="">
+                <div class="modal-info">
+                    <div class="modal-number" id="modalNumber">4</div>
+                    <div class="modal-name" id="modalName">Ландо Норрис</div>
+                    <div class="modal-team" id="modalTeam">McLaren</div>
+                    <div class="modal-stats">
+                        <div><span class="stat-label">Страна</span><span class="stat-value" id="modalCountry">🇬🇧 Великобритания</span></div>
+                        <div><span class="stat-label">Возраст</span><span class="stat-value" id="modalAge">25</span></div>
+                        <div><span class="stat-label">Команда</span><span class="stat-value" id="modalTeamName">McLaren</span></div>
+                        <div><span class="stat-label">Бюджет</span><span class="stat-value" id="modalBudget">300 млн</span></div>
+                    </div>
+                    <a class="modal-link" id="modalLink" href="#" target="_blank">📖 Википедия →</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-.calendar-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
-.calendar-item{background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:8px;padding:12px 16px;border-left:3px solid var(--accent);cursor:pointer;transition:all .3s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
-.calendar-item:hover{background:rgba(255,255,255,0.9)}
-.calendar-item .calendar-header-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.calendar-item .round{font-size:.5rem;color:var(--muted);font-weight:600;text-transform:uppercase;width:50px;flex-shrink:0}
-.calendar-item .race-name{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--text);flex:1;min-width:120px}
-.calendar-item .race-country{font-size:.7rem;color:var(--muted);display:flex;align-items:center;gap:4px}
-.calendar-item .race-date{font-size:.6rem;color:var(--muted);margin-left:auto}
-.calendar-item .toggle-icon{font-size:.8rem;color:var(--muted);transition:transform .3s;margin-left:6px}
-.calendar-item .toggle-icon.open{transform:rotate(180deg)}
-.calendar-details{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.calendar-details.open{max-height:100px}
-.calendar-details .detail-row{display:flex;gap:20px;padding:8px 0 4px 0;font-size:.7rem;border-top:1px solid var(--line);margin-top:6px}
-.calendar-details .detail-row span{color:var(--muted)}
-.calendar-details .detail-row .value{color:var(--text);font-weight:500}
-
-.standings-header{margin-bottom:12px}
-.standings-header h2{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text);letter-spacing:.05em}
-.standings-header .muted{color:var(--muted);font-size:.7rem}
-.standings-table{width:100%;border-collapse:collapse;font-size:.7rem;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
-.standings-table th{text-align:left;padding:8px 12px;color:var(--muted);font-size:.5rem;text-transform:uppercase;border-bottom:2px solid var(--accent);font-weight:600;letter-spacing:.05em;background:var(--bg)}
-.standings-table td{padding:6px 12px;border-bottom:1px solid var(--line);color:var(--muted)}
-.standings-table .pos{font-weight:700;color:var(--text);width:28px;font-size:.8rem}
-.standings-table .driver{color:var(--text);font-weight:500}
-.standings-table .flag{font-size:.7rem;margin-right:4px}
-.standings-table .pts{text-align:right;font-weight:600;color:var(--text)}
-.standings-table .team-name{font-size:.65rem;color:var(--muted)}
-.standings-table .pos-1{color:#ffd700}
-.standings-table .pos-2{color:#c0c0c0}
-.standings-table .pos-3{color:#cd7f32}
-.standings-table .progress-bar{width:60px;height:6px;background:var(--line);border-radius:3px;display:inline-block;vertical-align:middle;margin-left:6px}
-.standings-table .progress-bar .fill{height:100%;background:var(--accent);border-radius:3px;transition:width .5s}
-
-[data-team=ferrari]{--team-color:var(--ferrari)}
-[data-team=mercedes]{--team-color:var(--mercedes)}
-[data-team=redbull]{--team-color:var(--redbull)}
-[data-team=williams]{--team-color:var(--williams)}
-[data-team=racing-bulls]{--team-color:var(--racing-bulls)}
-[data-team=haas]{--team-color:var(--haas)}
-[data-team=cadillac]{--team-color:var(--cadillac)}
-[data-team=aston]{--team-color:var(--aston)}
-[data-team=audi]{--team-color:var(--audi)}
-[data-team=alpine]{--team-color:var(--alpine)}
-[data-team=mclaren]{--team-color:var(--mclaren)}
-
-.podium{display:flex;justify-content:center;align-items:flex-end;gap:12px;padding:20px 0 10px;margin:10px 0 20px}
-.podium-item{display:flex;flex-direction:column;align-items:center;gap:4px}
-.podium-item .podium-photo{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--line)}
-.podium-item .podium-name{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;color:var(--text)}
-.podium-item .podium-pos{font-size:1.2rem;font-weight:900}
-.podium-item .podium-pos.gold{color:#ffd700}
-.podium-item .podium-pos.silver{color:#c0c0c0}
-.podium-item .podium-pos.bronze{color:#cd7f32}
-.podium-item .podium-base{width:60px;text-align:center;padding:4px 0;border-radius:4px 4px 0 0;font-size:.5rem;font-weight:600;text-transform:uppercase;color:#fff}
-.podium-item .podium-base.gold{height:80px;background:linear-gradient(180deg,#ffd700,#b8960c)}
-.podium-item .podium-base.silver{height:60px;background:linear-gradient(180deg,#c0c0c0,#888)}
-.podium-item .podium-base.bronze{height:45px;background:linear-gradient(180deg,#cd7f32,#8b5a2b)}
-
-/* ===== ИСТОРИЯ ===== */
-.history-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-    margin-top: 12px;
-}
-.history-card {
-    background: var(--card);
-    border-radius: 10px;
-    padding: 20px 24px;
-    border: 1px solid var(--line);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    transition: transform .25s;
-}
-.history-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(225,6,0,0.08);
-}
-.history-year {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--accent);
-    margin-bottom: 12px;
-    letter-spacing: .05em;
-}
-.history-winners {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.history-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--line);
-    font-size: .85rem;
-}
-.history-label {
-    color: var(--muted);
-    font-weight: 500;
-}
-.history-value {
-    color: var(--text);
-    font-weight: 600;
-}
-
-/* ===== ПРОГНОЗ ===== */
-.prognosis-section {
-    margin: 20px 0;
-}
-.prognosis-card {
-    background: var(--card);
-    border-radius: 10px;
-    padding: 20px 24px;
-    border: 1px solid var(--line);
-    max-width: 400px;
-}
-.prognosis-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 8px;
-}
-.prognosis-select {
-    width: 100%;
-    padding: 10px 14px;
-    background: var(--bg);
-    color: var(--text);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    font-family: 'Barlow', sans-serif;
-    font-size: .85rem;
-    margin: 8px 0;
-    outline: none;
-}
-.prognosis-select:focus {
-    border-color: var(--accent);
-}
-.prognosis-btn {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 6px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: .85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: .25s;
-    width: 100%;
-}
-.prognosis-btn:hover {
-    background: #c00500;
-    transform: scale(1.02);
-}
-.prognosis-result {
-    margin-top: 12px;
-    padding: 12px 16px;
-    background: rgba(225,6,0,0.06);
-    border-radius: 6px;
-    border-left: 3px solid var(--accent);
-    display: none;
-}
-.prognosis-result.show {
-    display: block;
-}
-.prognosis-result .prediction {
-    font-weight: 600;
-    color: var(--accent);
-}
-.prognosis-result .points {
-    font-size: .7rem;
-    color: var(--muted);
-}
-
-/* ===== 3D ПОДИУМ ===== */
-.podium-3d {
-    perspective: 800px;
-    margin: 20px 0;
-}
-.podium-3d-wrapper {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    transform-style: preserve-3d;
-    animation: rotatePodium 20s linear infinite;
-}
-@keyframes rotatePodium {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
-}
-.podium-3d-wrapper:hover {
-    animation-play-state: paused;
-}
-.podium-3d .podium-tier {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 12px;
-    padding: 10px 0;
-}
-.podium-3d .tier {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding: 8px 12px;
-    border-radius: 4px 4px 0 0;
-    min-width: 60px;
-}
-.podium-3d .tier-gold {
-    height: 90px;
-    background: linear-gradient(180deg, #ffd700, #b8960c);
-}
-.podium-3d .tier-silver {
-    height: 70px;
-    background: linear-gradient(180deg, #c0c0c0, #888);
-}
-.podium-3d .tier-bronze {
-    height: 55px;
-    background: linear-gradient(180deg, #cd7f32, #8b5a2b);
-}
-.podium-3d .tier .tier-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: .6rem;
-    font-weight: 600;
-    color: #fff;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-    text-align: center;
-}
-.podium-3d .tier .tier-pts {
-    font-size: .5rem;
-    color: rgba(255,255,255,0.7);
-}
-.podium-3d .tier .tier-pos {
-    font-size: 1.2rem;
-    font-weight: 900;
-}
-
-@media(max-width:768px){
-    .header{padding:10px 14px;flex-direction:column;align-items:stretch;gap:6px}
-    .header-right{flex-wrap:wrap;justify-content:space-between}
-    .header-nav{justify-content:center}
-    .filter-bar{justify-content:center}
-    .content{padding:12px 14px}
-    .grid{grid-template-columns:1fr}
-    .calendar-item .calendar-header-row{flex-wrap:wrap;gap:4px 12px}
-    .calendar-item .race-date{margin-left:0}
-    .modal-box{max-width:100%;margin:10px}
-    .modal-photo{height:160px}
-    .modal-number{font-size:2.2rem}
-    .countdown{font-size:.6rem;padding:2px 10px}
-    .music-btn{font-size:.55rem;padding:3px 10px}
-    .podium{gap:8px}
-    .podium-item .podium-base{width:45px}
-    .podium-item .podium-base.gold{height:60px}
-    .podium-item .podium-base.silver{height:45px}
-    .podium-item .podium-base.bronze{height:35px}
-    .podium-3d .tier-gold { height: 70px; min-width: 45px; }
-    .podium-3d .tier-silver { height: 55px; min-width: 45px; }
-    .podium-3d .tier-bronze { height: 40px; min-width: 45px; }
-    .history-grid { grid-template-columns: 1fr; }
-    .prognosis-card { max-width: 100%; }
-}
-@media(max-width:480px){
-    .header-stats{font-size:.55rem}
-    .logo{font-size:1.2rem}
-    .header-nav .tab{font-size:.6rem;padding:4px 10px}
-    .modal-stats{grid-template-columns:1fr}
-    .filter-btn{font-size:.55rem;padding:3px 10px}
-}
+    <script src="scripts/app.js"></script>
+</body>
+    </html>
