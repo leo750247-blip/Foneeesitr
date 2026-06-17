@@ -41,8 +41,11 @@
              pilots:[],
              reserve:[]},
             {id:"cadillac",name:"Cadillac",country:"🇺🇸",budget:170,color:"#c8102e",
-             pilots:[],
-             reserve:[]},
+             pilots:[
+                 {name:"Кевин Магнуссен",number:20,flag:"🇩🇰",age:32,photo:"https://media.formula1.com/content/dam/fom-website/drivers/K/KEVIN_MAGNUSSEN_01.jpg"},
+                 {name:"Чжоу Гуаньюй",number:24,flag:"🇨🇳",age:25,photo:"https://media.formula1.com/content/dam/fom-website/drivers/Z/ZHOU_GUANYU_01.jpg"}
+             ],
+             reserve:[{name:"Патрисио О’Уорд",flag:"🇺🇸",age:26}]},
             {id:"aston",name:"Aston Martin",country:"🇬🇧",budget:170,color:"#006f62",
              pilots:[
                  {name:"Фернандо Алонсо",number:14,flag:"🇪🇸",age:43,photo:"https://media.formula1.com/content/dam/fom-website/drivers/F/FERNANDO_ALONSO_01.jpg"},
@@ -56,8 +59,11 @@
              ],
              reserve:[{name:"Даниэле Джанни",flag:"🇮🇹",age:21}]},
             {id:"alpine",name:"Alpine",country:"🇫🇷",budget:170,color:"#ff6b9d",
-             pilots:[],
-             reserve:[]}
+             pilots:[
+                 {name:"Пьер Гасли",number:10,flag:"🇫🇷",age:29,photo:"https://media.formula1.com/content/dam/fom-website/drivers/P/PIERRE_GASLY_01.jpg"},
+                 {name:"Джек Дуэн",number:7,flag:"🇦🇺",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/J/JACK_DOOHAN_01.jpg"}
+             ],
+             reserve:[{name:"Виктор Мартинс",flag:"🇫🇷",age:23}]}
         ],
         calendar: [
             {round:1,name:"Гран-при Бахрейна",country:"🇧🇭",date:"1–3 марта"},
@@ -94,7 +100,8 @@
         '🇸🇪':'Швеция','🇺🇸':'США','🇨🇦':'Канада',
         '🇹🇭':'Таиланд','🇯🇵':'Япония','🇧🇬':'Болгария',
         '🇧🇷':'Бразилия','🇧🇪':'Бельгия','🇳🇿':'Новая Зеландия',
-        '🇩🇰':'Дания','🇲🇪':'Черногория','🇶🇦':'Катар','🇦🇪':'ОАЭ'
+        '🇩🇰':'Дания','🇲🇪':'Черногория','🇶🇦':'Катар','🇦🇪':'ОАЭ',
+        '🇨🇳':'Китай'
     };
 
     var colorMap = {
