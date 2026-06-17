@@ -1,64 +1,64 @@
-     (function(){
+      (function(){
     var data = {
         teams: [
-            {id:"mclaren",name:"McLaren",country:"🇬🇧",budget:130,color:"#ff8700",
+            {id:"mclaren",name:"McLaren",country:"🇬🇧",budget:300,color:"#ff8700",
              pilots:[
                  {name:"Ландо Норрис",number:4,flag:"🇬🇧",age:25,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LANDO_NORRIS_01.jpg"},
                  {name:"Шарль Леклер",number:16,flag:"🇲🇨",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/C/CHARLES_LECLERC_01.jpg"}
              ],
              reserve:[{name:"Габриэль Бортолето",flag:"🇧🇷",age:20}]},
-            {id:"ferrari",name:"Ferrari",country:"🇮🇹",budget:190,color:"#dc0000",
+            {id:"ferrari",name:"Ferrari",country:"🇮🇹",budget:360,color:"#dc0000",
              pilots:[
                  {name:"Льюис Хэмилтон",number:44,flag:"🇬🇧",age:40,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LEWIS_HAMILTON_01.jpg"},
                  {name:"Джордж Рассел",number:63,flag:"🇬🇧",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/G/GEORGE_RUSSELL_01.jpg"}
              ],
              reserve:[{name:"Габриеле Мини",flag:"🇮🇹",age:19}]},
-            {id:"mercedes",name:"Mercedes",country:"🇩🇪",budget:310,color:"#00d2be",
+            {id:"mercedes",name:"Mercedes",country:"🇩🇪",budget:480,color:"#00d2be",
              pilots:[
                  {name:"Кими Антонелли",number:12,flag:"🇮🇹",age:19,photo:"https://media.formula1.com/content/dam/fom-website/drivers/K/KIMI_ANTONELLI_01.jpg"},
                  {name:"Алекс Албон",number:23,flag:"🇹🇭",age:28,photo:"https://media.formula1.com/content/dam/fom-website/drivers/A/ALEX_ALBON_01.jpg"}
              ],
              reserve:[{name:"Фредерик Вести",flag:"🇩🇰",age:22}]},
-            {id:"redbull",name:"Red Bull",country:"🇦🇹",budget:280,color:"#1e41b0",
+            {id:"redbull",name:"Red Bull",country:"🇦🇹",budget:450,color:"#1e41b0",
              pilots:[
                  {name:"Макс Ферстаппен",number:1,flag:"🇳🇱",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/M/MAX_VERSTAPPEN_01.jpg"},
                  {name:"Карлос Сайнц",number:55,flag:"🇪🇸",age:30,photo:"https://media.formula1.com/content/dam/fom-website/drivers/C/CARLOS_SAINZ_01.jpg"}
              ],
              reserve:[{name:"Юки Цунода",flag:"🇯🇵",age:24},{name:"Никола Цолов",flag:"🇧🇬",age:18}]},
-            {id:"williams",name:"Williams",country:"🇬🇧",budget:136,color:"#00a3e0",
+            {id:"williams",name:"Williams",country:"🇬🇧",budget:306,color:"#00a3e0",
              pilots:[
                  {name:"Оскар Пиастри",number:81,flag:"🇦🇺",age:23,photo:"https://media.formula1.com/content/dam/fom-website/drivers/O/OSCAR_PIASTRI_01.jpg"},
                  {name:"Исак Хаджар",number:37,flag:"🇫🇷",age:20,photo:"https://media.formula1.com/content/dam/fom-website/drivers/I/ISACK_HADJAR_01.jpg"}
              ],
              reserve:[{name:"Дино Беганович",flag:"🇲🇪",age:21},{name:"Джек Денн",flag:"🇦🇺",age:19}]},
-            {id:"racing-bulls",name:"Racing Bulls",country:"🇮🇹",budget:139,color:"#4d7aff",
+            {id:"racing-bulls",name:"Racing Bulls",country:"🇮🇹",budget:309,color:"#4d7aff",
              pilots:[
                  {name:"Арвид Линдблад",number:4,flag:"🇸🇪",age:18,photo:"https://media.formula1.com/content/dam/fom-website/drivers/A/ARVID_LINDBLAD_01.jpg"},
                  {name:"Леонардо Форнаролли",number:30,flag:"🇮🇹",age:19,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LEONARDO_FORNAROLI_01.jpg"}
              ],
              reserve:[{name:"Рафаэль Камара",flag:"🇧🇷",age:19},{name:"Лиам Лоусон",flag:"🇳🇿",age:23}]},
-            {id:"haas",name:"Haas",country:"🇺🇸",budget:80,color:"#b6babd",
+            {id:"haas",name:"Haas",country:"🇺🇸",budget:250,color:"#b6babd",
              pilots:[],
              reserve:[]},
-            {id:"cadillac",name:"Cadillac",country:"🇺🇸",budget:170,color:"#c8102e",
+            {id:"cadillac",name:"Cadillac",country:"🇺🇸",budget:340,color:"#c8102e",
              pilots:[
                  {name:"Кевин Магнуссен",number:20,flag:"🇩🇰",age:32,photo:"https://media.formula1.com/content/dam/fom-website/drivers/K/KEVIN_MAGNUSSEN_01.jpg"},
                  {name:"Чжоу Гуаньюй",number:24,flag:"🇨🇳",age:25,photo:"https://media.formula1.com/content/dam/fom-website/drivers/Z/ZHOU_GUANYU_01.jpg"}
              ],
              reserve:[{name:"Патрисио О’Уорд",flag:"🇺🇸",age:26}]},
-            {id:"aston",name:"Aston Martin",country:"🇬🇧",budget:170,color:"#006f62",
+            {id:"aston",name:"Aston Martin",country:"🇬🇧",budget:340,color:"#006f62",
              pilots:[
                  {name:"Фернандо Алонсо",number:14,flag:"🇪🇸",age:43,photo:"https://media.formula1.com/content/dam/fom-website/drivers/F/FERNANDO_ALONSO_01.jpg"},
                  {name:"Лэнс Стролл",number:18,flag:"🇨🇦",age:26,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LANCE_STROLL_01.jpg"}
              ],
              reserve:[{name:"Стоффель Вандорн",flag:"🇧🇪",age:33},{name:"Джек Кроуфорд",flag:"🇺🇸",age:20}]},
-            {id:"audi",name:"Audi",country:"🇩🇪",budget:190,color:"#bb0a21",
+            {id:"audi",name:"Audi",country:"🇩🇪",budget:360,color:"#bb0a21",
              pilots:[
                  {name:"Нико Хюлькенберг",number:27,flag:"🇩🇪",age:37,photo:"https://media.formula1.com/content/dam/fom-website/drivers/N/NICO_HULKENBERG_01.jpg"},
                  {name:"Тео Босхунг",number:5,flag:"🇩🇪",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/T/THEO_BOSCHUNG_01.jpg"}
              ],
              reserve:[{name:"Даниэле Джанни",flag:"🇮🇹",age:21}]},
-            {id:"alpine",name:"Alpine",country:"🇫🇷",budget:170,color:"#ff6b9d",
+            {id:"alpine",name:"Alpine",country:"🇫🇷",budget:340,color:"#ff6b9d",
              pilots:[
                  {name:"Пьер Гасли",number:10,flag:"🇫🇷",age:29,photo:"https://media.formula1.com/content/dam/fom-website/drivers/P/PIERRE_GASLY_01.jpg"},
                  {name:"Джек Дуэн",number:7,flag:"🇦🇺",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/J/JACK_DOOHAN_01.jpg"}
@@ -441,6 +441,41 @@
         });
     }
 
+    // ===== ПРОГНОЗ =====
+    window.makePrognosis = function() {
+        var select = document.getElementById('prognosisSelect');
+        var result = document.getElementById('prognosisResult');
+        var name = document.getElementById('predictionName');
+        
+        if (!select.value) {
+            alert('Пожалуйста, выбери пилота!');
+            return;
+        }
+        
+        name.textContent = select.value;
+        result.classList.add('show');
+        
+        localStorage.setItem('f1_prognosis', JSON.stringify({
+            pilot: select.value,
+            date: new Date().toISOString()
+        }));
+    };
+
+    window.restorePrognosis = function() {
+        var saved = localStorage.getItem('f1_prognosis');
+        if (saved) {
+            try {
+                var data = JSON.parse(saved);
+                var result = document.getElementById('prognosisResult');
+                var name = document.getElementById('predictionName');
+                if (result && name) {
+                    name.textContent = data.pilot;
+                    result.classList.add('show');
+                }
+            } catch(e) {}
+        }
+    };
+
     // ===== ЗАПУСК =====
     renderTeams('all');
     renderCalendar();
@@ -452,4 +487,5 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
     initPilotClicks();
-})();
+    restorePrognosis();
+})();                  
