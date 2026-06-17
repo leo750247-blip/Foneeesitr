@@ -9,13 +9,26 @@
 </head>
 <body>
 
+    <!-- ===== СВЕТОФОР ===== -->
+    <div class="traffic-light" id="trafficLight">
+        <div class="traffic-light-container">
+            <div class="traffic-light-title">🏁 F1 2028</div>
+            <div class="traffic-light-lights">
+                <div class="light red" id="redLight"></div>
+                <div class="light yellow" id="yellowLight"></div>
+                <div class="light green" id="greenLight"></div>
+            </div>
+            <div class="traffic-light-text" id="trafficText">ГОНКА СКОРО НАЧНЁТСЯ</div>
+        </div>
+    </div>
+
     <header class="header">
         <div class="header-left">
             <div class="logo">Ф1 <span>2028</span></div>
             <div class="header-stats">
-                <span id="teamCount">11</span> Команд ·
-                <span id="pilotCount">19</span> Пилота ·
-                <span id="reserveCount">16</span> Резерв
+                <span id="teamCount">0</span> Команд ·
+                <span id="pilotCount">0</span> Пилота ·
+                <span id="reserveCount">0</span> Резерв
             </div>
         </div>
         <div class="header-right">
@@ -29,7 +42,6 @@
                 <button class="tab" data-tab="calendar">Календарь</button>
                 <button class="tab" data-tab="history">🏆 История</button>
                 <button class="tab" data-tab="transfers">📋 Трансферы</button>
-                <button class="tab" data-tab="casino">🎰 Казино</button>
             </nav>
         </div>
     </header>
@@ -102,47 +114,6 @@
             </div>
             <div class="transfers-list" id="transfersList"></div>
         </section>
-
-        <!-- Казино -->
-        <section class="content" id="casino">
-            <div class="casino-header">
-                <h2>🎰 КАЗИНО F1</h2>
-                <p class="muted">Ставь монеты на своих любимых пилотов!</p>
-            </div>
-            <div class="casino-balance">
-                <div class="balance-card">
-                    <span class="balance-label">💰 Твой баланс</span>
-                    <span class="balance-value" id="balanceValue">1000</span>
-                    <span class="balance-currency">монет</span>
-                </div>
-            </div>
-            <div class="casino-bet">
-                <div class="bet-card">
-                    <div class="bet-title">Сделай ставку</div>
-                    <select class="bet-select" id="betSelect">
-                        <option value="">Выбери пилота...</option>
-                    </select>
-                    <input type="number" class="bet-input" id="betInput" placeholder="Сумма ставки" min="1" max="1000">
-                    <button class="bet-btn" onclick="makeBet()">📊 Сделать ставку</button>
-                    <div class="bet-result" id="betResult"></div>
-                </div>
-                <div class="bet-history">
-                    <div class="bet-title">📋 История ставок</div>
-                    <div class="bet-history-list" id="betHistoryList">
-                        <div class="bet-empty">Ставок пока нет</div>
-                    </div>
-                </div>
-            </div>
-            <div class="casino-leaderboard">
-                <div class="bet-title">🏆 Топ игроков</div>
-                <div class="leaderboard-list" id="leaderboardList">
-                    <div class="leaderboard-item lb-first">
-                        <span class="lb-name">👤 Ты</span>
-                        <span class="lb-balance" id="lbBalance">1000</span>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Модалка -->
@@ -167,16 +138,6 @@
         </div>
     </div>
 
-    <!-- ===== ПОДКЛЮЧЕНИЕ SUPABASE ===== -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-        const SUPABASE_URL = 'https://wvulkhashdvbkdwraspk.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_SNbQ3wg7NaoBMgkMh340tg_b2mb3DGc';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-        
-        console.log('Supabase подключен');
-        console.log('URL:', SUPABASE_URL);
-    </script>
     <script src="scripts/app.js"></script>
 </body>
 </html>
