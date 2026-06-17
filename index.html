@@ -9,8 +9,6 @@
 </head>
 <body>
 
-    <div class="bg-leclerc"></div>
-
     <header class="header">
         <div class="header-left">
             <div class="logo">Ф1 <span>2028</span></div>
@@ -175,7 +173,10 @@
         const SUPABASE_URL = 'https://wvulkhashdvbkdwraspk.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_SNbQ3wg7NaoBMgkMh340tg_b2mb3DGc';
         const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        console.log('Supabase подключен');
+        console.log('URL:', SUPABASE_URL);
     </script>
     <script src="scripts/app.js"></script>
 </body>
-    </html>
+</html>
