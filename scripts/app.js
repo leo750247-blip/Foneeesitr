@@ -37,8 +37,12 @@
                  {name:"Леонардо Форнаролли",number:30,flag:"🇮🇹",age:19,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LEONARDO_FORNAROLI_01.jpg"}
              ],
              reserve:[{name:"Рафаэль Камара",flag:"🇧🇷",age:19},{name:"Лиам Лоусон",flag:"🇳🇿",age:23}]},
-            {id:"haas",name:"Haas",country:"🇺🇸",budget:80,color:"#b6babd",pilots:[],reserve:[]},
-            {id:"cadillac",name:"Cadillac",country:"🇺🇸",budget:120,color:"#c8102e",pilots:[],reserve:[]},
+            {id:"haas",name:"Haas",country:"🇺🇸",budget:80,color:"#b6babd",
+             pilots:[],
+             reserve:[]},
+            {id:"cadillac",name:"Cadillac",country:"🇺🇸",budget:170,color:"#c8102e",
+             pilots:[],
+             reserve:[]},
             {id:"aston",name:"Aston Martin",country:"🇬🇧",budget:170,color:"#006f62",
              pilots:[
                  {name:"Фернандо Алонсо",number:14,flag:"🇪🇸",age:43,photo:"https://media.formula1.com/content/dam/fom-website/drivers/F/FERNANDO_ALONSO_01.jpg"},
@@ -51,7 +55,9 @@
                  {name:"Тео Босхунг",number:5,flag:"🇩🇪",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/T/THEO_BOSCHUNG_01.jpg"}
              ],
              reserve:[{name:"Даниэле Джанни",flag:"🇮🇹",age:21}]},
-            {id:"alpine",name:"Alpine",country:"🇫🇷",budget:110,color:"#ff6b9d",pilots:[],reserve:[]}
+            {id:"alpine",name:"Alpine",country:"🇫🇷",budget:170,color:"#ff6b9d",
+             pilots:[],
+             reserve:[]}
         ],
         calendar: [
             {round:1,name:"Гран-при Бахрейна",country:"🇧🇭",date:"1–3 марта"},
@@ -94,7 +100,7 @@
     var colorMap = {
         mclaren:'#ff8700',ferrari:'#dc0000',mercedes:'#00d2be',
         redbull:'#1e41b0',williams:'#00a3e0','racing-bulls':'#4d7aff',
-        aston:'#006f62',audi:'#bb0a21'
+        aston:'#006f62',audi:'#bb0a21',cadillac:'#c8102e',alpine:'#ff6b9d'
     };
 
     // ===== МУЗЫКА =====
@@ -110,7 +116,7 @@
             btn.classList.remove('playing');
         } else {
             audio.play().catch(function(e) {
-                console.log('Автовоспроизведение заблокировано, нажмите ещё раз');
+                console.log('Автовоспроизведение заблокировано');
             });
             btn.textContent = '🔇 Выключить музыку';
             btn.classList.add('playing');
@@ -376,12 +382,29 @@
         document.getElementById('seconds').textContent = seconds;
     }
 
+    // ===== ДОБАВЛЕНИЕ ФИЛЬТРОВ ДЛЯ CADILLAC И ALPINE =====
+    function addFilterButtons() {
+        var filterBar = document.querySelector('.filter-bar');
+        var newButtons = [
+            {id:'cadillac',name:'Cadillac'},
+            {id:'alpine',name:'Alpine'}
+        ];
+        newButtons.forEach(function(btn) {
+            var button = document.createElement('button');
+            button.className = 'filter-btn';
+            button.dataset.filter = btn.id;
+            button.textContent = btn.name;
+            filterBar.appendChild(button);
+        });
+    }
+
     // ===== ЗАПУСК =====
     renderTeams('all');
     renderCalendar();
     renderStandings();
     initTabs();
     initFilters();
+    addFilterButtons();
     updateCounters();
     updateCountdown();
     setInterval(updateCountdown, 1000);
