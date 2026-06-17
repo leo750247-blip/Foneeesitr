@@ -66,31 +66,32 @@
              reserve:[{name:"Виктор Мартинс",flag:"🇫🇷",age:23}]}
         ],
         calendar: [
-            {round:1,name:"Гран-при Бахрейна",country:"🇧🇭",date:"1–3 марта"},
-            {round:2,name:"Гран-при Саудовской Аравии",country:"🇸🇦",date:"8–10 марта"},
-            {round:3,name:"Гран-при Австралии",country:"🇦🇺",date:"22–24 марта"},
-            {round:4,name:"Гран-при Японии",country:"🇯🇵",date:"5–7 апреля"},
-            {round:5,name:"Гран-при Китая",country:"🇨🇳",date:"19–21 апреля"},
-            {round:6,name:"Гран-при Майами",country:"🇺🇸",date:"3–5 мая"},
-            {round:7,name:"Гран-при Эмилии-Романьи",country:"🇮🇹",date:"17–19 мая"},
-            {round:8,name:"Гран-при Монако",country:"🇲🇨",date:"31 мая – 2 июня"},
-            {round:9,name:"Гран-при Испании",country:"🇪🇸",date:"7–9 июня"},
-            {round:10,name:"Гран-при Канады",country:"🇨🇦",date:"14–16 июня"},
-            {round:11,name:"Гран-при Австрии",country:"🇦🇹",date:"28–30 июня"},
-            {round:12,name:"Гран-при Великобритании",country:"🇬🇧",date:"5–7 июля"},
-            {round:13,name:"Гран-при Бельгии",country:"🇧🇪",date:"19–21 июля"},
-            {round:14,name:"Гран-при Венгрии",country:"🇭🇺",date:"26–28 июля"},
-            {round:15,name:"Гран-при Нидерландов",country:"🇳🇱",date:"23–25 августа"},
-            {round:16,name:"Гран-при Италии",country:"🇮🇹",date:"6–8 сентября"},
-            {round:17,name:"Гран-при Азербайджана",country:"🇦🇿",date:"13–15 сентября"},
-            {round:18,name:"Гран-при Сингапура",country:"🇸🇬",date:"27–29 сентября"},
-            {round:19,name:"Гран-при США (Остин)",country:"🇺🇸",date:"11–13 октября"},
-            {round:20,name:"Гран-при Мексики",country:"🇲🇽",date:"18–20 октября"},
-            {round:21,name:"Гран-при Сан-Паулу",country:"🇧🇷",date:"1–3 ноября"},
-            {round:22,name:"Гран-при Лас-Вегаса",country:"🇺🇸",date:"15–17 ноября"},
-            {round:23,name:"Гран-при Катара",country:"🇶🇦",date:"29 ноября – 1 декабря"},
-            {round:24,name:"Гран-при Абу-Даби",country:"🇦🇪",date:"6–8 декабря"}
-        ]
+            {round:1,name:"Гран-при Бахрейна",country:"🇧🇭",date:"1–3 марта",pole:"—",qualifying:"—",winner:"—"},
+            {round:2,name:"Гран-при Саудовской Аравии",country:"🇸🇦",date:"8–10 марта",pole:"—",qualifying:"—",winner:"—"},
+            {round:3,name:"Гран-при Австралии",country:"🇦🇺",date:"22–24 марта",pole:"—",qualifying:"—",winner:"—"},
+            {round:4,name:"Гран-при Японии",country:"🇯🇵",date:"5–7 апреля",pole:"—",qualifying:"—",winner:"—"},
+            {round:5,name:"Гран-при Китая",country:"🇨🇳",date:"19–21 апреля",pole:"—",qualifying:"—",winner:"—"},
+            {round:6,name:"Гран-при Майами",country:"🇺🇸",date:"3–5 мая",pole:"—",qualifying:"—",winner:"—"},
+            {round:7,name:"Гран-при Эмилии-Романьи",country:"🇮🇹",date:"17–19 мая",pole:"—",qualifying:"—",winner:"—"},
+            {round:8,name:"Гран-при Монако",country:"🇲🇨",date:"31 мая – 2 июня",pole:"—",qualifying:"—",winner:"—"},
+            {round:9,name:"Гран-при Испании",country:"🇪🇸",date:"7–9 июня",pole:"—",qualifying:"—",winner:"—"},
+            {round:10,name:"Гран-при Канады",country:"🇨🇦",date:"14–16 июня",pole:"—",qualifying:"—",winner:"—"},
+            {round:11,name:"Гран-при Австрии",country:"🇦🇹",date:"28–30 июня",pole:"—",qualifying:"—",winner:"—"},
+            {round:12,name:"Гран-при Великобритании",country:"🇬🇧",date:"5–7 июля",pole:"—",qualifying:"—",winner:"—"},
+            {round:13,name:"Гран-при Бельгии",country:"🇧🇪",date:"19–21 июля",pole:"—",qualifying:"—",winner:"—"},
+            {round:14,name:"Гран-при Венгрии",country:"🇭🇺",date:"26–28 июля",pole:"—",qualifying:"—",winner:"—"},
+            {round:15,name:"Гран-при Нидерландов",country:"🇳🇱",date:"23–25 августа",pole:"—",qualifying:"—",winner:"—"},
+            {round:16,name:"Гран-при Италии",country:"🇮🇹",date:"6–8 сентября",pole:"—",qualifying:"—",winner:"—"},
+            {round:17,name:"Гран-при Азербайджана",country:"🇦🇿",date:"13–15 сентября",pole:"—",qualifying:"—",winner:"—"},
+            {round:18,name:"Гран-при Сингапура",country:"🇸🇬",date:"27–29 сентября",pole:"—",qualifying:"—",winner:"—"},
+            {round:19,name:"Гран-при США (Остин)",country:"🇺🇸",date:"11–13 октября",pole:"—",qualifying:"—",winner:"—"},
+            {round:20,name:"Гран-при Мексики",country:"🇲🇽",date:"18–20 октября",pole:"—",qualifying:"—",winner:"—"},
+            {round:21,name:"Гран-при Сан-Паулу",country:"🇧🇷",date:"1–3 ноября",pole:"—",qualifying:"—",winner:"—"},
+            {round:22,name:"Гран-при Лас-Вегаса",country:"🇺🇸",date:"15–17 ноября",pole:"—",qualifying:"—",winner:"—"},
+            {round:23,name:"Гран-при Катара",country:"🇶🇦",date:"29 ноября – 1 декабря",pole:"—",qualifying:"—",winner:"—"},
+            {round:24,name:"Гран-при Абу-Даби",country:"🇦🇪",date:"6–8 декабря",pole:"—",qualifying:"—",winner:"—"}
+        ],
+        results: {}
     };
 
     var countryMap = {
@@ -122,9 +123,7 @@
             btn.textContent = '🎵 Включить музыку';
             btn.classList.remove('playing');
         } else {
-            audio.play().catch(function(e) {
-                console.log('Автовоспроизведение заблокировано');
-            });
+            audio.play().catch(function(e) {});
             btn.textContent = '🔇 Выключить музыку';
             btn.classList.add('playing');
         }
@@ -201,12 +200,43 @@
                 '</div>' +
                 '<div class="calendar-details">' +
                     '<div class="detail-row">' +
-                        '<span>Поул: <span class="value">—</span></span>' +
-                        '<span>Победитель гонки: <span class="value">—</span></span>' +
+                        '<span>Поул: <span class="value">' + race.pole + '</span></span>' +
+                        '<span>Квалификация: <span class="value">' + race.qualifying + '</span></span>' +
+                        '<span>Победитель: <span class="value">' + race.winner + '</span></span>' +
                     '</div>' +
                 '</div>';
             list.appendChild(div);
         });
+    }
+
+    // ===== РЕЗУЛЬТАТЫ ГОНКИ =====
+    function renderResults() {
+        var container = document.getElementById('resultsContent');
+        var html = '';
+        
+        data.calendar.forEach(function(race) {
+            html += '<div class="result-item">';
+            html += '<div class="result-header" onclick="this.parentElement.querySelector(\'.result-details\').classList.toggle(\'open\'); this.querySelector(\'.toggle-icon\').classList.toggle(\'open\')">';
+            html += '<span class="result-round">Этап ' + race.round + '</span>';
+            html += '<span class="result-name">' + race.name + '</span>';
+            html += '<span class="result-date">📅 ' + race.date + '</span>';
+            html += '<span class="toggle-icon">▼</span>';
+            html += '</div>';
+            html += '<div class="result-details">';
+            html += '<div class="result-grid">';
+            html += '<div class="result-col"><span class="result-label">🏁 Поул</span><span class="result-value">' + race.pole + '</span></div>';
+            html += '<div class="result-col"><span class="result-label">⏱️ Квалификация</span><span class="result-value">' + race.qualifying + '</span></div>';
+            html += '<div class="result-col"><span class="result-label">🥇 Победитель</span><span class="result-value">' + race.winner + '</span></div>';
+            html += '</div>';
+            html += '<div class="result-full">';
+            html += '<span class="result-label">📋 Полные результаты</span>';
+            html += '<div class="result-placeholder">Результаты гонки появятся после её завершения</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+        });
+
+        container.innerHTML = html;
     }
 
     // ===== ЧЕМПИОНАТ =====
@@ -389,7 +419,7 @@
         document.getElementById('seconds').textContent = seconds;
     }
 
-    // ===== ДОБАВЛЕНИЕ ФИЛЬТРОВ ДЛЯ CADILLAC И ALPINE =====
+    // ===== ДОБАВЛЕНИЕ ФИЛЬТРОВ =====
     function addFilterButtons() {
         var filterBar = document.querySelector('.filter-bar');
         var newButtons = [
@@ -408,6 +438,7 @@
     // ===== ЗАПУСК =====
     renderTeams('all');
     renderCalendar();
+    renderResults();
     renderStandings();
     initTabs();
     initFilters();
