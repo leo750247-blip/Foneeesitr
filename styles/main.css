@@ -1,21 +1,6 @@
-/* ===== БАЗА ===== */
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f0 100%);min-height:100vh;font-family:'Barlow',sans-serif;padding-bottom:30px;background-attachment:fixed;position:relative}
 
-/* ===== СВЕТОФОР ===== */
-.traffic-light{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);transition:opacity 0.8s ease}
-.traffic-light.hidden{opacity:0;pointer-events:none}
-.traffic-light-container{text-align:center;padding:40px;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);border-radius:20px;border:2px solid #e10600;box-shadow:0 0 60px rgba(225,6,0,0.3)}
-.traffic-light-title{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;color:#fff;margin-bottom:20px;letter-spacing:4px}
-.traffic-light-title span{color:#e10600}
-.traffic-light-lights{display:flex;gap:20px;justify-content:center;margin-bottom:20px}
-.light{width:60px;height:60px;border-radius:50%;background:#333;border:2px solid #555;transition:all 0.3s ease;box-shadow:inset 0 0 20px rgba(0,0,0,0.5)}
-.light.red.active{background:#ff0000;box-shadow:0 0 40px rgba(255,0,0,0.8),inset 0 0 20px rgba(255,0,0,0.3)}
-.light.yellow.active{background:#ffcc00;box-shadow:0 0 40px rgba(255,204,0,0.8),inset 0 0 20px rgba(255,204,0,0.3)}
-.light.green.active{background:#00ff00;box-shadow:0 0 40px rgba(0,255,0,0.8),inset 0 0 20px rgba(0,255,0,0.3)}
-.traffic-light-text{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:600;color:#fff;letter-spacing:2px;min-height:30px}
-
-/* ===== ХЕДЕР ===== */
 .header{background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);padding:12px 24px;border-bottom:2px solid rgba(225,6,0,0.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:100}
 .header-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .logo{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:900;text-transform:uppercase;color:#1a1a1a}
@@ -35,17 +20,14 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
 .header-nav .tab:hover{color:#1a1a1a}
 .header-nav .tab.active{color:#e10600;border-bottom-color:#e10600}
 
-/* ===== КОНТЕНТ ===== */
 .content{display:none;padding:20px 24px;max-width:1400px;margin:0 auto;position:relative;z-index:1}
 .content.active{display:block}
 
-/* ===== ФИЛЬТРЫ ===== */
 .filter-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
 .filter-btn{background:rgba(255,255,255,0.5);border:1px solid rgba(225,6,0,0.2);padding:4px 14px;border-radius:20px;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:600;text-transform:uppercase;color:#888;cursor:pointer;transition:.25s}
 .filter-btn:hover{border-color:#e10600;color:#1a1a1a}
 .filter-btn.active{background:#e10600;color:#fff;border-color:#e10600}
 
-/* ===== ГРИД И КАРТОЧКИ ===== */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:4px}
 .card{background:rgba(255,255,255,0.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.3);transition:transform .25s ease,box-shadow .25s;box-shadow:0 4px 20px rgba(225,6,0,0.06)}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(225,6,0,0.12)}
@@ -69,7 +51,6 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
 .reserve .pilot-number{color:#888;opacity:.4}
 .vacant{color:#888;font-style:italic;opacity:.5;font-size:.7rem;padding:6px 0}
 
-/* ===== КАЛЕНДАРЬ ===== */
 .calendar-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
 .calendar-item{background:rgba(255,255,255,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:8px;padding:12px 16px;border-left:3px solid #e10600;cursor:pointer;transition:all .3s}
 .calendar-item:hover{background:rgba(255,255,255,0.8)}
@@ -86,7 +67,6 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
 .calendar-details .detail-row span{color:#888}
 .calendar-details .detail-row .value{color:#1a1a1a;font-weight:500}
 
-/* ===== ЧЕМПИОНАТ ===== */
 .standings-header{margin-bottom:12px}
 .standings-header h2{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:#1a1a1a}
 .standings-header .muted{color:#888;font-size:.7rem}
@@ -103,7 +83,6 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
 .standings-table .progress-bar{width:60px;height:6px;background:#ddd;border-radius:3px;display:inline-block;vertical-align:middle;margin-left:6px}
 .standings-table .progress-bar .fill{height:100%;background:#e10600;border-radius:3px;transition:width .5s}
 
-/* ===== ЦВЕТА КОМАНД ===== */
 [data-team=ferrari]{--team-color:#dc0000}
 [data-team=mercedes]{--team-color:#00d2be}
 [data-team=redbull]{--team-color:#1e41b0}
@@ -116,7 +95,6 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
 [data-team=alpine]{--team-color:#ff6b9d}
 [data-team=mclaren]{--team-color:#ff8700}
 
-/* ===== ПОДИУМ ===== */
 .podium{display:flex;justify-content:center;align-items:flex-end;gap:12px;padding:20px 0 10px;margin:10px 0 20px}
 .podium-item{display:flex;flex-direction:column;align-items:center;gap:4px}
 .podium-item .podium-name{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;color:#1a1a1a}
@@ -129,7 +107,6 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
 .podium-item .podium-base.silver{height:60px;background:linear-gradient(180deg,#c0c0c0,#888)}
 .podium-item .podium-base.bronze{height:45px;background:linear-gradient(180deg,#cd7f32,#8b5a2b)}
 
-/* ===== ИСТОРИЯ ===== */
 .history-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:12px}
 .history-card{background:rgba(255,255,255,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:10px;padding:20px 24px;border:1px solid rgba(255,255,255,0.3);transition:transform .25s}
 .history-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(225,6,0,0.06)}
@@ -138,7 +115,6 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
 .history-label{color:#888;font-weight:500}
 .history-value{color:#1a1a1a;font-weight:600}
 
-/* ===== ТРАНСФЕРЫ ===== */
 .transfers-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
 .transfer-item{background:rgba(255,255,255,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:8px;padding:14px 18px;border-left:3px solid #e10600;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .transfer-item .transfer-info{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
@@ -149,7 +125,6 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
 .transfer-price{font-weight:700;color:#4caf50}
 .transfer-date{font-size:.6rem;color:#888}
 
-/* ===== МОДАЛКА ===== */
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
 .modal.show{display:flex}
 .modal-box{background:#fff;border-radius:12px;max-width:480px;width:100%;border:1px solid #eee;position:relative;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.1)}
@@ -167,7 +142,6 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
 .stat-value{color:#1a1a1a;font-weight:500}
 .modal-link{display:inline-block;margin-top:14px;color:#e10600;text-decoration:none;font-weight:600;font-size:.75rem}
 
-/* ===== АДАПТИВ ===== */
 @media(max-width:768px){
     .header{padding:10px 14px;flex-direction:column;align-items:stretch;gap:6px}
     .header-right{flex-wrap:wrap;justify-content:space-between}
@@ -182,9 +156,6 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
     .modal-number{font-size:2.2rem}
     .countdown{font-size:.6rem;padding:2px 10px}
     .music-btn{font-size:.55rem;padding:3px 10px}
-    .traffic-light-container{padding:20px;margin:20px}
-    .light{width:40px;height:40px}
-    .traffic-light-title{font-size:1.2rem}
 }
 @media(max-width:480px){
     .header-stats{font-size:.55rem}
@@ -192,7 +163,4 @@ body{background:linear-gradient(135deg,#e10600 0%,#ff6b6b 25%,#ffffff 55%,#f0f0f
     .header-nav .tab{font-size:.55rem;padding:4px 8px}
     .modal-stats{grid-template-columns:1fr}
     .filter-btn{font-size:.55rem;padding:3px 8px}
-    .traffic-light-container{padding:15px}
-    .light{width:30px;height:30px}
-    .traffic-light-title{font-size:1rem}
-           }
+                 }
