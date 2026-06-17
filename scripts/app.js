@@ -1,64 +1,64 @@
 (function(){
     var data = {
         teams: [
-            {id:"mclaren",name:"McLaren",country:"🇬🇧",budget:300,color:"#ff8700",
+            {id:"mclaren",name:"McLaren",country:"🇬🇧",budget:280,color:"#ff8700",
              pilots:[
                  {name:"Ландо Норрис",number:4,flag:"🇬🇧",age:25,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LANDO_NORRIS_01.jpg"},
                  {name:"Шарль Леклер",number:16,flag:"🇲🇨",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/C/CHARLES_LECLERC_01.jpg"}
              ],
              reserve:[{name:"Габриэль Бортолето",flag:"🇧🇷",age:20}]},
-            {id:"ferrari",name:"Ferrari",country:"🇮🇹",budget:360,color:"#dc0000",
+            {id:"ferrari",name:"Ferrari",country:"🇮🇹",budget:340,color:"#dc0000",
              pilots:[
                  {name:"Льюис Хэмилтон",number:44,flag:"🇬🇧",age:40,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LEWIS_HAMILTON_01.jpg"},
                  {name:"Джордж Рассел",number:63,flag:"🇬🇧",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/G/GEORGE_RUSSELL_01.jpg"}
              ],
              reserve:[{name:"Габриеле Мини",flag:"🇮🇹",age:19}]},
-            {id:"mercedes",name:"Mercedes",country:"🇩🇪",budget:480,color:"#00d2be",
+            {id:"mercedes",name:"Mercedes",country:"🇩🇪",budget:630,color:"#00d2be",
              pilots:[
                  {name:"Кими Антонелли",number:12,flag:"🇮🇹",age:19,photo:"https://media.formula1.com/content/dam/fom-website/drivers/K/KIMI_ANTONELLI_01.jpg"},
-                 {name:"Алекс Албон",number:23,flag:"🇹🇭",age:28,photo:"https://media.formula1.com/content/dam/fom-website/drivers/A/ALEX_ALBON_01.jpg"}
+                 {name:"Исак Хаджар",number:37,flag:"🇫🇷",age:20,photo:"https://media.formula1.com/content/dam/fom-website/drivers/I/ISACK_HADJAR_01.jpg"}
              ],
-             reserve:[{name:"Фредерик Вести",flag:"🇩🇰",age:22}]},
-            {id:"redbull",name:"Red Bull",country:"🇦🇹",budget:450,color:"#1e41b0",
+             reserve:[{name:"Ноэль Леон",flag:"🇲🇽",age:18}]},
+            {id:"redbull",name:"Red Bull",country:"🇦🇹",budget:430,color:"#1e41b0",
              pilots:[
                  {name:"Макс Ферстаппен",number:1,flag:"🇳🇱",age:27,photo:"https://media.formula1.com/content/dam/fom-website/drivers/M/MAX_VERSTAPPEN_01.jpg"},
                  {name:"Карлос Сайнц",number:55,flag:"🇪🇸",age:30,photo:"https://media.formula1.com/content/dam/fom-website/drivers/C/CARLOS_SAINZ_01.jpg"}
              ],
              reserve:[{name:"Юки Цунода",flag:"🇯🇵",age:24},{name:"Никола Цолов",flag:"🇧🇬",age:18}]},
-            {id:"williams",name:"Williams",country:"🇬🇧",budget:306,color:"#00a3e0",
+            {id:"williams",name:"Williams",country:"🇬🇧",budget:224,color:"#00a3e0",
              pilots:[
-                 {name:"Оскар Пиастри",number:81,flag:"🇦🇺",age:23,photo:"https://media.formula1.com/content/dam/fom-website/drivers/O/OSCAR_PIASTRI_01.jpg"},
-                 {name:"Исак Хаджар",number:37,flag:"🇫🇷",age:20,photo:"https://media.formula1.com/content/dam/fom-website/drivers/I/ISACK_HADJAR_01.jpg"}
+                 {name:"Фернандо Алонсо",number:14,flag:"🇪🇸",age:43,photo:"https://media.formula1.com/content/dam/fom-website/drivers/F/FERNANDO_ALONSO_01.jpg"},
+                 {name:"Оскар Пиастри",number:81,flag:"🇦🇺",age:23,photo:"https://media.formula1.com/content/dam/fom-website/drivers/O/OSCAR_PIASTRI_01.jpg"}
              ],
-             reserve:[{name:"Дино Беганович",flag:"🇲🇪",age:21},{name:"Джек Денн",flag:"🇦🇺",age:19}]},
-            {id:"racing-bulls",name:"Racing Bulls",country:"🇮🇹",budget:309,color:"#4d7aff",
+             reserve:[{name:"Бастиан Монтойя",flag:"🇨🇴",age:19}]},
+            {id:"racing-bulls",name:"Racing Bulls",country:"🇮🇹",budget:289,color:"#4d7aff",
              pilots:[
                  {name:"Арвид Линдблад",number:4,flag:"🇸🇪",age:18,photo:"https://media.formula1.com/content/dam/fom-website/drivers/A/ARVID_LINDBLAD_01.jpg"},
                  {name:"Леонардо Форнаролли",number:30,flag:"🇮🇹",age:19,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LEONARDO_FORNAROLI_01.jpg"}
              ],
              reserve:[{name:"Рафаэль Камара",flag:"🇧🇷",age:19},{name:"Лиам Лоусон",flag:"🇳🇿",age:23}]},
-            {id:"haas",name:"Haas",country:"🇺🇸",budget:250,color:"#b6babd",
+            {id:"haas",name:"Haas",country:"🇺🇸",budget:230,color:"#b6babd",
              pilots:[],
              reserve:[]},
-            {id:"cadillac",name:"Cadillac",country:"🇺🇸",budget:340,color:"#c8102e",
+            {id:"cadillac",name:"Cadillac",country:"🇺🇸",budget:320,color:"#c8102e",
              pilots:[
                  {name:"Кевин Магнуссен",number:20,flag:"🇩🇰",age:32,photo:"https://media.formula1.com/content/dam/fom-website/drivers/K/KEVIN_MAGNUSSEN_01.jpg"},
                  {name:"Чжоу Гуаньюй",number:24,flag:"🇨🇳",age:25,photo:"https://media.formula1.com/content/dam/fom-website/drivers/Z/ZHOU_GUANYU_01.jpg"}
              ],
              reserve:[{name:"Патрисио О’Уорд",flag:"🇺🇸",age:26}]},
-            {id:"aston",name:"Aston Martin",country:"🇬🇧",budget:340,color:"#006f62",
+            {id:"aston",name:"Aston Martin",country:"🇬🇧",budget:320,color:"#006f62",
              pilots:[
-                 {name:"Фернандо Алонсо",number:14,flag:"🇪🇸",age:43,photo:"https://media.formula1.com/content/dam/fom-website/drivers/F/FERNANDO_ALONSO_01.jpg"},
-                 {name:"Лэнс Стролл",number:18,flag:"🇨🇦",age:26,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LANCE_STROLL_01.jpg"}
+                 {name:"Лэнс Стролл",number:18,flag:"🇨🇦",age:26,photo:"https://media.formula1.com/content/dam/fom-website/drivers/L/LANCE_STROLL_01.jpg"},
+                 {name:"—",number:0,flag:"🇬🇧",age:0,photo:""}
              ],
              reserve:[{name:"Стоффель Вандорн",flag:"🇧🇪",age:33},{name:"Джек Кроуфорд",flag:"🇺🇸",age:20}]},
-            {id:"audi",name:"Audi",country:"🇩🇪",budget:360,color:"#bb0a21",
+            {id:"audi",name:"Audi",country:"🇩🇪",budget:340,color:"#bb0a21",
              pilots:[
                  {name:"Нико Хюлькенберг",number:27,flag:"🇩🇪",age:37,photo:"https://media.formula1.com/content/dam/fom-website/drivers/N/NICO_HULKENBERG_01.jpg"},
                  {name:"Тео Босхунг",number:5,flag:"🇩🇪",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/T/THEO_BOSCHUNG_01.jpg"}
              ],
              reserve:[{name:"Даниэле Джанни",flag:"🇮🇹",age:21}]},
-            {id:"alpine",name:"Alpine",country:"🇫🇷",budget:340,color:"#ff6b9d",
+            {id:"alpine",name:"Alpine",country:"🇫🇷",budget:320,color:"#ff6b9d",
              pilots:[
                  {name:"Пьер Гасли",number:10,flag:"🇫🇷",age:29,photo:"https://media.formula1.com/content/dam/fom-website/drivers/P/PIERRE_GASLY_01.jpg"},
                  {name:"Джек Дуэн",number:7,flag:"🇦🇺",age:22,photo:"https://media.formula1.com/content/dam/fom-website/drivers/J/JACK_DOOHAN_01.jpg"}
@@ -66,30 +66,30 @@
              reserve:[{name:"Виктор Мартинс",flag:"🇫🇷",age:23}]}
         ],
         calendar: [
-            {round:1,name:"Гран-при Бахрейна",country:"🇧🇭",date:"1–3 марта",pole:"🇳🇱 Макс Ферстаппен (Red Bull)",winner:"🇬🇧 Льюис Хэмилтон (Ferrari)"},
-            {round:2,name:"Гран-при Саудовской Аравии",country:"🇸🇦",date:"8–10 марта",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇲🇨 Шарль Леклер (McLaren)"},
-            {round:3,name:"Гран-при Австралии",country:"🇦🇺",date:"22–24 марта",pole:"🇳🇱 Макс Ферстаппен (Red Bull)",winner:"🇲🇨 Шарль Леклер (McLaren)"},
-            {round:4,name:"Гран-при Японии",country:"🇯🇵",date:"5–7 апреля",pole:"🇮🇹 Кими Антонелли (Mercedes)",winner:"🇫🇷 Исак Хаджар (Williams)"},
-            {round:5,name:"Гран-при Китая",country:"🇨🇳",date:"19–21 апреля",pole:"🇩🇰 Кевин Магнуссен (Cadillac)",winner:"🇩🇰 Кевин Магнуссен (Cadillac)"},
-            {round:6,name:"Гран-при Майами",country:"🇺🇸",date:"3–5 мая",pole:"🇫🇷 Исак Хаджар (Williams)",winner:"🇮🇹 Кими Антонелли (Mercedes)"},
-            {round:7,name:"Гран-при Эмилии-Романьи",country:"🇮🇹",date:"17–19 мая",pole:"🇳🇱 Макс Ферстаппен (Red Bull)",winner:"🇳🇱 Макс Ферстаппен (Red Bull)"},
-            {round:8,name:"Гран-при Монако",country:"🇲🇨",date:"31 мая – 2 июня",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇮🇹 Кими Антонелли (Mercedes)"},
-            {round:9,name:"Гран-при Испании",country:"🇪🇸",date:"7–9 июня",pole:"🇬🇧 Льюис Хэмилтон (Ferrari)",winner:"🇬🇧 Льюис Хэмилтон (Ferrari)"},
-            {round:10,name:"Гран-при Канады",country:"🇨🇦",date:"14–16 июня",pole:"🇮🇹 Кими Антонелли (Mercedes)",winner:"🇪🇸 Фернандо Алонсо (Aston Martin)"},
-            {round:11,name:"Гран-при Австрии",country:"🇦🇹",date:"28–30 июня",pole:"🇪🇸 Фернандо Алонсо (Aston Martin)",winner:"🇪🇸 Фернандо Алонсо (Aston Martin)"},
-            {round:12,name:"Гран-при Великобритании",country:"🇬🇧",date:"5–7 июля",pole:"🇫🇷 Пьер Гасли (Alpine)",winner:"🇹🇭 Алекс Албон (Mercedes)"},
-            {round:13,name:"Гран-при Бельгии",country:"🇧🇪",date:"19–21 июля",pole:"🇳🇱 Макс Ферстаппен (Red Bull)",winner:"🇳🇱 Макс Ферстаппен (Red Bull)"},
-            {round:14,name:"Гран-при Венгрии",country:"🇭🇺",date:"26–28 июля",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇦🇺 Оскар Пиастри (Williams)"},
-            {round:15,name:"Гран-при Нидерландов",country:"🇳🇱",date:"23–25 августа",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇬🇧 Джордж Рассел (Ferrari)"},
-            {round:16,name:"Гран-при Италии",country:"🇮🇹",date:"6–8 сентября",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇲🇨 Шарль Леклер (McLaren)"},
-            {round:17,name:"Гран-при Азербайджана",country:"🇦🇿",date:"13–15 сентября",pole:"🇪🇸 Карлос Сайнц (Red Bull)",winner:"🇪🇸 Карлос Сайнц (Red Bull)"},
-            {round:18,name:"Гран-при Сингапура",country:"🇸🇬",date:"27–29 сентября",pole:"🇫🇷 Исак Хаджар (Williams)",winner:"🇲🇨 Шарль Леклер (McLaren)"},
-            {round:19,name:"Гран-при США (Остин)",country:"🇺🇸",date:"11–13 октября",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇮🇹 Кими Антонелли (Mercedes)"},
-            {round:20,name:"Гран-при Мексики",country:"🇲🇽",date:"18–20 октября",pole:"🇲🇨 Шарль Леклер (McLaren)",winner:"🇬🇧 Льюис Хэмилтон (Ferrari)"},
-            {round:21,name:"Гран-при Бразилии Сан-Паулу",country:"🇧🇷",date:"1–3 ноября",pole:"🇬🇧 Джордж Рассел (Ferrari)",winner:"🇬🇧 Джордж Рассел (Ferrari)"},
-            {round:22,name:"Гран-при Лас-Вегаса",country:"🇺🇸",date:"15–17 ноября",pole:"🇬🇧 Льюис Хэмилтон (Ferrari)",winner:"🇮🇹 Габриеле Мини (Ferrari)"},
-            {round:23,name:"Гран-при Катара",country:"🇶🇦",date:"29 ноября – 1 декабря",pole:"🇫🇷 Исак Хаджар (Williams)",winner:"🇪🇸 Фернандо Алонсо (Aston Martin)"},
-            {round:24,name:"Гран-при Абу-Даби",country:"🇦🇪",date:"6–8 декабря",pole:"🇮🇹 Кими Антонелли (Mercedes)",winner:"🇹🇭 Алекс Албон (Mercedes)"}
+            {round:1,name:"Гран-при Бахрейна",country:"🇧🇭",date:"1–3 марта",pole:"—",winner:"—"},
+            {round:2,name:"Гран-при Саудовской Аравии",country:"🇸🇦",date:"8–10 марта",pole:"—",winner:"—"},
+            {round:3,name:"Гран-при Австралии",country:"🇦🇺",date:"22–24 марта",pole:"—",winner:"—"},
+            {round:4,name:"Гран-при Японии",country:"🇯🇵",date:"5–7 апреля",pole:"—",winner:"—"},
+            {round:5,name:"Гран-при Китая",country:"🇨🇳",date:"19–21 апреля",pole:"—",winner:"—"},
+            {round:6,name:"Гран-при Майами",country:"🇺🇸",date:"3–5 мая",pole:"—",winner:"—"},
+            {round:7,name:"Гран-при Эмилии-Романьи",country:"🇮🇹",date:"17–19 мая",pole:"—",winner:"—"},
+            {round:8,name:"Гран-при Монако",country:"🇲🇨",date:"31 мая – 2 июня",pole:"—",winner:"—"},
+            {round:9,name:"Гран-при Испании",country:"🇪🇸",date:"7–9 июня",pole:"—",winner:"—"},
+            {round:10,name:"Гран-при Канады",country:"🇨🇦",date:"14–16 июня",pole:"—",winner:"—"},
+            {round:11,name:"Гран-при Австрии",country:"🇦🇹",date:"28–30 июня",pole:"—",winner:"—"},
+            {round:12,name:"Гран-при Великобритании",country:"🇬🇧",date:"5–7 июля",pole:"—",winner:"—"},
+            {round:13,name:"Гран-при Бельгии",country:"🇧🇪",date:"19–21 июля",pole:"—",winner:"—"},
+            {round:14,name:"Гран-при Венгрии",country:"🇭🇺",date:"26–28 июля",pole:"—",winner:"—"},
+            {round:15,name:"Гран-при Нидерландов",country:"🇳🇱",date:"23–25 августа",pole:"—",winner:"—"},
+            {round:16,name:"Гран-при Италии",country:"🇮🇹",date:"6–8 сентября",pole:"—",winner:"—"},
+            {round:17,name:"Гран-при Азербайджана",country:"🇦🇿",date:"13–15 сентября",pole:"—",winner:"—"},
+            {round:18,name:"Гран-при Сингапура",country:"🇸🇬",date:"27–29 сентября",pole:"—",winner:"—"},
+            {round:19,name:"Гран-при США (Остин)",country:"🇺🇸",date:"11–13 октября",pole:"—",winner:"—"},
+            {round:20,name:"Гран-при Мексики",country:"🇲🇽",date:"18–20 октября",pole:"—",winner:"—"},
+            {round:21,name:"Гран-при Бразилии Сан-Паулу",country:"🇧🇷",date:"1–3 ноября",pole:"—",winner:"—"},
+            {round:22,name:"Гран-при Лас-Вегаса",country:"🇺🇸",date:"15–17 ноября",pole:"—",winner:"—"},
+            {round:23,name:"Гран-при Катара",country:"🇶🇦",date:"29 ноября – 1 декабря",pole:"—",winner:"—"},
+            {round:24,name:"Гран-при Абу-Даби",country:"🇦🇪",date:"6–8 декабря",pole:"—",winner:"—"}
         ]
     };
 
@@ -101,7 +101,7 @@
         '🇹🇭':'Таиланд','🇯🇵':'Япония','🇧🇬':'Болгария',
         '🇧🇷':'Бразилия','🇧🇪':'Бельгия','🇳🇿':'Новая Зеландия',
         '🇩🇰':'Дания','🇲🇪':'Черногория','🇶🇦':'Катар','🇦🇪':'ОАЭ',
-        '🇨🇳':'Китай'
+        '🇨🇳':'Китай','🇲🇽':'Мексика','🇨🇴':'Колумбия'
     };
 
     var colorMap = {
@@ -149,12 +149,16 @@
                 pilotsHTML += '<div class="pilot-item"><span class="vacant">— Свободно —</span></div>';
             } else {
                 team.pilots.forEach(function(p) {
-                    pilotsHTML += '<div class="pilot-item" data-name="' + p.name + '" data-team="' + team.name + '" data-flag="' + p.flag + '" data-age="' + p.age + '" data-number="' + p.number + '" data-budget="' + team.budget + '" data-teamkey="' + team.id + '" data-photo="' + p.photo + '" data-wiki="' + p.name.replace(/ /g,'_') + '">' +
-                        '<img class="pilot-photo" src="' + p.photo + '" alt="' + p.name + '" loading="lazy" onerror="this.src=\'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 font-family=%22Barlow Condensed%22 font-size=%2230%22 fill=%22%23888%22%3E' + p.name.split(' ').map(function(w){return w[0]}).join('') + '%3C/text%3E%3C/svg%3E\'">' +
-                        '<span class="pilot-number">' + p.number + '</span>' +
-                        '<span class="pilot-name"><span class="flag">' + p.flag + '</span>' + p.name + '</span>' +
-                        '<span class="pilot-age">🎂' + p.age + ' лет</span>' +
-                    '</div>';
+                    if (p.name === '—') {
+                        pilotsHTML += '<div class="pilot-item"><span class="vacant">— Свободно —</span></div>';
+                    } else {
+                        pilotsHTML += '<div class="pilot-item" data-name="' + p.name + '" data-team="' + team.name + '" data-flag="' + p.flag + '" data-age="' + p.age + '" data-number="' + p.number + '" data-budget="' + team.budget + '" data-teamkey="' + team.id + '" data-photo="' + p.photo + '" data-wiki="' + p.name.replace(/ /g,'_') + '">' +
+                            '<img class="pilot-photo" src="' + p.photo + '" alt="' + p.name + '" loading="lazy" onerror="this.src=\'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 font-family=%22Barlow Condensed%22 font-size=%2230%22 fill=%22%23888%22%3E' + p.name.split(' ').map(function(w){return w[0]}).join('') + '%3C/text%3E%3C/svg%3E\'">' +
+                            '<span class="pilot-number">' + p.number + '</span>' +
+                            '<span class="pilot-name"><span class="flag">' + p.flag + '</span>' + p.name + '</span>' +
+                            '<span class="pilot-age">🎂' + p.age + ' лет</span>' +
+                        '</div>';
+                    }
                 });
             }
 
@@ -207,54 +211,36 @@
         });
     }
 
-    // ===== ЧЕМПИОНАТ =====
+    // ===== ЧЕМПИОНАТ (ВСЕ ОЧКИ СБРОШЕНЫ) =====
     function renderStandings() {
         var container = document.getElementById('standingsContent');
         
         var standingsData = [
-            {pos:1, name:"Charles Leclerc", flag:"🇲🇨", team:"McLaren", pts:260},
-            {pos:2, name:"Max Verstappen", flag:"🇳🇱", team:"Red Bull", pts:245},
-            {pos:3, name:"Lewis Hamilton", flag:"🇬🇧", team:"Ferrari", pts:235},
-            {pos:4, name:"Kimi Antonelli", flag:"🇮🇹", team:"Mercedes", pts:201},
-            {pos:5, name:"George Russell", flag:"🇬🇧", team:"Ferrari", pts:170},
-            {pos:6, name:"Oscar Piastri", flag:"🇦🇺", team:"Williams", pts:143},
-            {pos:7, name:"Lando Norris", flag:"🇬🇧", team:"McLaren", pts:132},
-            {pos:8, name:"Carlos Sainz", flag:"🇪🇸", team:"Red Bull", pts:121},
-            {pos:9, name:"Fernando Alonso", flag:"🇪🇸", team:"Aston Martin", pts:110},
-            {pos:10, name:"Isack Hadjar", flag:"🇫🇷", team:"Williams", pts:98},
-            {pos:11, name:"Alex Albon", flag:"🇹🇭", team:"Mercedes", pts:77},
-            {pos:12, name:"Kevin Magnussen", flag:"🇩🇰", team:"Cadillac", pts:25},
-            {pos:13, name:"Pierre Gasly", flag:"🇫🇷", team:"Alpine", pts:18},
-            {pos:14, name:"Leonardo Fornaroli", flag:"🇮🇹", team:"Racing Bulls", pts:15},
-            {pos:15, name:"Nico Hülkenberg", flag:"🇩🇪", team:"Audi", pts:15},
-            {pos:16, name:"Gabriel Bortoleto", flag:"🇧🇷", team:"McLaren", pts:14},
-            {pos:17, name:"Gabriele Mini", flag:"🇮🇹", team:"Ferrari", pts:12},
-            {pos:18, name:"Jack Doohan", flag:"🇦🇺", team:"Alpine", pts:0},
-            {pos:19, name:"Zhou Guanyu", flag:"🇨🇳", team:"Cadillac", pts:0},
-            {pos:20, name:"Theo Pourchaire", flag:"🇩🇪", team:"Audi", pts:0},
-            {pos:21, name:"Arvid Lindblad", flag:"🇸🇪", team:"Racing Bulls", pts:0},
-            {pos:22, name:"Lance Stroll", flag:"🇨🇦", team:"Aston Martin", pts:0}
+            {pos:1, name:"—", flag:"—", team:"—", pts:0},
+            {pos:2, name:"—", flag:"—", team:"—", pts:0},
+            {pos:3, name:"—", flag:"—", team:"—", pts:0},
+            {pos:4, name:"—", flag:"—", team:"—", pts:0},
+            {pos:5, name:"—", flag:"—", team:"—", pts:0},
+            {pos:6, name:"—", flag:"—", team:"—", pts:0},
+            {pos:7, name:"—", flag:"—", team:"—", pts:0},
+            {pos:8, name:"—", flag:"—", team:"—", pts:0},
+            {pos:9, name:"—", flag:"—", team:"—", pts:0},
+            {pos:10, name:"—", flag:"—", team:"—", pts:0}
         ];
 
         var podiumHTML = '<div class="podium">';
         var medals = ['gold','silver','bronze'];
         var names = ['🥇','🥈','🥉'];
         var top3 = standingsData.slice(0,3);
-        while (top3.length < 3) {
-            top3.push({name:'—',flag:'',team:'',pts:0});
-        }
         top3.forEach(function(p, i) {
             podiumHTML += '<div class="podium-item">' +
                 '<div class="podium-pos ' + medals[i] + '">' + names[i] + '</div>' +
-                '<div class="podium-name">' + p.flag + ' ' + p.name + (i === 0 ? ' 🏆' : '') + '</div>' +
-                '<div class="podium-base ' + medals[i] + '">' + p.pts + ' очков</div>' +
+                '<div class="podium-name">—</div>' +
+                '<div class="podium-base ' + medals[i] + '">0 очков</div>' +
             '</div>';
         });
         podiumHTML += '</div>';
         container.innerHTML = podiumHTML;
-
-        var maxPts = standingsData[0] ? standingsData[0].pts : 1;
-        if (maxPts === 0) maxPts = 1;
 
         var html = '<table class="standings-table"><thead><tr><th>#</th><th>Пилот</th><th>Команда</th><th style="text-align:right">Очки</th></tr></thead><tbody>';
         standingsData.forEach(function(p, i) {
@@ -262,31 +248,14 @@
             if (i === 0) cls = ' pos-1';
             else if (i === 1) cls = ' pos-2';
             else if (i === 2) cls = ' pos-3';
-            var barWidth = Math.round((p.pts / maxPts) * 100);
-            html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td><span class="flag">' + p.flag + '</span><span class="driver">' + p.name + (i === 0 ? ' 🏆' : '') + '</span></td><td class="team-name">' + p.team + '</td><td class="pts">' + p.pts + '<div class="progress-bar"><div class="fill" style="width:' + barWidth + '%"></div></div></td></tr>';
+            html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td><span class="flag">—</span><span class="driver">—</span></td><td class="team-name">—</td><td class="pts">0<div class="progress-bar"><div class="fill" style="width:0%"></div></div></td></tr>';
         });
         html += '</tbody></table>';
 
-        var constructorPts = {};
-        standingsData.forEach(function(p) {
-            if (!constructorPts[p.team]) constructorPts[p.team] = 0;
-            constructorPts[p.team] += p.pts;
-        });
-        var constructorArray = Object.keys(constructorPts).map(function(key) {
-            return {name: key, pts: constructorPts[key]};
-        }).sort(function(a, b) { return b.pts - a.pts; });
-
         html += '<h3 style="font-family:\'Barlow Condensed\',sans-serif;font-size:.8rem;font-weight:600;color:var(--muted);margin:20px 0 8px">КОМАНДНЫЙ ЗАЧЁТ</h3>';
         html += '<table class="standings-table"><thead><tr><th>#</th><th>Команда</th><th style="text-align:right">Очки</th></tr></thead><tbody>';
-        var maxConstrPts = constructorArray[0] ? constructorArray[0].pts : 1;
-        if (maxConstrPts === 0) maxConstrPts = 1;
-        constructorArray.forEach(function(team, i) {
-            var cls = '';
-            if (i === 0) cls = ' pos-1';
-            else if (i === 1) cls = ' pos-2';
-            else if (i === 2) cls = ' pos-3';
-            var barWidth = Math.round((team.pts / maxConstrPts) * 100);
-            html += '<tr><td class="pos' + cls + '">' + (i+1) + '</td><td class="driver">' + team.name + '</td><td class="pts">' + team.pts + '<div class="progress-bar"><div class="fill" style="width:' + barWidth + '%"></div></div></td></tr>';
+        data.teams.forEach(function(team, i) {
+            html += '<tr><td class="pos' + (i === 0 ? ' pos-1' : '') + '">' + (i+1) + '</td><td class="driver">' + team.name + '</td><td class="pts">0<div class="progress-bar"><div class="fill" style="width:0%"></div></div></td></tr>';
         });
         html += '</tbody></table>';
         container.innerHTML += html;
@@ -402,7 +371,7 @@
 
     // ===== ОБРАТНЫЙ ОТСЧЁТ =====
     function updateCountdown() {
-        var target = new Date(2026, 2, 1, 0, 0, 0);
+        var target = new Date(2028, 2, 1, 0, 0, 0);
         var now = new Date();
         var diff = target - now;
         if (diff <= 0) {
@@ -438,41 +407,6 @@
         });
     }
 
-    // ===== ПРОГНОЗ =====
-    window.makePrognosis = function() {
-        var select = document.getElementById('prognosisSelect');
-        var result = document.getElementById('prognosisResult');
-        var name = document.getElementById('predictionName');
-        
-        if (!select.value) {
-            alert('Пожалуйста, выбери пилота!');
-            return;
-        }
-        
-        name.textContent = select.value;
-        result.classList.add('show');
-        
-        localStorage.setItem('f1_prognosis', JSON.stringify({
-            pilot: select.value,
-            date: new Date().toISOString()
-        }));
-    };
-
-    window.restorePrognosis = function() {
-        var saved = localStorage.getItem('f1_prognosis');
-        if (saved) {
-            try {
-                var data = JSON.parse(saved);
-                var result = document.getElementById('prognosisResult');
-                var name = document.getElementById('predictionName');
-                if (result && name) {
-                    name.textContent = data.pilot;
-                    result.classList.add('show');
-                }
-            } catch(e) {}
-        }
-    };
-
     // ===== ЗАПУСК =====
     renderTeams('all');
     renderCalendar();
@@ -484,5 +418,4 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
     initPilotClicks();
-    restorePrognosis();
 })();
