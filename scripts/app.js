@@ -1,4 +1,4 @@
-(function(){
+     (function(){
     var data = {
         teams: [
             {id:"mclaren",name:"McLaren",country:"🇬🇧",budget:130,color:"#ff8700",
@@ -93,7 +93,15 @@
                 qualifying: "🥇 1. 🇲🇨 Charles Leclerc (McLaren)\n🥈 2. 🇳🇱 Max Verstappen (Red Bull) +1.6s\n🥉 3. 🇦🇺 Oscar Piastri (Williams)\n4. 🇬🇧 Lewis Hamilton (Ferrari)\n5. 🇪🇸 Carlos Sainz (Red Bull)\n6. 🇧🇷 Gabriel Bortoleto (McLaren) 🆕\n7. 🇮🇹 Gabriele Mini (Ferrari) 🆕\n8. 🇹🇭 Alex Albon (Mercedes)\n9. 🇮🇹 Kimi Antonelli (Mercedes)\n10. 🇪🇸 Fernando Alonso (Aston Martin)\n11. 🇫🇷 Pierre Gasly (Alpine)\n12. 🇦🇺 Jack Doohan (Alpine)\n13. 🇩🇰 Kevin Magnussen (Cadillac)\n14. 🇨🇳 Zhou Guanyu (Cadillac)\n15. 🇩🇪 Nico Hülkenberg (Audi)\n16. 🇫🇷 Isack Hadjar (Williams)\n17. 🇩🇪 Theo Pourchaire (Audi)\n18. 🇸🇪 Arvid Lindblad (Racing Bulls)\n19. 🇮🇹 Leonardo Fornaroli (Racing Bulls)\n20. 🇨🇦 Lance Stroll (Aston Martin)",
                 winner: "🇲🇨 Шарль Леклер (McLaren)"
             },
-            {round:4,name:"Гран-при Японии",country:"🇯🇵",date:"5–7 апреля",pole:"—",qualifying:"—",winner:"—"},
+            {
+                round: 4,
+                name: "Гран-при Японии",
+                country: "🇯🇵",
+                date: "5–7 апреля",
+                pole: "🇮🇹 Кими Антонелли (Mercedes)",
+                qualifying: "🥇 1. 🇮🇹 Kimi Antonelli (Mercedes)\n🥈 2. ...\n🥉 3. ...",
+                winner: "🇫🇷 Исак Хаджар (Williams)"
+            },
             {round:5,name:"Гран-при Китая",country:"🇨🇳",date:"19–21 апреля",pole:"—",qualifying:"—",winner:"—"},
             {round:6,name:"Гран-при Майами",country:"🇺🇸",date:"3–5 мая",pole:"—",qualifying:"—",winner:"—"},
             {round:7,name:"Гран-при Эмилии-Романьи",country:"🇮🇹",date:"17–19 мая",pole:"—",qualifying:"—",winner:"—"},
@@ -235,30 +243,29 @@
     function renderStandings() {
         var container = document.getElementById('standingsContent');
         
-        // ===== ДАННЫЕ ЧЕМПИОНАТА ПОСЛЕ 3-Х ЭТАПОВ =====
+        // ===== ДАННЫЕ ЧЕМПИОНАТА ПОСЛЕ 4-Х ЭТАПОВ =====
         var standingsData = [
-            {pos:1, name:"Charles Leclerc", flag:"🇲🇨", team:"McLaren", pts:93},
-            {pos:2, name:"Max Verstappen", flag:"🇳🇱", team:"Red Bull", pts:79},
-            {pos:3, name:"Lewis Hamilton", flag:"🇬🇧", team:"Ferrari", pts:70},
-            {pos:4, name:"Oscar Piastri", flag:"🇦🇺", team:"Williams", pts:29},
-            {pos:5, name:"Lando Norris", flag:"🇬🇧", team:"McLaren", pts:40},
-            {pos:6, name:"Carlos Sainz", flag:"🇪🇸", team:"Red Bull", pts:24},
-            {pos:7, name:"George Russell", flag:"🇬🇧", team:"Ferrari", pts:28},
-            {pos:8, name:"Kimi Antonelli", flag:"🇮🇹", team:"Mercedes", pts:16},
-            {pos:9, name:"Fernando Alonso", flag:"🇪🇸", team:"Aston Martin", pts:13},
-            {pos:10, name:"Alex Albon", flag:"🇹🇭", team:"Mercedes", pts:7},
-            {pos:11, name:"Gabriel Bortoleto", flag:"🇧🇷", team:"McLaren", pts:8},
-            {pos:12, name:"Gabriele Mini", flag:"🇮🇹", team:"Ferrari", pts:6},
-            {pos:13, name:"Isack Hadjar", flag:"🇫🇷", team:"Williams", pts:2},
-            {pos:14, name:"Pierre Gasly", flag:"🇫🇷", team:"Alpine", pts:0},
-            {pos:15, name:"Jack Doohan", flag:"🇦🇺", team:"Alpine", pts:0},
-            {pos:16, name:"Kevin Magnussen", flag:"🇩🇰", team:"Cadillac", pts:0},
-            {pos:17, name:"Zhou Guanyu", flag:"🇨🇳", team:"Cadillac", pts:0},
-            {pos:18, name:"Nico Hülkenberg", flag:"🇩🇪", team:"Audi", pts:0},
-            {pos:19, name:"Theo Pourchaire", flag:"🇩🇪", team:"Audi", pts:0},
-            {pos:20, name:"Arvid Lindblad", flag:"🇸🇪", team:"Racing Bulls", pts:0},
-            {pos:21, name:"Leonardo Fornaroli", flag:"🇮🇹", team:"Racing Bulls", pts:0},
-            {pos:22, name:"Lance Stroll", flag:"🇨🇦", team:"Aston Martin", pts:0}
+            {pos:1, name:"Charles Leclerc", flag:"🇲🇨", team:"McLaren", pts:99},
+            {pos:2, name:"Max Verstappen", flag:"🇳🇱", team:"Red Bull", pts:93},
+            {pos:3, name:"Lewis Hamilton", flag:"🇬🇧", team:"Ferrari", pts:86},
+            {pos:4, name:"Kimi Antonelli", flag:"🇮🇹", team:"Mercedes", pts:43},
+            {pos:5, name:"Oscar Piastri", flag:"🇦🇺", team:"Williams", pts:38},
+            {pos:6, name:"Carlos Sainz", flag:"🇪🇸", team:"Red Bull", pts:32},
+            {pos:7, name:"Isack Hadjar", flag:"🇫🇷", team:"Williams", pts:31},
+            {pos:8, name:"Lando Norris", flag:"🇬🇧", team:"McLaren", pts:28},
+            {pos:9, name:"Fernando Alonso", flag:"🇪🇸", team:"Aston Martin", pts:18},
+            {pos:10, name:"Gabriel Bortoleto", flag:"🇧🇷", team:"McLaren", pts:14},
+            {pos:11, name:"Gabriele Mini", flag:"🇮🇹", team:"Ferrari", pts:12},
+            {pos:12, name:"Alex Albon", flag:"🇹🇭", team:"Mercedes", pts:10},
+            {pos:13, name:"Pierre Gasly", flag:"🇫🇷", team:"Alpine", pts:0},
+            {pos:14, name:"Jack Doohan", flag:"🇦🇺", team:"Alpine", pts:0},
+            {pos:15, name:"Kevin Magnussen", flag:"🇩🇰", team:"Cadillac", pts:0},
+            {pos:16, name:"Zhou Guanyu", flag:"🇨🇳", team:"Cadillac", pts:0},
+            {pos:17, name:"Nico Hülkenberg", flag:"🇩🇪", team:"Audi", pts:0},
+            {pos:18, name:"Theo Pourchaire", flag:"🇩🇪", team:"Audi", pts:0},
+            {pos:19, name:"Arvid Lindblad", flag:"🇸🇪", team:"Racing Bulls", pts:0},
+            {pos:20, name:"Leonardo Fornaroli", flag:"🇮🇹", team:"Racing Bulls", pts:0},
+            {pos:21, name:"Lance Stroll", flag:"🇨🇦", team:"Aston Martin", pts:0}
         ];
 
         // ПОДИУМ (топ-3)
@@ -478,4 +485,3 @@
     setInterval(updateCountdown, 1000);
     initPilotClicks();
 })();
-        
