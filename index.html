@@ -31,6 +31,7 @@ body{
     overflow-x:hidden;
     position:relative;
 }
+/* decorative blurred glow shapes */
 body::before, body::after{
     content:"";
     position:fixed;
@@ -86,6 +87,49 @@ header{
     -webkit-text-fill-color:transparent;
 }
 
+.leader-badge{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:linear-gradient(135deg, rgba(255,209,102,0.18), rgba(123,47,247,0.18));
+    border:1px solid rgba(255,209,102,0.4);
+    border-radius:50px;
+    padding:7px 18px 7px 10px;
+    cursor:pointer;
+    transition:all 0.3s;
+}
+.leader-badge:hover{
+    border-color:rgba(255,209,102,0.7);
+    box-shadow:0 0 25px rgba(255,209,102,0.3);
+    transform:translateY(-2px);
+}
+.leader-badge .crown{
+    font-size:1.3rem;
+    animation:crownPulse 2.2s ease-in-out infinite;
+}
+@keyframes crownPulse{
+    0%,100%{transform:scale(1) rotate(0deg); filter:drop-shadow(0 0 4px rgba(255,209,102,0.5));}
+    50%{transform:scale(1.15) rotate(-4deg); filter:drop-shadow(0 0 12px rgba(255,209,102,0.9));}
+}
+.leader-badge .leader-info{display:flex; flex-direction:column; line-height:1.25;}
+.leader-badge .leader-label{
+    font-size:0.58rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:#cbb86b;
+    font-weight:700;
+}
+.leader-badge .leader-name{
+    font-size:0.88rem;
+    font-weight:700;
+    color:#fff;
+    white-space:nowrap;
+}
+.leader-badge .leader-points{
+    color:var(--gold);
+    font-weight:600;
+}
+
 .nav{display:flex;gap:8px;flex-wrap:wrap;}
 .nav button{
     padding:10px 20px;
@@ -111,23 +155,59 @@ header{
     box-shadow:0 0 25px rgba(255,45,107,0.5), 0 0 50px rgba(123,47,247,0.3);
 }
 
-.music-controls button{
+.music-controls{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:8px 16px;
+}
+.playlist-label{
+    font-size:0.62rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:#9fe8ff;
+    white-space:nowrap;
+}
+.player-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.play-btn, .next-btn{
     background:linear-gradient(135deg, var(--accent2), var(--accent));
     color:white;
     border:none;
-    padding:10px 20px;
-    border-radius:30px;
-    font-weight:600;
-    font-size:0.9rem;
+    width:34px; height:34px;
+    border-radius:50%;
+    font-size:0.85rem;
     cursor:pointer;
-    box-shadow:0 0 20px rgba(0,229,255,0.3);
+    box-shadow:0 0 16px rgba(0,229,255,0.3);
     transition:all 0.3s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
 }
-.music-controls button:hover{transform:scale(1.05); box-shadow:0 0 30px rgba(0,229,255,0.5);}
-.music-controls button.playing{animation:pulseGlow 1.6s ease-in-out infinite;}
+.play-btn:hover, .next-btn:hover{transform:scale(1.08); box-shadow:0 0 24px rgba(0,229,255,0.5);}
+.play-btn.playing{animation:pulseGlow 1.6s ease-in-out infinite;}
+.next-btn{width:28px; height:28px; font-size:0.7rem; background:rgba(255,255,255,0.1); box-shadow:none;}
+.next-btn:hover{background:rgba(255,255,255,0.18);}
 @keyframes pulseGlow{
-    0%,100%{box-shadow:0 0 20px rgba(0,229,255,0.4);}
-    50%{box-shadow:0 0 35px rgba(123,47,247,0.6);}
+    0%,100%{box-shadow:0 0 16px rgba(0,229,255,0.4);}
+    50%{box-shadow:0 0 28px rgba(123,47,247,0.6);}
+}
+.track-name{
+    font-size:0.8rem;
+    font-weight:600;
+    color:#e8e3ff;
+    max-width:160px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 .container{max-width:1350px; margin:0 auto; padding:48px 5% 80px; position:relative; z-index:1;}
@@ -299,11 +379,12 @@ header{
     -webkit-backdrop-filter:blur(14px);
     border-radius:24px;
     border:1px solid rgba(255,255,255,0.08);
-    overflow:hidden;
+    overflow-x:auto;
     margin-bottom:40px;
 }
 table.standings{
     width:100%;
+    min-width:640px;
     border-collapse:collapse;
 }
 table.standings thead th{
@@ -316,6 +397,7 @@ table.standings thead th{
     border-bottom:1px solid rgba(255,255,255,0.1);
     font-weight:700;
     background:rgba(255,255,255,0.03);
+    white-space:nowrap;
 }
 table.standings tbody tr{
     border-bottom:1px solid rgba(255,255,255,0.05);
@@ -335,7 +417,33 @@ tr.rank-1 .rank-cell{color:var(--gold); text-shadow:0 0 12px rgba(255,209,102,0.
 tr.rank-2 .rank-cell{color:var(--silver); text-shadow:0 0 12px rgba(207,216,227,0.6);}
 tr.rank-3 .rank-cell{color:var(--bronze); text-shadow:0 0 12px rgba(232,152,94,0.6);}
 
-.driver-cell{display:flex; align-items:center; gap:12px; font-weight:600;}
+.rank-cell{display:flex; flex-direction:column; align-items:center; gap:2px;}
+.trend{
+    font-size:0.62rem;
+    font-weight:700;
+    text-shadow:none;
+    letter-spacing:0;
+}
+.trend-up{color:#3ddc84;}
+.trend-down{color:#ff5470;}
+.trend-flat{color:#6b6388;}
+
+.form-cell{text-align:center;}
+.form-row{display:flex; gap:4px; justify-content:center; flex-wrap:nowrap;}
+.form-dot{
+    width:24px; height:24px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.62rem;
+    font-weight:700;
+    color:#0a0617;
+    flex-shrink:0;
+}
+.form-podium{background:linear-gradient(135deg, var(--gold), #ffb347);}
+.form-points{background:linear-gradient(135deg, #6ee7b7, #34d399); color:#06281a;}
+.form-out{background:linear-gradient(135deg, #ff6b8b, #ff3d68); color:#2a0510;}
+
+.driver-cell{display:flex; align-items:center; gap:12px; font-weight:600; white-space:nowrap;}
 .driver-flag{font-size:1.1rem;}
 .driver-team-dot{
     width:10px; height:10px; border-radius:50%;
@@ -346,9 +454,11 @@ tr.rank-3 .rank-cell{color:var(--bronze); text-shadow:0 0 12px rgba(232,152,94,0
 
 .pts-cell{
     font-weight:800;
-    font-size:1.05rem;
+    font-size:1.15rem;
     text-align:right;
     color:#fff;
+    white-space:nowrap;
+    min-width:90px;
 }
 .pts-bar-wrap{
     margin-top:6px;
@@ -365,7 +475,7 @@ tr.rank-3 .rank-cell{color:var(--bronze); text-shadow:0 0 12px rgba(232,152,94,0
     background:linear-gradient(90deg, var(--red), var(--accent2));
 }
 .wins-cell{color:#9d94c4; font-size:0.85rem; text-align:center;}
-.podiums-cell{color:#9d94c4; font-size:0.85rem; text-align:center;}
+.podiums-cell{color:#9d94c4; font-size:0.85rem; text-align:center; white-space:nowrap;}
 
 .legend-note{
     text-align:center;
@@ -378,11 +488,18 @@ tr.rank-3 .rank-cell{color:var(--bronze); text-shadow:0 0 12px rgba(232,152,94,0
 @media(max-width:768px){
     .container{padding:32px 4% 60px;}
     .page-title{font-size:1.9rem;}
-    table.standings td, table.standings thead th{padding:12px 12px; font-size:0.85rem;}
+    table.standings td, table.standings thead th{padding:12px 14px; font-size:0.85rem;}
     .driver-team-dot{display:none;}
     .pts-bar-wrap{display:none;}
+    .pts-cell{font-size:1rem; min-width:70px;}
+    .form-dot{width:19px; height:19px; font-size:0.55rem;}
+    .form-row{gap:3px;}
     .logo{font-size:1.6rem;}
     .nav button{padding:8px 14px; font-size:0.82rem;}
+    .leader-badge{padding:5px 12px 5px 8px; order:3; width:100%; justify-content:center;}
+    .leader-badge .leader-name{font-size:0.8rem;}
+    .music-controls{order:4; width:100%; align-items:center;}
+    .track-name{max-width:120px;}
 }
 </style>
 </head>
@@ -390,14 +507,20 @@ tr.rank-3 .rank-cell{color:var(--bronze); text-shadow:0 0 12px rgba(232,152,94,0
 
 <header>
     <div class="logo">F1 <span>2027</span></div>
+    <div class="leader-badge" id="leaderBadge" onclick="switchTab(2)" title="Перейти в личный зачёт"></div>
     <div class="nav">
         <button class="active" onclick="switchTab(0)">Команды</button>
         <button onclick="switchTab(1)">Чемпионат</button>
         <button onclick="switchTab(2)">Личный зачёт</button>
         <button onclick="switchTab(3)">Кубок конструкторов</button>
     </div>
-    <div class="music-controls">
-        <button id="musicBtn" onclick="toggleMusic()">🎵 Kimi Kimi Antonelli</button>
+    <div class="music-controls" id="musicControls">
+        <div class="playlist-label">🎵 Плейлист Nerok'а</div>
+        <div class="player-row">
+            <button id="musicBtn" class="play-btn" onclick="toggleMusic()" title="Play/Pause">▶</button>
+            <span id="trackName" class="track-name">—</span>
+            <button class="next-btn" onclick="nextTrack()" title="Следующий трек">⏭</button>
+        </div>
     </div>
 </header>
 
@@ -424,15 +547,15 @@ tr.rank-3 .rank-cell{color:var(--bronze); text-shadow:0 0 12px rgba(232,152,94,0
                     <tr>
                         <th>#</th>
                         <th>Пилот</th>
-                        <th style="text-align:center;">Победы</th>
                         <th style="text-align:center;">Подиумы</th>
+                        <th style="text-align:center;">Форма</th>
                         <th style="text-align:right;">Очки</th>
                     </tr>
                 </thead>
                 <tbody id="driversStandingsBody"></tbody>
             </table>
         </div>
-        <div class="legend-note">Очки: 25-18-15-12-10-8-6-4-2-1 за места с 1 по 10 (полная система очков F1)</div>
+        <div class="legend-note">Очки: 25-18-15-12-10-8-6-4-2-1 за места с 1 по 10 (полная система очков F1) · ▲/▼ — изменение позиции после последней гонки · Форма — последние 5 финишей</div>
     </div>
 
     <div id="tab3" class="tab-content">
@@ -444,7 +567,6 @@ tr.rank-3 .rank-cell{color:var(--bronze); text-shadow:0 0 12px rgba(232,152,94,0
                     <tr>
                         <th>#</th>
                         <th>Команда</th>
-                        <th style="text-align:center;">Победы</th>
                         <th style="text-align:center;">Подиумы</th>
                         <th style="text-align:right;">Очки</th>
                     </tr>
@@ -472,6 +594,7 @@ const teams = [
     {name:"Haas", color:"#b6babd", flag:"🇺🇸", pilots:[{name:"Альберто Андрио", num:22, flag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿"}]}
 ];
 
+// Карта: имя пилота -> {team, color, flag}
 const pilotInfo = {};
 teams.forEach(team => {
     team.pilots.forEach(p => {
@@ -502,24 +625,34 @@ function renderTeams() {
     });
 }
 
+// Гонки сезона: полный финишный протокол (1-20 место) для каждого Гран-при.
+// Порядок — реальный хронологический календарь сезона: Бахрейн → Австралия → Япония →
+// Китай → Майами → Эмилия-Романья → Монако → Испания → Канада.
+// Звёздочки ⭐ в исходных данных — просто отметка/выделение, на очки не влияют.
 const races = [
-    {flag:"🇨🇦", name:"Гран-при Канады", results:[
-        "Габриэль Чуруни","Ворон Эльбон","Арленс Оттан","Энцо Фрага","Даниэль Джеймс",
-        "Кристано Грасси","Леонид Лавров","Вивиан Хьюго","Алексей Ковец","Валентино Романо",
-        "Андрес Пикалио","Эскобар Сантос","Федерико Армани","Салюти Ботван","Еттан Дюпон",
-        "Сандрико Марколело","Макс Бондарев","Альберто Андрио","Дех Хартор","Ларенс Олсон"
+    {flag:"🇧🇭", name:"Гран-при Бахрейна", results:[
+        "Энцо Фрага","Ворон Эльбон","Андрес Пикалио","Леонид Лавров","Алексей Ковец",
+        "Вивиан Хьюго","Кристано Грасси","Арленс Оттан","Эскобар Сантос","Даниэль Джеймс",
+        "Федерико Армани","Сандрико Марколело","Валентино Романо","Габриэль Чуруни","Салюти Ботван",
+        "Макс Бондарев","Еттан Дюпон","Дех Хартор","Ларенс Олсон","Альберто Андрио"
     ]},
-    {flag:"🇪🇸", name:"Гран-при Испании", results:[
-        "Андрес Пикалио","Энцо Фрага","Ворон Эльбон","Алексей Ковец","Федерико Армани",
-        "Леонид Лавров","Вивиан Хьюго","Кристано Грасси","Арленс Оттан","Эскобар Сантос",
-        "Валентино Романо","Габриэль Чуруни","Даниэль Джеймс","Сандрико Марколело","Салюти Ботван",
-        "Еттан Дюпон","Макс Бондарев","Дех Хартор","Ларенс Олсон","Альберто Андрио"
+    {flag:"🇦🇺", name:"Гран-при Австралии", results:[
+        "Андрес Пикалио","Вивиан Хьюго","Арленс Оттан","Энцо Фрага","Габриэль Чуруни",
+        "Кристано Грасси","Даниэль Джеймс","Леонид Лавров","Федерико Армани","Ворон Эльбон",
+        "Алексей Ковец","Салюти Ботван","Еттан Дюпон","Валентино Романо","Эскобар Сантос",
+        "Макс Бондарев","Сандрико Марколело","Дех Хартор","Ларенс Олсон","Альберто Андрио"
     ]},
-    {flag:"🇲🇨", name:"Гран-при Монако", results:[
-        "Даниэль Джеймс","Вивиан Хьюго","Энцо Фрага","Леонид Лавров","Арленс Оттан",
-        "Андрес Пикалио","Габриэль Чуруни","Алексей Ковец","Федерико Армани","Кристано Грасси",
-        "Валентино Романо","Эскобар Сантос","Ворон Эльбон","Салюти Ботван","Еттан Дюпон",
-        "Макс Бондарев","Сандрико Марколело","Дех Хартор","Альберто Андрио","Ларенс Олсон"
+    {flag:"🇯🇵", name:"Гран-при Японии", results:[
+        "Леонид Лавров","Энцо Фрага","Ворон Эльбон","Алексей Ковец","Еттан Дюпон",
+        "Арленс Оттан","Андрес Пикалио","Габриэль Чуруни","Вивиан Хьюго","Даниэль Джеймс",
+        "Кристано Грасси","Эскобар Сантос","Валентино Романо","Федерико Армани","Сандрико Марколело",
+        "Макс Бондарев","Салюти Ботван","Альберто Андрио","Дех Хартор","Ларенс Олсон"
+    ]},
+    {flag:"🇨🇳", name:"Гран-при Китая", results:[
+        "Вивиан Хьюго","Арленс Оттан","Федерико Армани","Андрес Пикалио","Леонид Лавров",
+        "Даниэль Джеймс","Ворон Эльбон","Алексей Ковец","Энцо Фрага","Габриэль Чуруни",
+        "Кристано Грасси","Салюти Ботван","Эскобар Сантос","Еттан Дюпон","Валентино Романо",
+        "Дех Хартор","Макс Бондарев","Альберто Андрио","Сандрико Марколело","Ларенс Олсон"
     ]},
     {flag:"🇺🇸", name:"Гран-при Майами", results:[
         "Арленс Оттан","Ворон Эльбон","Леонид Лавров","Энцо Фрага","Даниэль Джеймс",
@@ -533,34 +666,30 @@ const races = [
         "Эскобар Сантос","Даниэль Джеймс","Салюти Ботван","Габриэль Чуруни","Сандрико Марколело",
         "Еттан Дюпон","Макс Бондарев","Дех Хартор","Ларенс Олсон","Альберто Андрио"
     ]},
-    {flag:"🇨🇳", name:"Гран-при Китая", results:[
-        "Вивиан Хьюго","Арленс Оттан","Федерико Армани","Андрес Пикалио","Леонид Лавров",
-        "Даниэль Джеймс","Ворон Эльбон","Алексей Ковец","Энцо Фрага","Габриэль Чуруни",
-        "Кристано Грасси","Салюти Ботван","Эскобар Сантос","Еттан Дюпон","Валентино Романо",
-        "Дех Хартор","Макс Бондарев","Альберто Андрио","Сандрико Марколело","Ларенс Олсон"
+    {flag:"🇲🇨", name:"Гран-при Монако", results:[
+        "Даниэль Джеймс","Вивиан Хьюго","Энцо Фрага","Леонид Лавров","Арленс Оттан",
+        "Андрес Пикалио","Габриэль Чуруни","Алексей Ковец","Федерико Армани","Кристано Грасси",
+        "Валентино Романо","Эскобар Сантос","Ворон Эльбон","Салюти Ботван","Еттан Дюпон",
+        "Макс Бондарев","Сандрико Марколело","Дех Хартор","Альберто Андрио","Ларенс Олсон"
     ]},
-    {flag:"🇯🇵", name:"Гран-при Японии", results:[
-        "Леонид Лавров","Энцо Фрага","Ворон Эльбон","Алексей Ковец","Еттан Дюпон",
-        "Арленс Оттан","Андрес Пикалио","Габриэль Чуруни","Вивиан Хьюго","Даниэль Джеймс",
-        "Кристано Грасси","Эскобар Сантос","Валентино Романо","Федерико Армани","Сандрико Марколело",
-        "Макс Бондарев","Салюти Ботван","Альберто Андрио","Дех Хартор","Ларенс Олсон"
+    {flag:"🇪🇸", name:"Гран-при Испании", results:[
+        "Андрес Пикалио","Энцо Фрага","Ворон Эльбон","Алексей Ковец","Федерико Армани",
+        "Леонид Лавров","Вивиан Хьюго","Кристано Грасси","Арленс Оттан","Эскобар Сантос",
+        "Валентино Романо","Габриэль Чуруни","Даниэль Джеймс","Сандрико Марколело","Салюти Ботван",
+        "Еттан Дюпон","Макс Бондарев","Дех Хартор","Ларенс Олсон","Альберто Андрио"
     ]},
-    {flag:"🇦🇺", name:"Гран-при Австралии", results:[
-        "Андрес Пикалио","Вивиан Хьюго","Арленс Оттан","Энцо Фрага","Габриэль Чуруни",
-        "Кристано Грасси","Даниэль Джеймс","Леонид Лавров","Федерико Армани","Ворон Эльбон",
-        "Алексей Ковец","Салюти Ботван","Еттан Дюпон","Валентино Романо","Эскобар Сантос",
-        "Макс Бондарев","Сандрико Марколело","Дех Хартор","Ларенс Олсон","Альберто Андрио"
-    ]},
-    {flag:"🇧🇭", name:"Гран-при Бахрейна", results:[
-        "Энцо Фрага","Ворон Эльбон","Андрес Пикалио","Леонид Лавров","Алексей Ковец",
-        "Вивиан Хьюго","Кристано Грасси","Арленс Оттан","Эскобар Сантос","Даниэль Джеймс",
-        "Федерико Армани","Сандрико Марколело","Валентино Романо","Габриэль Чуруни","Салюти Ботван",
-        "Макс Бондарев","Еттан Дюпон","Дех Хартор","Ларенс Олсон","Альберто Андрио"
+    {flag:"🇨🇦", name:"Гран-при Канады", results:[
+        "Габриэль Чуруни","Ворон Эльбон","Арленс Оттан","Энцо Фрага","Даниэль Джеймс",
+        "Кристано Грасси","Леонид Лавров","Вивиан Хьюго","Алексей Ковец","Валентино Романо",
+        "Андрес Пикалио","Эскобар Сантос","Федерико Армани","Салюти Ботван","Еттан Дюпон",
+        "Сандрико Марколело","Макс Бондарев","Альберто Андрио","Дех Хартор","Ларенс Олсон"
     ]}
 ];
 
+// Очковая система F1 за топ-10: 1й-25, 2й-18, 3й-15, 4й-12, 5й-10, 6й-8, 7й-6, 8й-4, 9й-2, 10й-1
 const POINTS_TABLE = [25,18,15,12,10,8,6,4,2,1];
 
+// Считаем очки/победы/подиумы для пилотов на основе полного протокола каждой гонки
 const driverStats = {};
 races.forEach(race => {
     race.results.forEach((pilotName, idx) => {
@@ -575,6 +704,45 @@ races.forEach(race => {
     });
 });
 
+// Кумулятивный зачёт после каждой гонки — нужен для "формы" и "динамики позиции"
+const allPilotNames = Object.keys(driverStats);
+const cumulativePoints = {};
+allPilotNames.forEach(name => cumulativePoints[name] = 0);
+
+// standingsHistory[raceIdx] = массив имён пилотов, отсортированный по местам в общем зачёте ПОСЛЕ этой гонки
+const standingsHistory = [];
+// finishHistory[pilotName] = массив позиций в каждой гонке (1-20), по порядку гонок
+const finishHistory = {};
+allPilotNames.forEach(name => finishHistory[name] = []);
+
+races.forEach(race => {
+    race.results.forEach((pilotName, idx) => {
+        const position = idx + 1;
+        cumulativePoints[pilotName] += POINTS_TABLE[idx] || 0;
+        finishHistory[pilotName].push(position);
+    });
+    const standingOrder = allPilotNames.slice().sort((a,b) => cumulativePoints[b] - cumulativePoints[a]);
+    standingsHistory.push(standingOrder);
+});
+
+// Текущая позиция в зачёте (после последней гонки) и позиция перед последней гонкой
+const latestStandingOrder = standingsHistory[standingsHistory.length - 1];
+const previousStandingOrder = standingsHistory.length > 1 ? standingsHistory[standingsHistory.length - 2] : null;
+
+function getTrend(pilotName) {
+    if (!previousStandingOrder) return 0;
+    const nowRank = latestStandingOrder.indexOf(pilotName);
+    const prevRank = previousStandingOrder.indexOf(pilotName);
+    if (prevRank === -1) return 0;
+    return prevRank - nowRank; // положительное = поднялся, отрицательное = опустился
+}
+
+function getRecentForm(pilotName, count) {
+    const history = finishHistory[pilotName] || [];
+    return history.slice(-count);
+}
+
+// Считаем очки/победы/подиумы для команд (сумма по пилотам команды)
 const constructorStats = {};
 teams.forEach(team => constructorStats[team.name] = {points:0, wins:0, podiums:0});
 Object.keys(driverStats).forEach(pilotName => {
@@ -604,8 +772,23 @@ function renderDriversStandings() {
         const color = d.info ? d.info.color : '#ff2d6b';
         const flag = d.info ? d.info.flag : '';
         const teamName = d.info ? d.info.team : '—';
+
+        const trend = getTrend(d.name);
+        let trendHTML;
+        if (trend > 0) trendHTML = `<span class="trend trend-up">▲${trend}</span>`;
+        else if (trend < 0) trendHTML = `<span class="trend trend-down">▼${Math.abs(trend)}</span>`;
+        else trendHTML = `<span class="trend trend-flat">—</span>`;
+
+        const form = getRecentForm(d.name, 5);
+        const formHTML = form.map(pos => {
+            let cls = 'form-out';
+            if (pos <= 3) cls = 'form-podium';
+            else if (pos <= 10) cls = 'form-points';
+            return `<span class="form-dot ${cls}" title="${pos} место">${pos}</span>`;
+        }).join('');
+
         return `<tr class="${rankClass}">
-            <td class="rank-cell">${rank}</td>
+            <td class="rank-cell">${rank}${trendHTML}</td>
             <td>
                 <div class="driver-cell">
                     <span class="driver-team-dot" style="color:${color}; background:${color};"></span>
@@ -616,8 +799,8 @@ function renderDriversStandings() {
                     </div>
                 </div>
             </td>
-            <td class="wins-cell">${d.wins}</td>
             <td class="podiums-cell">${d.podiums}</td>
+            <td class="form-cell"><div class="form-row">${formHTML}</div></td>
             <td class="pts-cell">
                 ${d.points}
                 <div class="pts-bar-wrap"><div class="pts-bar-fill" style="width:${barWidth}%; background:linear-gradient(90deg, ${color}, var(--accent2));"></div></div>
@@ -647,7 +830,6 @@ function renderConstructorsStandings() {
                     <div>${t.name}</div>
                 </div>
             </td>
-            <td class="wins-cell">${t.wins}</td>
             <td class="podiums-cell">${t.podiums}</td>
             <td class="pts-cell">
                 ${t.points}
@@ -682,21 +864,75 @@ function toggleProtocol(idx, btn) {
     btn.textContent = el.classList.contains('expanded') ? 'Скрыть полный протокол' : 'Показать полный протокол (4–20)';
 }
 
+function renderLeaderBadge() {
+    const badge = document.getElementById('leaderBadge');
+    const sorted = Object.keys(driverStats)
+        .map(name => ({name, ...driverStats[name], info: pilotInfo[name]}))
+        .sort((a,b) => b.points - a.points);
+    if (!sorted.length) { badge.style.display = 'none'; return; }
+    const leader = sorted[0];
+    const flag = leader.info ? leader.info.flag : '';
+    badge.innerHTML = `
+        <span class="crown">👑</span>
+        <div class="leader-info">
+            <span class="leader-label">Лидер чемпионата</span>
+            <span class="leader-name">${flag} ${leader.name} · <span class="leader-points">${leader.points} очк.</span></span>
+        </div>
+    `;
+}
+
+const playlist = [
+    {title:"Kimi Kimi Antonelli", file:"Maxx_Power_Carte_Blanq_-_Kimi_Antonelli_81266002.mp3"},
+    {title:"Free Bird", file:"Free_Bird.mp3"},
+    {title:"Kiss Me Again (Nightcore)", file:"Kiss_Me_Again_-_Nightcore_Mix.mp3"},
+    {title:"Max Verstappen — Mexico Remix", file:"Carte_Blanq_Maxx_Power_-_33_Max_Verstappen_DJ_Rene_Abrego_Mexico_Remix_Extended_Version__SkySound_cc_.mp3"}
+];
+
+let currentTrackIndex = 0;
 let audio = null;
+
+function loadTrack(index, autoplay) {
+    const wasPlaying = audio ? !audio.paused : false;
+    if (audio) {
+        audio.pause();
+        audio = null;
+    }
+    currentTrackIndex = ((index % playlist.length) + playlist.length) % playlist.length;
+    const track = playlist[currentTrackIndex];
+    audio = new Audio(track.file);
+    audio.loop = false;
+    audio.addEventListener('ended', () => nextTrack(true));
+    document.getElementById('trackName').textContent = track.title;
+    const btn = document.getElementById('musicBtn');
+    if (autoplay || wasPlaying) {
+        audio.play();
+        btn.classList.add('playing');
+        btn.textContent = '⏸';
+    } else {
+        btn.classList.remove('playing');
+        btn.textContent = '▶';
+    }
+}
 
 function toggleMusic() {
     const btn = document.getElementById('musicBtn');
     if (!audio) {
-        audio = new Audio('Maxx_Power_Carte_Blanq_-_Kimi_Antonelli_81266002.mp3');
-        audio.loop = true;
+        loadTrack(currentTrackIndex, true);
+        return;
     }
     if (audio.paused) {
         audio.play();
         btn.classList.add('playing');
+        btn.textContent = '⏸';
     } else {
         audio.pause();
         btn.classList.remove('playing');
+        btn.textContent = '▶';
     }
+}
+
+function nextTrack(autoplay) {
+    loadTrack(currentTrackIndex + 1, autoplay === true || (audio && !audio.paused));
 }
 
 function switchTab(n) {
@@ -710,6 +946,8 @@ window.onload = () => {
     document.getElementById('championship').innerHTML = championshipHTML;
     renderDriversStandings();
     renderConstructorsStandings();
+    renderLeaderBadge();
+    document.getElementById('trackName').textContent = playlist[0].title;
 };
 </script>
 </body>
