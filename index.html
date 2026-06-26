@@ -3,105 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ф1 2028 • Глобальное Обновление</title>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+    <title>F1 2028 • Новый Сезон</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; }
-        .header { 
-            background: linear-gradient(135deg, #1a1a1a 0%, #e10600 100%); 
-            color: white; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        :root {
+            --red: #e10600;
+            --dark: #0a0a0a;
         }
-        .logo { color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
-        .new-season { background: #ffd700; color: #000; padding: 4px 14px; border-radius: 30px; font-weight: 800; font-size: 0.75rem; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background: #0a0a0a;
+            color: #eee;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(180deg, #111, #1a1a1a);
+            border-bottom: 3px solid var(--red);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -2px;
+        }
+        .logo span { color: var(--red); }
+        .nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: 10px 20px;
+            background: #1f1f1f;
+            border: none;
+            color: #aaa;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab.active {
+            background: var(--red);
+            color: white;
+            box-shadow: 0 0 20px rgba(225,6,0,0.5);
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem 5%; }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0 3rem;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1615907909375-9f7e5c8c8e3c?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover;
+            color: white;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.3rem; color: #ddd; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            margin-top: 2rem;
+        }
+        .team-card {
+            background: #111;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: all 0.4s;
+        }
+        .team-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--red);
+            box-shadow: 0 20px 40px rgba(225,6,0,0.2);
+        }
+        .team-header {
+            height: 6px;
+            background: linear-gradient(90deg, var(--color), #fff);
+        }
+        .team-body {
+            padding: 20px;
+        }
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .pilot {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid #222;
+            cursor: pointer;
+        }
+        .pilot:last-child { border-bottom: none; }
+        .pilot-photo {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border: 3px solid var(--color);
+        }
+        .pilot-info h3 { font-size: 1.1rem; }
+        .pilot-info p { font-size: 0.9rem; color: #888; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #111;
+            max-width: 480px;
+            width: 90%;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .modal-photo {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+        .modal-body { padding: 24px; }
+        .modal-number { font-size: 4rem; font-weight: 900; color: var(--color); line-height: 1; }
+        .modal-name { font-size: 1.8rem; margin: 8px 0; }
+
+        button, .tab { font-family: inherit; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.6rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-left">
-            <div class="logo">Ф1 <span>2028</span> <span class="new-season">ГЛОБАЛЬНОЕ ОБНОВЛЕНИЕ</span></div>
-            <div class="header-stats">
-                <span id="teamCount">11</span> Команд ·
-                <span id="pilotCount">21</span> Пилота ·
-                <span id="reserveCount">8</span> Резерв
-            </div>
+    <header>
+        <div class="logo">F1 <span>2028</span></div>
+        <div class="nav">
+            <button class="tab active" onclick="switchTab(0)">Пилоты</button>
+            <button class="tab" onclick="switchTab(1)">Чемпионат</button>
+            <button class="tab" onclick="switchTab(2)">Календарь</button>
+            <button class="tab" onclick="switchTab(3)">Трансферы</button>
         </div>
-        
-        <div class="header-right">
-            <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵 Включить музыку</button>
-            <div class="countdown">
-                ⏱️ <span id="days">0</span>д <span id="hours">0</span>ч 
-                <span id="minutes">0</span>м <span id="seconds">0</span>с
-            </div>
-        </div>
-
-        <nav class="header-nav">
-            <button class="tab active" data-tab="pilots">Пилоты</button>
-            <button class="tab" data-tab="standings">Чемпионат</button>
-            <button class="tab" data-tab="calendar">Календарь</button>
-            <button class="tab" data-tab="history">🏆 История</button>
-            <button class="tab" data-tab="transfers">📋 Трансферы</button>
-        </nav>
     </header>
 
-    <main>
-        <!-- Пилоты -->
-        <section class="content active" id="pilots">
-            <div class="filter-bar" id="filterBar"></div>
-            <div class="grid" id="teamGrid"></div>
-        </section>
+    <div class="hero">
+        <h1>СЕЗОН 2028</h1>
+        <p>Глобальное обновление • Новый состав пилотов</p>
+    </div>
 
-        <!-- Чемпионат -->
-        <section class="content" id="standings">
-            <div class="standings-header">
-                <h2>ЧЕМПИОНАТ 2028</h2>
-                <p class="muted">🏆 После 1 этапа • Новый сезон</p>
+    <div class="container">
+
+        <!-- ПИЛОТЫ -->
+        <div id="tab0" class="tab-content">
+            <h2 style="margin-bottom:20px; font-size:2rem;">Команды и Пилоты</h2>
+            <div class="grid" id="teamsGrid"></div>
+        </div>
+
+        <!-- ЧЕМПИОНАТ -->
+        <div id="tab1" class="tab-content" style="display:none;">
+            <h2>Текущий Чемпионат</h2>
+            <p style="color:#888; margin:15px 0;">После 1 этапа • Бахрейн</p>
+            <div style="background:#111; padding:25px; border-radius:16px;">
+                <h3 style="color:#e10600; margin-bottom:15px;">Топ-5 пилотов</h3>
+                <ol style="font-size:1.1rem; line-height:2.2;">
+                    <li>🇪🇸 Андрес Пикалио — Ferrari</li>
+                    <li>🇮🇹 Кристано Грасси — Ferrari</li>
+                    <li>🇷🇺 Леонид Лавров — Mercedes</li>
+                    <li>🇧🇬 Алексей Ковец — Red Bull</li>
+                    <li>🇫🇷 Вивиан Хьюго — McLaren</li>
+                </ol>
             </div>
-            <div id="standingsContent"></div>
-        </section>
+        </div>
 
-        <!-- Календарь -->
-        <section class="content" id="calendar">
-            <h2>КАЛЕНДАРЬ 2028</h2>
-            <p class="muted">24 этапа</p>
-            <div class="calendar-list" id="calendarList"></div>
-        </section>
+        <!-- КАЛЕНДАРЬ -->
+        <div id="tab2" class="tab-content" style="display:none;">
+            <h2>Календарь 2028</h2>
+            <p style="color:#888;">24 этапа • Сезон в самом разгаре</p>
+            <div style="background:#111; padding:20px; border-radius:12px; margin-top:20px;">
+                <strong>1. Гран-при Бахрейна</strong> — Завершён<br>
+                Победитель: <strong>Андрес Пикалио</strong>
+            </div>
+        </div>
 
-        <!-- История -->
-        <section class="content" id="history">
-            <h2>🏆 ИСТОРИЯ ПОБЕДИТЕЛЕЙ</h2>
-            <div class="history-grid" id="historyGrid"></div>
-        </section>
-
-        <!-- Трансферы -->
-        <section class="content" id="transfers">
-            <h2>📋 ИСТОРИЯ ТРАНСФЕРОВ</h2>
-            <div class="transfers-list" id="transfersList"></div>
-        </section>
-    </main>
-
-    <!-- Модальное окно пилота -->
-    <div class="modal" id="modal">
-        <div class="modal-box">
-            <button class="modal-close" id="modalClose">×</button>
-            <img id="modalPhoto" class="modal-photo" alt="">
-            <div class="modal-info">
-                <div id="modalNumber" class="modal-number"></div>
-                <div id="modalName" class="modal-name"></div>
-                <div id="modalTeam" class="modal-team"></div>
-                <div class="modal-stats">
-                    <div><span class="stat-label">Страна</span><span id="modalCountry"></span></div>
-                    <div><span class="stat-label">Возраст</span><span id="modalAge"></span></div>
-                    <div><span class="stat-label">Команда</span><span id="modalTeamName"></span></div>
-                    <div><span class="stat-label">Бюджет</span><span id="modalBudget"></span></div>
-                </div>
-                <a id="modalLink" href="#" target="_blank" class="modal-link">📖 Википедия →</a>
+        <!-- ТРАНСФЕРЫ -->
+        <div id="tab3" class="tab-content" style="display:none;">
+            <h2>Зимние Трансферы 2028</h2>
+            <div style="background:#111; padding:20px; border-radius:16px; line-height:2;">
+                <p><strong>Андрес Пикалио</strong> → Ferrari</p>
+                <p><strong>Леонид Лавров</strong> → Mercedes</p>
+                <p><strong>Ворон Эльбон</strong> → McLaren</p>
+                <p><strong>Макс Бондарев</strong> → Aston Martin</p>
             </div>
         </div>
     </div>
 
-    <script src="scripts/app.js"></script>
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div class="modal" id="modal">
+        <div class="modal-content" onclick="event.stopImmediatePropagation()">
+            <img id="modalPhoto" class="modal-photo" src="" alt="">
+            <div class="modal-body">
+                <div id="modalNumber" class="modal-number"></div>
+                <div id="modalName" class="modal-name"></div>
+                <div id="modalTeam" style="color:#aaa; font-size:1.1rem;"></div>
+                <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:15px; font-size:0.95rem;">
+                    <div><strong>Страна:</strong> <span id="modalCountry"></span></div>
+                    <div><strong>Возраст:</strong> <span id="modalAge"></span></div>
+                </div>
+                <button onclick="closeModal()" style="margin-top:25px; width:100%; padding:14px; background:#e10600; border:none; color:white; font-weight:600; border-radius:12px; cursor:pointer;">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const teams = [
+            {id:"ferrari", name:"Ferrari", color:"#dc0000", country:"🇮🇹", budget:210,
+             pilots:[{name:"Андрес Пикалио", num:17, flag:"🇪🇸", age:23}, {name:"Кристано Грасси", num:55, flag:"🇮🇹", age:22}]},
+            {id:"mclaren", name:"McLaren", color:"#ff8700", country:"🇬🇧", budget:295,
+             pilots:[{name:"Ворон Эльбон", num:23, flag:"🇹🇭", age:26}, {name:"Вивиан Хьюго", num:31, flag:"🇫🇷", age:24}]},
+            {id:"mercedes", name:"Mercedes", color:"#00d2be", country:"🇩🇪", budget:340,
+             pilots:[{name:"Энцо Фрага", num:12, flag:"🇬🇷", age:21}, {name:"Леонид Лавров", num:88, flag:"🇷🇺", age:25}]},
+            {id:"redbull", name:"Red Bull", color:"#1e41b0", country:"🇦🇹", budget:315,
+             pilots:[{name:"Сандрико Марколело", num:3, flag:"🇮🇹", age:24}, {name:"Алексей Ковец", num:19, flag:"🇧🇬", age:23}]},
+            {id:"aston", name:"Aston Martin", color:"#006f62", country:"🇬🇧", budget:265,
+             pilots:[{name:"Эскобар Сантос", num:14, flag:"🇧🇷", age:27}, {name:"Макс Бондарев", num:18, flag:"🇺🇦", age:22}]},
+            {id:"alpine", name:"Alpine", color:"#ff6b9d", country:"🇫🇷", budget:185,
+             pilots:[{name:"Федерико Армани", num:7, flag:"🇮🇹", age:24}, {name:"Еттан Дюпон", num:45, flag:"🇫🇷", age:21}]},
+            {id:"audi", name:"Audi", color:"#bb0a21", country:"🇩🇪", budget:275,
+             pilots:[{name:"Салюти Ботван", num:27, flag:"🇲🇩", age:26}, {name:"Арленс Оттан", num:5, flag:"🇧🇬", age:22}]},
+            {id:"racing-bulls", name:"Racing Bulls", color:"#4d7aff", country:"🇮🇹", budget:198,
+             pilots:[{name:"Дех Хартор", num:4, flag:"🇬🇧", age:20}, {name:"Ларенс Олсон", num:30, flag:"🇪🇨", age:23}]},
+            {id:"cadillac", name:"Cadillac", color:"#c8102e", country:"🇺🇸", budget:245,
+             pilots:[{name:"Тони Монтес", num:20, flag:"🇳🇱", age:28}, {name:"Даниэль Джеймс", num:24, flag:"🏴󠁧󠁢󠁷󠁬󠁳󠁿", age:25}]},
+            {id:"williams", name:"Williams", color:"#00a3e0", country:"🇬🇧", budget:172,
+             pilots:[{name:"Валентино Романо", num:81, flag:"🇮🇹", age:24}, {name:"Габриэль Чуруни", num:37, flag:"🇹🇭", age:21}]},
+            {id:"haas", name:"Haas", color:"#b6babd", country:"🇺🇸", budget:95,
+             pilots:[{name:"Альберто Андрио", num:22, flag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", age:26}]}
+        ];
+
+        function createTeamCard(team) {
+            const card = document.createElement('div');
+            card.className = 'team-card';
+            card.style.setProperty('--color', team.color);
+            
+            let pilotsHTML = '';
+            team.pilots.forEach(p => {
+                pilotsHTML += `
+                    <div class="pilot" onclick="showPilot('\( {p.name}', ' \){team.name}', '\( {team.color}', ' \){p.flag}', ${p.age}, ${p.num})">
+                        <div class="pilot-photo">${p.flag}</div>
+                        <div class="pilot-info">
+                            <h3>${p.name}</h3>
+                            <p>№${p.num} • ${p.age} лет</p>
+                        </div>
+                    </div>`;
+            });
+
+            card.innerHTML = `
+                <div class="team-header" style="background: ${team.color}"></div>
+                <div class="team-body">
+                    <div class="team-name">\( {team.name} <span style="font-size:1rem;"> \){team.country}</span></div>
+                    <div style="color:#888; font-size:0.9rem; margin-bottom:12px;">💰 ${team.budget} млн</div>
+                    ${pilotsHTML}
+                </div>
+            `;
+            return card;
+        }
+
+        function renderTeams() {
+            const grid = document.getElementById('teamsGrid');
+            grid.innerHTML = '';
+            teams.forEach(team => {
+                grid.appendChild(createTeamCard(team));
+            });
+        }
+
+        function showPilot(name, team, color, flag, age, number) {
+            document.getElementById('modalNumber').textContent = number;
+            document.getElementById('modalNumber').style.color = color;
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalTeam').textContent = team;
+            document.getElementById('modalCountry').textContent = flag;
+            document.getElementById('modalAge').textContent = age;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function switchTab(n) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.getElementById('tab'+n).style.display = 'block';
+            document.querySelectorAll('.tab').forEach((tab, i) => {
+                tab.classList.toggle('active', i === n);
+            });
+        }
+
+        // Инициализация
+        window.onload = () => {
+            renderTeams();
+        };
+
+        // Закрытие модалки по клику вне
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
 </body>
-</html>
+                                             </html>
