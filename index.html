@@ -2,60 +2,54 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ф1 2028 • Глобальное Обновление</title>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <style>
-        .header { background: linear-gradient(135deg, #1a1a1a, #e10600); color: white; }
-        .logo { color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .new-season { background: #ffd700; color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; }
+        body { margin: 0; }
+        .header { 
+            background: linear-gradient(135deg, #1a1a1a 0%, #e10600 100%); 
+            color: white; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .logo { color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+        .new-season { background: #ffd700; color: #000; padding: 4px 14px; border-radius: 30px; font-weight: 800; font-size: 0.75rem; }
     </style>
 </head>
 <body>
-    <!-- Сайт полностью обновлён с новыми пилотами! -->
 
     <header class="header">
         <div class="header-left">
-            <div class="logo">Ф1 <span>2028</span> <span class="new-season">НОВЫЙ СЕЗОН</span></div>
+            <div class="logo">Ф1 <span>2028</span> <span class="new-season">ГЛОБАЛЬНОЕ ОБНОВЛЕНИЕ</span></div>
             <div class="header-stats">
-                <span id="teamCount">0</span> Команд ·
-                <span id="pilotCount">0</span> Пилота ·
-                <span id="reserveCount">0</span> Резерв
+                <span id="teamCount">11</span> Команд ·
+                <span id="pilotCount">21</span> Пилота ·
+                <span id="reserveCount">8</span> Резерв
             </div>
         </div>
+        
         <div class="header-right">
             <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵 Включить музыку</button>
-            <div class="countdown" id="countdown">
-                ⏱️ <span id="days">0</span>д <span id="hours">0</span>ч <span id="minutes">0</span>м <span id="seconds">0</span>с
+            <div class="countdown">
+                ⏱️ <span id="days">0</span>д <span id="hours">0</span>ч 
+                <span id="minutes">0</span>м <span id="seconds">0</span>с
             </div>
-            <nav class="header-nav">
-                <button class="tab active" data-tab="pilots">Пилоты</button>
-                <button class="tab" data-tab="standings">Чемпионат</button>
-                <button class="tab" data-tab="calendar">Календарь</button>
-                <button class="tab" data-tab="history">🏆 История</button>
-                <button class="tab" data-tab="transfers">📋 Трансферы</button>
-            </nav>
         </div>
+
+        <nav class="header-nav">
+            <button class="tab active" data-tab="pilots">Пилоты</button>
+            <button class="tab" data-tab="standings">Чемпионат</button>
+            <button class="tab" data-tab="calendar">Календарь</button>
+            <button class="tab" data-tab="history">🏆 История</button>
+            <button class="tab" data-tab="transfers">📋 Трансферы</button>
+        </nav>
     </header>
 
     <main>
         <!-- Пилоты -->
         <section class="content active" id="pilots">
-            <div class="filter-bar">
-                <button class="filter-btn active" data-filter="all">Все команды</button>
-                <button class="filter-btn" data-filter="mclaren">McLaren</button>
-                <button class="filter-btn" data-filter="ferrari">Ferrari</button>
-                <button class="filter-btn" data-filter="mercedes">Mercedes</button>
-                <button class="filter-btn" data-filter="redbull">Red Bull</button>
-                <button class="filter-btn" data-filter="aston">Aston Martin</button>
-                <button class="filter-btn" data-filter="audi">Audi</button>
-                <button class="filter-btn" data-filter="williams">Williams</button>
-                <button class="filter-btn" data-filter="racing-bulls">Racing Bulls</button>
-                <button class="filter-btn" data-filter="cadillac">Cadillac</button>
-                <button class="filter-btn" data-filter="alpine">Alpine</button>
-                <button class="filter-btn" data-filter="haas">Haas</button>
-            </div>
+            <div class="filter-bar" id="filterBar"></div>
             <div class="grid" id="teamGrid"></div>
         </section>
 
@@ -63,75 +57,51 @@
         <section class="content" id="standings">
             <div class="standings-header">
                 <h2>ЧЕМПИОНАТ 2028</h2>
-                <p class="muted">🏆 После 1 этапа • Полностью обновлённый состав</p>
+                <p class="muted">🏆 После 1 этапа • Новый сезон</p>
             </div>
             <div id="standingsContent"></div>
         </section>
 
         <!-- Календарь -->
         <section class="content" id="calendar">
-            <div class="calendar-header">
-                <h2>КАЛЕНДАРЬ 2028</h2>
-                <p class="muted">24 этапа</p>
-            </div>
+            <h2>КАЛЕНДАРЬ 2028</h2>
+            <p class="muted">24 этапа</p>
             <div class="calendar-list" id="calendarList"></div>
         </section>
 
         <!-- История -->
         <section class="content" id="history">
-            <div class="history-header">
-                <h2>🏆 ИСТОРИЯ ПОБЕДИТЕЛЕЙ</h2>
-                <p class="muted">Кубок конструкторов и чемпион мира</p>
-            </div>
-            <div class="history-grid">
-                <div class="history-card">
-                    <div class="history-year">2027</div>
-                    <div class="history-winners">
-                        <div class="history-item">
-                            <span class="history-label">🏆 Кубок конструкторов</span>
-                            <span class="history-value">Ferrari</span>
-                        </div>
-                        <div class="history-item">
-                            <span class="history-label">👑 Чемпион мира</span>
-                            <span class="history-value">🇮🇹 Андрес Пикалио</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2>🏆 ИСТОРИЯ ПОБЕДИТЕЛЕЙ</h2>
+            <div class="history-grid" id="historyGrid"></div>
         </section>
 
         <!-- Трансферы -->
         <section class="content" id="transfers">
-            <div class="transfers-header">
-                <h2>📋 ИСТОРИЯ ТРАНСФЕРОВ</h2>
-                <p class="muted">Глобальное обновление состава 2028</p>
-            </div>
+            <h2>📋 ИСТОРИЯ ТРАНСФЕРОВ</h2>
             <div class="transfers-list" id="transfersList"></div>
         </section>
     </main>
 
-    <!-- Модальное окно -->
+    <!-- Модальное окно пилота -->
     <div class="modal" id="modal">
         <div class="modal-box">
             <button class="modal-close" id="modalClose">×</button>
-            <div class="modal-content">
-                <img id="modalPhoto" class="modal-photo" alt="">
-                <div class="modal-info">
-                    <div id="modalNumber" class="modal-number"></div>
-                    <div id="modalName" class="modal-name"></div>
-                    <div id="modalTeam" class="modal-team"></div>
-                    <div class="modal-stats">
-                        <div><span class="stat-label">Страна</span><span id="modalCountry" class="stat-value"></span></div>
-                        <div><span class="stat-label">Возраст</span><span id="modalAge" class="stat-value"></span></div>
-                        <div><span class="stat-label">Команда</span><span id="modalTeamName" class="stat-value"></span></div>
-                        <div><span class="stat-label">Бюджет</span><span id="modalBudget" class="stat-value"></span></div>
-                    </div>
-                    <a id="modalLink" href="#" target="_blank" class="modal-link">📖 Википедия →</a>
+            <img id="modalPhoto" class="modal-photo" alt="">
+            <div class="modal-info">
+                <div id="modalNumber" class="modal-number"></div>
+                <div id="modalName" class="modal-name"></div>
+                <div id="modalTeam" class="modal-team"></div>
+                <div class="modal-stats">
+                    <div><span class="stat-label">Страна</span><span id="modalCountry"></span></div>
+                    <div><span class="stat-label">Возраст</span><span id="modalAge"></span></div>
+                    <div><span class="stat-label">Команда</span><span id="modalTeamName"></span></div>
+                    <div><span class="stat-label">Бюджет</span><span id="modalBudget"></span></div>
                 </div>
+                <a id="modalLink" href="#" target="_blank" class="modal-link">📖 Википедия →</a>
             </div>
         </div>
     </div>
 
     <script src="scripts/app.js"></script>
 </body>
-    </html>
+</html>
